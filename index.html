@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Devi Travels</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        body {
+            font-family: Arial;
+            margin: 0;
+            background: url('bg.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+
+        header {
+            background: rgba(13, 110, 253, 0.9);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        header img {
+            display: block;
+            margin: auto;
+        }
+
+        .container {
+            padding: 20px;
+            background: rgba(255,255,255,0.95);
+            margin: 20px;
+            border-radius: 10px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 10px;
+            background: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .call-btn {
+            background: green;
+        }
+
+        .history {
+            background: white;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <img src="logo.png" width="100">
+    <h1>Devi Travels Manipal</h1>
+</header>
+
+<div class="container">
+
+    <h2>Book Your Ride</h2>
+
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="tel" id="phoneuser" placeholder="Phone Number">
+    <input type="text" id="pickup" placeholder="Pickup Location">
+    <input type="text" id="drop" placeholder="Drop Location">
+
+    <input type="date" id="date">
+    <input type="time" id="time">
+
+    <input type="number" id="persons" placeholder="Passengers">
+
+    <button onclick="saveBooking()">Book Now (WhatsApp)</button>
+
+    <button class="call-btn" onclick="callNow()">Call Now</button>
+
+    <button onclick="showHistory()">View Booking History</button>
+
+    <div id="history" class="history"></div>
+
+</div>
+
+<script>
+
+function saveBooking() {
+
+    var name = document.getElementById("name").value;
+    var phoneuser = document.getElementById("phoneuser").value;
+    var pickup = document.getElementById("pickup").value;
+    var drop = document.getElementById("drop").value;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+    var persons = document.getElementById("persons").value;
+
+    if(name=="" || phoneuser=="" || pickup=="" || drop=="" || date=="" || time=="" || persons==""){
+        alert("Fill all details ❗");
+        return;
+    }
+
+    var booking = {
+        name, phoneuser, pickup, drop, date, time, persons
+    };
+
+    var bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookings.push(booking);
+
+    localStorage.setItem("bookings", JSON.stringify(bookings));
+
+    sendWhatsApp(booking);
+
+    // clear form
+    document.getElementById("name").value="";
+    document.getElementById("phoneuser").value="";
+    document.getElementById("pickup").value="";
+    document.getElementById("drop").value="";
+    document.getElementById("date").value="";
+    document.getElementById("time").value="";
+    document.getElementById("persons").value="";
+}
+
+function sendWhatsApp(data) {
+
+    var message = "Booking Request 🚗%0A%0A"
+    + "Name: " + data.name + "%0A"
+    + "Phone: " + data.phoneuser + "%0A"
+    + "From: " + data.pickup + "%0A"
+    + "To: " + data.drop + "%0A"
+    + "Date: " + data.date + "%0A"
+    + "Time: " + data.time + "%0A"
+    + "Passengers: " + data.persons;
+
+    var phone = "916362635718";
+
+    var url = "https://wa.me/" + phone + "?text=" + message;
+
+    window.open(url, "_blank"); // ✅ FIXED
+}
+
+function callNow(){
+    window.open("tel:916362635718"); // ✅ FIXED
+}
+
+function showHistory() {
+
+    var bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+
+    var output = "<h3>Booking History</h3>";
+
+    bookings.forEach(function(b) {
+        output += "<p>"
+        + "👤 " + b.name + "<br>"
+        + "📞 " + b.phoneuser + "<br>"
+        + "📍 " + b.pickup + " → " + b.drop + "<br>"
+        + "📅 " + b.date + " ⏰ " + b.time + "<br>"
+        + "👥 " + b.persons
+        + "</p><hr>";
+    });
+
+    document.getElementById("history").innerHTML = output;
+}
+
+</script>
+
+</body>
+</html>
