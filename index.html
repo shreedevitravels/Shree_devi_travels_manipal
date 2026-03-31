@@ -76,6 +76,12 @@ button:hover {
     box-shadow: 0 0 15px lime;
 }
 
+/* 🔥 APK BUTTON */
+.apk-btn {
+    background: linear-gradient(45deg,#ff9800,#ff5722);
+    box-shadow: 0 0 15px orange;
+}
+
 </style>
 </head>
 
@@ -83,7 +89,7 @@ button:hover {
 
 <header>
     <img src="logo.png" width="90">
-    <h1>Devi Travels Manipal</h1>
+    <h1>Shree Devi Travels Manipal</h1>
 </header>
 
 <div class="container">
@@ -106,12 +112,10 @@ button:hover {
 <input type="text" id="drop" placeholder="🏁 Drop Location">
 </div>
 
-<!-- 🔥 DATE -->
 <div class="input-box">
 <input type="date" id="date">
 </div>
 
-<!-- 🔥 TIME -->
 <div class="input-box">
 <input type="time" id="time">
 </div>
@@ -121,7 +125,11 @@ button:hover {
 </div>
 
 <button onclick="book()">🚀 Book via WhatsApp</button>
+
 <button class="call-btn" onclick="callNow()">📲 Call Now</button>
+
+<!-- 🔥 DOWNLOAD BUTTON -->
+<button class="apk-btn" onclick="downloadApp()">📲 Download App</button>
 
 </div>
 
@@ -152,11 +160,16 @@ Date: ${date}
 Time: ${time}
 Passengers: ${persons}`;
 
-window.open("https://wa.me/916362635718?text="+encodeURIComponent(msg));
+window.open("https://wa.me/6362635718?text="+encodeURIComponent(msg));
 }
 
 function callNow(){
-window.open("tel:916362635718");
+window.open("tel:6362635718");
+}
+
+// 🔥 APK DOWNLOAD
+function downloadApp(){
+window.open("https://drive.google.com/uc?export=download&id=1aWDUBRxvltIPe0dzAZQHKnyP4YWnHScS");
 }
 
 </script>
