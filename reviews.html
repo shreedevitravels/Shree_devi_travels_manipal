@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Customer Reviews</title>
+<title>Shree Devi Reviews</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <style>
@@ -9,15 +9,57 @@ body{
 margin:0;
 background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
 color:white;
-font-family:sans-serif;
+font-family:'Segoe UI',sans-serif;
 padding:20px;
 }
 
 h2{
 text-align:center;
+font-style:italic;
+font-size:28px;
 background:linear-gradient(45deg,#00c6ff,#0072ff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+}
+
+.summary{
+background:rgba(255,255,255,0.08);
+padding:15px;
+border-radius:15px;
+margin-bottom:15px;
+}
+
+#avg{
+font-size:40px;
+margin:5px 0;
+}
+
+.row{
+display:flex;
+align-items:center;
+gap:10px;
+margin:6px 0;
+}
+
+.count{
+width:30px;
+text-align:right;
+font-size:13px;
+color:#ccc;
+}
+
+.bar-bg{
+flex:1;
+background:#333;
+height:6px;
+border-radius:5px;
+}
+
+.bar-fill{
+height:6px;
+background:linear-gradient(90deg,gold,orange);
+width:0%;
+border-radius:5px;
 }
 
 .input-box{
@@ -42,7 +84,6 @@ margin-top:10px;
 background:linear-gradient(45deg,#00c6ff,#0072ff);
 color:white;
 font-weight:bold;
-box-shadow:0 0 10px rgba(0,198,255,0.5);
 }
 
 .review{
@@ -51,48 +92,25 @@ padding:12px 0;
 }
 
 .star{color:gold;}
-
-.summary{
-background:rgba(255,255,255,0.08);
-padding:15px;
-border-radius:15px;
-margin-bottom:15px;
-}
-
-.bar-bg{
-background:#333;
-height:6px;
-border-radius:5px;
-margin:5px 0;
-}
-
-.bar-fill{
-height:6px;
-background:linear-gradient(90deg,gold,orange);
-width:0%;
-border-radius:5px;
-}
 </style>
 </head>
 
 <body>
 
-<h2>⭐ Customer Reviews</h2>
+<h2>✨ Shree Devi Travels Manipal ✨</h2>
 
-<!-- 🔥 REVIEW SUMMARY -->
 <div class="summary">
 <h3>Review Summary</h3>
 <h1 id="avg">0.0</h1>
 <p id="total">(0 reviews)</p>
 
-<div>5 ⭐ <div class="bar-bg"><div id="b5" class="bar-fill"></div></div></div>
-<div>4 ⭐ <div class="bar-bg"><div id="b4" class="bar-fill"></div></div></div>
-<div>3 ⭐ <div class="bar-bg"><div id="b3" class="bar-fill"></div></div></div>
-<div>2 ⭐ <div class="bar-bg"><div id="b2" class="bar-fill"></div></div></div>
-<div>1 ⭐ <div class="bar-bg"><div id="b1" class="bar-fill"></div></div></div>
+<div class="row">5 ⭐ <div class="bar-bg"><div id="b5" class="bar-fill"></div></div><div id="c5" class="count">0</div></div>
+<div class="row">4 ⭐ <div class="bar-bg"><div id="b4" class="bar-fill"></div></div><div id="c4" class="count">0</div></div>
+<div class="row">3 ⭐ <div class="bar-bg"><div id="b3" class="bar-fill"></div></div><div id="c3" class="count">0</div></div>
+<div class="row">2 ⭐ <div class="bar-bg"><div id="b2" class="bar-fill"></div></div><div id="c2" class="count">0</div></div>
+<div class="row">1 ⭐ <div class="bar-bg"><div id="b1" class="bar-fill"></div></div><div id="c1" class="count">0</div></div>
 </div>
 
-<!-- INPUT -->
 <div class="input-box">
 <input type="text" id="rname" placeholder="👤 Your Name">
 </div>
@@ -111,79 +129,127 @@ border-radius:5px;
 </select>
 </div>
 
+<div class="input-box">
+<input type="file" id="rphoto" accept="image/*">
+</div>
+
 <button onclick="addReview()">Submit Review</button>
 
 <hr>
 
-<!-- REVIEWS -->
 <div id="reviews"></div>
 
-<!-- FIREBASE -->
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, addDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
+
+// 🔐 ADMIN SECRET
+const isAdmin = window.location.search.includes("sdtravels2026");
 
 const firebaseConfig = {
-apiKey:"AIzaSy...",
+apiKey:"PASTE_YOUR_API_KEY",
 authDomain:"shree-devi-reviews.firebaseapp.com",
-projectId:"shree-devi-reviews"
+projectId:"shree-devi-reviews",
+storageBucket:"shree-devi-reviews.appspot.com"
 };
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+const storage = getStorage(app);
 
 // ADD REVIEW
 window.addReview = async function(){
-let name=rname.value, text=rtext.value, star=rstar.value;
+let name=rname.value;
+let text=rtext.value;
+let star=rstar.value;
+let file=document.getElementById("rphoto").files[0];
 
 if(name==""||text==""){
 alert("Enter review");
 return;
 }
 
-await addDoc(collection(db,"reviews"),{name,text,star:Number(star)});
+let photoURL="";
+
+if(file){
+let storageRef = ref(storage, "reviews/"+Date.now());
+await uploadBytes(storageRef, file);
+photoURL = await getDownloadURL(storageRef);
+}
+
+await addDoc(collection(db,"reviews"),{
+name,
+text,
+star:Number(star),
+photo:photoURL
+});
 
 rname.value="";
 rtext.value="";
+rphoto.value="";
 }
 
-// LIVE DATA + SUMMARY
+// DELETE (admin only)
+window.deleteReview = async function(id){
+if(!isAdmin) return;
+
+let pass = prompt("Enter admin password");
+if(pass !== "admin123"){
+alert("Wrong password");
+return;
+}
+
+await deleteDoc(doc(db,"reviews",id));
+}
+
+// LIVE UPDATE
 onSnapshot(collection(db,"reviews"), (snap)=>{
 let html="";
-let total=0,sum=0;
+let totalCount=0,sum=0;
 let count={1:0,2:0,3:0,4:0,5:0};
 
-snap.forEach(doc=>{
-let r=doc.data();
-let star=r.star;
+snap.forEach(docSnap=>{
+let r=docSnap.data();
+let id=docSnap.id;
+let star=Number(r.star)||0;
 
-total++;
+totalCount++;
 sum+=star;
 count[star]++;
 
 html+=`
 <div class="review">
-<b>${r.name}</b><br>
+<b>${r.name}</b>
+
+${isAdmin ? `<button onclick="deleteReview('${id}')" 
+style="float:right;background:rgba(255,0,0,0.7);border:none;color:white;border-radius:50%;width:22px;height:22px;font-size:12px;cursor:pointer;">×</button>` : ""}
+
+<br>
+
+${r.photo ? `<img src="${r.photo}" style="width:80px;height:80px;border-radius:10px;margin-top:5px;">` : ""}
+
+<br>
 <span class="star">${"★".repeat(star)}</span><br>
 ${r.text}
 </div>`;
 });
 
-// AVG
-let avg= total? (sum/total).toFixed(1):0;
-avg.innerText=avg;
-document.getElementById("avg").innerText=avg;
-document.getElementById("total").innerText=`(${total} reviews)`;
+// ✅ FIXED
+let avgVal = totalCount>0 ? (sum/totalCount).toFixed(1) : "0.0";
 
-// 🔥 BAR LOGIC (correct)
-let max=Math.max(count[1],count[2],count[3],count[4],count[5]);
+document.getElementById("avg").innerText = avgVal;
+document.getElementById("total").innerText = `(${totalCount} reviews)`;
 
+// COUNT + BAR
 for(let i=1;i<=5;i++){
-let percent=max?(count[i]/max)*100:0;
-document.getElementById("b"+i).style.width=percent+"%";
+document.getElementById("c"+i).innerText = count[i] || 0;
+let percent = totalCount>0 ? (count[i]/totalCount)*100 : 0;
+document.getElementById("b"+i).style.width = percent + "%";
 }
 
-document.getElementById("reviews").innerHTML=html;
+document.getElementById("reviews").innerHTML = html;
+
 });
 </script>
 
