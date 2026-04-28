@@ -17,20 +17,38 @@ body {
     color: white;
     background: url('bg.jpg') no-repeat center center;
     background-size: cover;
-    padding-bottom: 70px;
+    padding-bottom: 80px;
 }
 
 header {
     text-align: center;
-    padding: 20px;
-    background: linear-gradient(45deg,#0d6efd,#00c6ff);
+    padding: 25px;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(10px);
+}
+
+.ad-banner{
+    margin:25px 15px;
+}
+
+.ad-banner img{
+    width:100%;
+    border-radius:15px;
+    box-shadow:0 6px 15px rgba(0,0,0,0.5);
+    transition:0.3s;
+}
+
+.ad-banner img:hover{
+    transform:scale(1.04);
 }
 
 .container {
     margin: 20px;
     padding: 25px;
     border-radius: 20px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
 }
 
 .input-box {
@@ -56,6 +74,11 @@ button {
     font-weight: bold;
     background: linear-gradient(45deg,#00c6ff,#0072ff);
     color: white;
+    transition: 0.3s;
+}
+
+button:hover{
+    transform: scale(1.05);
 }
 
 .call-btn {
@@ -99,6 +122,19 @@ button {
 .bottom-bar a:hover{
     color:#00c6ff;
 }
+
+.whatsapp{
+    position: fixed;
+    bottom: 90px;
+    right: 20px;
+    background:#25D366;
+    color:white;
+    padding:15px;
+    border-radius:50%;
+    font-size:22px;
+    text-decoration:none;
+    box-shadow:0 4px 10px rgba(0,0,0,0.4);
+}
 </style>
 </head>
 
@@ -109,122 +145,100 @@ button {
     <h1>Shree Devi Travels Manipal</h1>
     <p class="tagline">Your Journey, Our Responsibility</p>
     <p>📞 +91 63626 35718 | +91 70198 49902</p>
-<p>
-📧 <a href="mailto:shreedevitravelsofficial@gmail.com" style="color:white; text-decoration:none;">
-shreedevitravelsofficial@gmail.com
-</a> (24×7 Customer Support)
-</p>
+    <p>
+    📧 <a href="mailto:shreedevitravelsofficial@gmail.com" style="color:white; text-decoration:none;">
+    shreedevitravelsofficial@gmail.com
+    </a> (24×7 Customer Support)
+    </p>
 </header>
+
+<div class="ad-banner">
+    <a href="tel:6362635718">
+        <img src="ad-banner.jpg" alt="Shree Devi Travels Ad">
+    </a>
+</div>
 
 <div class="container">
 
 <h2>🚗 Book Your Ride</h2>
 
-<div class="input-box">
-<input type="text" id="name" placeholder="👤 Full Name">
-</div>
-
-<div class="input-box">
-<input type="tel" id="phone" placeholder="📞 Phone Number">
-</div>
-
-<div class="input-box">
-<input type="text" id="pickup" placeholder="📍 Pickup Location">
-</div>
-
-<div class="input-box">
-<input type="text" id="drop" placeholder="🏁 Drop Location">
-</div>
-
-<div class="input-box">
-<input type="date" id="date">
-</div>
-
-<div class="input-box">
-<input type="time" id="time">
-</div>
-
-<div class="input-box">
-<input type="number" id="persons" placeholder="👥 Passengers">
-</div>
+<div class="input-box"><input type="text" id="name" placeholder="👤 Full Name"></div>
+<div class="input-box"><input type="tel" id="phone" placeholder="📞 Phone Number"></div>
+<div class="input-box"><input type="text" id="pickup" placeholder="📍 Pickup Location"></div>
+<div class="input-box"><input type="text" id="drop" placeholder="🏁 Drop Location"></div>
+<div class="input-box"><input type="date" id="date"></div>
+<div class="input-box"><input type="time" id="time"></div>
+<div class="input-box"><input type="number" id="persons" placeholder="👥 Passengers"></div>
 
 <button onclick="book()">🚀 Book via WhatsApp</button>
 <button class="call-btn" onclick="callNow()">📲 Call Now</button>
-<button class="email-btn" onclick="sendEmail()">📧 Email Us (24×7 Support)</button>
-
-<!-- ABOUT SECTION -->
+<button class="email-btn" onclick="sendEmail()">📧 Email Us</button>
 
 <hr style="margin:25px 0; border:1px solid #444;">
 
-<h2 style="color:#00c6ff;">ನಮ್ಮ ಬಗ್ಗೆ</h2>
+<h2 style="color:#00c6ff;">ನಮ್ಮ ಬಗ್ಗೆ | About Us</h2>
 
 <p>🚖 <b>ಶ್ರೀ ದೇವಿ ಟ್ರಾವೆಲ್ಸ್ – ನಿಮ್ಮ ಪ್ರಯಾಣ, ನಮ್ಮ ಜವಾಬ್ದಾರಿ</b></p>
 
-<p>ನಿಮಗೆ ಸುರಕ್ಷಿತ, ವೇಗವಾದ ಮತ್ತು ಆರಾಮದಾಯಕ ಪ್ರಯಾಣ ಬೇಕಾ? 
-ಶ್ರೀ ದೇವಿ ಟ್ರಾವೆಲ್ಸ್ ನಿಮ್ಮಿಗೆ ಸೂಕ್ತ ಆಯ್ಕೆ!</p>
+<p>
+ಮಣಿಪಾಲ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ ಮತ್ತು ಸುರಕ್ಷಿತ ಕ್ಯಾಬ್ ಸೇವೆ ನೀಡುತ್ತಿರುವ ಸಂಸ್ಥೆಯಾಗಿದೆ Shree Devi Travels.
+ನಾವು ಪ್ರತಿಯೊಬ್ಬ ಗ್ರಾಹಕರಿಗೂ ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ಮತ್ತು ಆರಾಮದಾಯಕ ಪ್ರಯಾಣವನ್ನು ನೀಡಲು ಬದ್ಧರಾಗಿದ್ದೇವೆ.
+</p>
 
 <p>
-🌟 24/7 ಕ್ಯಾಬ್ ಸರ್ವೀಸ್<br>
+🌟 24×7 ಕ್ಯಾಬ್ ಸರ್ವೀಸ್<br>
 🌟 ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ಪಿಕಪ್<br>
 🌟 ಕೈಗೆಟುಕುವ ದರಗಳು<br>
-🌟 ಸ್ನೇಹಪೂರ್ಣ ಮತ್ತು ವೃತ್ತಿಪರ ಚಾಲಕರು
+🌟 ಅನುಭವ ಹೊಂದಿದ ಚಾಲಕರು
 </p>
 
 <p>
-📍 ಲೋಕಲ್ ಟ್ರಿಪ್ ಇಂದ ಔಟ್‌ಸ್ಟೇಷನ್ ಟ್ರಿಪ್ ವರೆಗೆ<br>
-📍 ಏರ್‌ಪೋರ್ಟ್ ಪಿಕಪ್ / ಡ್ರಾಪ್<br>
-📍 ಕುಟುಂಬ ಮತ್ತು ವ್ಯವಹಾರ ಪ್ರಯಾಣಗಳಿಗೆ ಸೂಕ್ತ
+📍 ಲೋಕಲ್ & ಔಟ್‌ಸ್ಟೇಷನ್ ಟ್ರಿಪ್<br>
+📍 ಏರ್‌ಪೋರ್ಟ್ ಪಿಕಪ್ & ಡ್ರಾಪ್<br>
+📍 ಕುಟುಂಬ & ವ್ಯವಹಾರ ಪ್ರಯಾಣಗಳಿಗೆ ಸೂಕ್ತ
 </p>
 
-<p>💯 ನಮ್ಮ ಗುರಿ: ಪ್ರತಿ ಗ್ರಾಹಕರಿಗೂ ಸುರಕ್ಷಿತ, ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ಮತ್ತು ಆರಾಮದಾಯಕ ಪ್ರಯಾಣವನ್ನು ನೀಡುವುದು, ಅವರ ಸಂತೋಷವೇ ನಮ್ಮ ಯಶಸ್ಸು.</p>
+<p>💯 ನಮ್ಮ ಗುರಿ: ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಸುರಕ್ಷಿತ ಮತ್ತು ಸುಲಭಗೊಳಿಸುವುದು.</p>
 
 <br>
 
-<h2 style="color:#00c6ff;">About Us</h2>
-
 <p>🚖 <b>Shree Devi Travels – Your Journey, Our Responsibility</b></p>
 
-<p>Looking for a safe, reliable, and comfortable cab service?  
-Shree Devi Travels is your perfect travel partner.</p>
+<p>
+We provide safe, reliable and comfortable cab services in Manipal.
+Our goal is to give every customer a smooth and stress-free travel experience.
+</p>
 
 <p>
-🌟 24/7 Cab Service<br>
-🌟 On-time Pickup Guarantee<br>
+🌟 24×7 Service<br>
+🌟 On-Time Pickup<br>
 🌟 Affordable Pricing<br>
-🌟 Friendly & Professional Drivers
+🌟 Professional Drivers
 </p>
 
 <p>
-📍 Local Rides & Outstation Trips<br>
-📍 Airport Pickup & Drop<br>
-📍 Suitable for Family & Business Travel
+📍 Local & Outstation Trips<br>
+📍 Airport Services<br>
+📍 Family & Business Travel
 </p>
 
-<p>💯 Our Mission: To provide every customer with a safe, timely, and comfortable travel experience — their satisfaction is our success.</p>
+<p>💯 Your satisfaction is our success.</p>
 
-<div class="version">Version 5.0</div>
+<div class="version">Version 6.1</div>
 
 </div>
+
+<a href="https://wa.me/916362635718" target="_blank" class="whatsapp">💬</a>
 
 <div class="bottom-bar">
     <a href="index.html">🏠<br>Home</a>
     <a href="history.html">📄<br>History</a>
-    <a href="#" onclick="callNow()">📞<br>Call</a>
-    <div class="bottom-bar">
-    <a href="index.html">🏠<br>Home</a>
-    <a href="history.html">📄<br>History</a>
-
-    <!-- 🔥 ADD THIS LINE -->
     <a href="reviews.html">⭐<br>Reviews</a>
-
     <a href="#" onclick="callNow()">📞<br>Call</a>
-</div>
 </div>
 
 <script>
-
 function book(){
-
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let pickup=document.getElementById("pickup").value;
@@ -249,19 +263,7 @@ Time: ${time}
 Passengers: ${persons}`;
 
 let encodedMsg = encodeURIComponent(msg);
-
-let numbers = [
-"916362635718",
-"917019849902",
-"918431260119"
-];
-
-numbers.forEach(function(num,index){
-setTimeout(function(){
-window.open("https://wa.me/"+num+"?text="+encodedMsg,"_blank");
-}, index * 1500);
-});
-
+window.open("https://wa.me/916362635718?text="+encodedMsg,"_blank");
 }
 
 function callNow(){
@@ -269,12 +271,8 @@ window.open("tel:6362635718");
 }
 
 function sendEmail(){
-let subject = encodeURIComponent("Cab Booking Enquiry");
-let body = encodeURIComponent("Hello Shree Devi Travels,\n\nI want to book a cab.\n\nName:\nPhone:\nPickup:\nDrop:\nDate:\nTime:\nPassengers:");
-
-window.location.href = "mailto:shreedevitravelsofficial@gmail.com?subject=" + subject + "&body=" + body;
+window.location.href = "mailto:shreedevitravelsofficial@gmail.com";
 }
-
 </script>
 
 </body>
