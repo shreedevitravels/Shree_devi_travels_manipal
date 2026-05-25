@@ -31,7 +31,6 @@ body{
     height:100%;
     object-fit:cover;
     z-index:-2;
-
     opacity:0.70;
     filter:brightness(0.9);
 }
@@ -77,13 +76,6 @@ body{
     text-align:center;
 }
 
-#splash p{
-    margin-top:10px;
-    font-size:15px;
-    opacity:0.85;
-    letter-spacing:1px;
-}
-
 @keyframes logoZoom{
     0%{
         transform:scale(0.5);
@@ -119,6 +111,40 @@ header h1{
     margin-top:15px;
 }
 
+.tagline{
+    font-style:italic;
+    font-weight:bold;
+    color:#00c6ff;
+    font-size:18px;
+}
+
+/* CONTACT BOX */
+
+.contact-box{
+    margin-top:18px;
+    background:rgba(0,198,255,0.12);
+    border:1px solid rgba(0,198,255,0.35);
+    padding:16px;
+    border-radius:20px;
+    backdrop-filter:blur(8px);
+    box-shadow:0 0 18px rgba(0,198,255,0.18);
+}
+
+.contact-box p{
+    margin:12px 0;
+    font-size:15px;
+}
+
+.contact-box a{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.contact-box a:hover{
+    color:#00c6ff;
+}
+
 .ad-banner{
     margin:25px 15px;
 }
@@ -127,6 +153,11 @@ header h1{
     width:100%;
     border-radius:15px;
     box-shadow:0 6px 15px rgba(0,0,0,0.5);
+    transition:0.4s;
+}
+
+.ad-banner img:hover{
+    transform:scale(1.02);
 }
 
 /* BOOKING SECTION */
@@ -188,11 +219,9 @@ button:hover{
     background:linear-gradient(45deg,#ff9800,#ff5722);
 }
 
-.tagline{
-    font-style:italic;
-    font-weight:bold;
+.book-title{
     color:#00c6ff;
-    font-size:18px;
+    text-shadow:0 0 15px rgba(0,198,255,0.8);
 }
 
 .about-title{
@@ -262,7 +291,6 @@ button:hover{
 <div id="splash">
     <div class="logo">🚖</div>
     <h1>Shree Devi Travels Manipal</h1>
-    <p>Thank you for choosing us</p>
 </div>
 
 <!-- BACKGROUND MUSIC -->
@@ -281,9 +309,38 @@ button:hover{
 Your Journey, Our Responsibility
 </p>
 
+<!-- CONTACT DETAILS -->
+
+<div class="contact-box">
+
 <p>
-📞 +91 63626 35718 | +91 70198 49902
+📞 
+<a href="tel:6362635718">
++91 63626 35718
+</a>
+
+|
+
+<a href="tel:7019849902">
++91 70198 49902
+</a>
 </p>
+
+<p>
+📧 
+<a href="mailto:shreedevitravelsofficial@gmail.com">
+shreedevitravelsofficial@gmail.com
+</a>
+</p>
+
+<p>
+📸 Instagram :
+<a href="https://www.instagram.com/shree_devitravels_manipal?igsh=MWw0NDBnOHc1ZXJnbA==" target="_blank">
+@shree_devitravels_manipal
+</a>
+</p>
+
+</div>
 
 </header>
 
@@ -297,7 +354,7 @@ Your Journey, Our Responsibility
 
 <div class="container">
 
-<h2 style="color:#00c6ff;">🚗 Book Your Ride</h2>
+<h2 class="book-title">🚗 Book Your Ride</h2>
 
 <div class="input-box">
 <input type="text" id="name" placeholder="👤 Full Name">
@@ -366,7 +423,7 @@ Your Journey, Our Responsibility 🚖
 </p>
 
 <div class="version">
-Version 6.4
+Version 6.6
 </div>
 
 </div>
