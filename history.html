@@ -92,10 +92,26 @@ h2{
 
 <body>
 
+<!-- Hidden AutoPlay -->
+
+<iframe 
+src="music.mp3"
+allow="autoplay"
+style="display:none">
+</iframe>
+
+<!-- Background Music -->
+
+<audio id="bgmusic" loop autoplay playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 <h2>📄 Booking History</h2>
+
 <div id="list"></div>
 
 <!-- BOTTOM MENU -->
+
 <div class="bottom-bar">
     <a href="index.html">🏠<br>Home</a>
     <a href="history.html">📄<br>History</a>
@@ -103,48 +119,79 @@ h2{
 </div>
 
 <script>
+
 let data = JSON.parse(localStorage.getItem("bookings")) || [];
 
 let output="";
 
 if(data.length === 0){
+
     output = "<div class='empty'>No bookings yet 😔</div>";
+
 }else{
+
     data.reverse().forEach((b,index) => {
+
         output += `
         <div class="card">
+
         <b>👤 ${b.name}</b><br>
+
         📞 ${b.phone}<br>
+
         📍 ${b.pickup} ➝ ${b.drop}<br>
+
         📅 ${b.date} ⏰ ${b.time}<br>
+
         👥 ${b.persons} persons
 
         <br>
-        <button class="btn repeat" onclick="repeatBooking(${index})">Repeat</button>
-        <button class="btn delete" onclick="deleteBooking(${index})">Delete</button>
+
+        <button class="btn repeat" onclick="repeatBooking(${index})">
+        Repeat
+        </button>
+
+        <button class="btn delete" onclick="deleteBooking(${index})">
+        Delete
+        </button>
+
         </div>
         `;
+
     });
+
 }
 
 document.getElementById("list").innerHTML = output;
 
 /* CALL */
+
 function callNow(){
+
     window.open("tel:6362635718");
+
 }
 
 /* DELETE */
+
 function deleteBooking(i){
+
     let data = JSON.parse(localStorage.getItem("bookings")) || [];
+
     data.splice(i,1);
+
     localStorage.setItem("bookings", JSON.stringify(data));
+
     location.reload();
+
 }
 
 /* REPEAT BOOKING */
+
 function repeatBooking(i){
+
     let data = JSON.parse(localStorage.getItem("bookings")) || [];
+
     let b = data[i];
 
     let msg=`🚗 Booking Request
@@ -157,9 +204,45 @@ Date: ${b.date}
 Time: ${b.time}
 Passengers: ${b.persons}`;
 
-    window.open("https://wa.me/916362635718?text="+encodeURIComponent(msg));
+window.open(
+"https://wa.me/916362635718?text="+encodeURIComponent(msg)
+);
+
 }
+
+/* Background Music */
+
+const bgmusic=document.getElementById("bgmusic");
+
+/* Soft Background Volume */
+
+bgmusic.volume=0.08;
+
+/* Auto Play */
+
+document.addEventListener("DOMContentLoaded",function(){
+
+let playPromise=bgmusic.play();
+
+if(playPromise!==undefined){
+
+playPromise.catch(()=>{
+
+document.body.addEventListener("click",function(){
+
+bgmusic.play();
+
+},{once:true});
+
+});
+
+}
+
+});
+
 </script>
+
+<a href="reviews.html">Reviews</a>
 
 </body>
 </html>

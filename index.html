@@ -11,20 +11,112 @@
 <link rel="canonical" href="https://shreedevitravels.github.io/">
 
 <style>
-body {
-    margin: 0;
-    font-family: 'Segoe UI', sans-serif;
-    color: white;
-    background: url('bg.jpg') no-repeat center center;
-    background-size: cover;
-    padding-bottom: 80px;
+
+body{
+    margin:0;
+    font-family:'Segoe UI',sans-serif;
+    color:white;
+    padding-bottom:80px;
+    overflow-x:hidden;
+    background:black;
 }
 
-header {
-    text-align: center;
-    padding: 25px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(10px);
+/* VIDEO BACKGROUND */
+
+.bg-video{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    z-index:-2;
+
+    opacity:0.70;
+    filter:brightness(0.9);
+}
+
+/* LIGHT OVERLAY */
+
+.overlay{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.10);
+    z-index:-1;
+}
+
+/* SPLASH SCREEN */
+
+#splash{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(135deg,#000,#0f2027,#000);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:99999;
+    color:white;
+    animation:splashHide 1s ease forwards;
+    animation-delay:2.5s;
+}
+
+#splash .logo{
+    font-size:65px;
+    margin-bottom:15px;
+    animation:logoZoom 1.5s ease;
+}
+
+#splash h1{
+    font-size:24px;
+    color:#00c6ff;
+    margin:0;
+    text-align:center;
+}
+
+#splash p{
+    margin-top:10px;
+    font-size:15px;
+    opacity:0.85;
+    letter-spacing:1px;
+}
+
+@keyframes logoZoom{
+    0%{
+        transform:scale(0.5);
+        opacity:0;
+    }
+    100%{
+        transform:scale(1);
+        opacity:1;
+    }
+}
+
+@keyframes splashHide{
+    to{
+        opacity:0;
+        visibility:hidden;
+    }
+}
+
+header{
+    text-align:center;
+    padding:25px;
+    background:rgba(0,0,0,0.15);
+    backdrop-filter:blur(6px);
+}
+
+header img{
+    border-radius:50%;
+    box-shadow:0 0 25px rgba(0,198,255,0.8);
+}
+
+header h1{
+    font-size:26px;
+    margin-top:15px;
 }
 
 .ad-banner{
@@ -35,88 +127,103 @@ header {
     width:100%;
     border-radius:15px;
     box-shadow:0 6px 15px rgba(0,0,0,0.5);
+}
+
+/* BOOKING SECTION */
+
+.container{
+    margin:20px;
+    padding:25px;
+    border-radius:25px;
+    background:transparent;
+}
+
+/* INPUTS */
+
+.input-box{
+    margin:15px 0;
+}
+
+.input-box input{
+    width:100%;
+    padding:16px;
+    border-radius:30px;
+    border:none;
+    background:rgba(255,255,255,0.12);
+    color:white;
+    font-size:16px;
+    outline:none;
+    box-sizing:border-box;
+    border:1px solid rgba(255,255,255,0.18);
+}
+
+.input-box input::placeholder{
+    color:#eee;
+}
+
+/* BUTTONS */
+
+button{
+    width:100%;
+    padding:15px;
+    border-radius:30px;
+    border:none;
+    margin-top:12px;
+    font-size:16px;
+    font-weight:bold;
+    background:linear-gradient(45deg,#00c6ff,#0072ff);
+    color:white;
     transition:0.3s;
 }
 
-.ad-banner img:hover{
-    transform:scale(1.04);
-}
-
-.container {
-    margin: 20px;
-    padding: 25px;
-    border-radius: 20px;
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(15px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-}
-
-.input-box {
-    margin: 15px 0;
-}
-
-.input-box input {
-    width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-}
-
-button {
-    width: 100%;
-    padding: 15px;
-    border-radius: 30px;
-    border: none;
-    margin-top: 12px;
-    font-size: 16px;
-    font-weight: bold;
-    background: linear-gradient(45deg,#00c6ff,#0072ff);
-    color: white;
-    transition: 0.3s;
-}
-
 button:hover{
-    transform: scale(1.05);
+    transform:scale(1.03);
 }
 
-.call-btn {
-    background: linear-gradient(45deg,#00ff7f,#00c853);
+.call-btn{
+    background:linear-gradient(45deg,#00ff7f,#00c853);
 }
 
-.email-btn {
-    background: linear-gradient(45deg,#ff9800,#ff5722);
+.email-btn{
+    background:linear-gradient(45deg,#ff9800,#ff5722);
 }
 
-.tagline {
-    font-style: italic;
-    font-weight: bold;
+.tagline{
+    font-style:italic;
+    font-weight:bold;
+    color:#00c6ff;
+    font-size:18px;
 }
 
-.version {
+.about-title{
+    color:#00c6ff;
+    margin-top:20px;
+}
+
+.version{
     text-align:center;
     font-size:12px;
     color:#ccc;
-    margin-top:15px;
+    margin-top:20px;
 }
 
 .bottom-bar{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: #111;
-    display: flex;
-    justify-content: space-around;
-    padding: 8px 0;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#111;
+    display:flex;
+    justify-content:space-around;
+    padding:8px 0;
+    z-index:999;
 }
 
 .bottom-bar a{
-    color: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 13px;
+    color:white;
+    text-decoration:none;
+    text-align:center;
+    font-size:13px;
 }
 
 .bottom-bar a:hover{
@@ -124,9 +231,9 @@ button:hover{
 }
 
 .whatsapp{
-    position: fixed;
-    bottom: 90px;
-    right: 20px;
+    position:fixed;
+    bottom:90px;
+    right:20px;
     background:#25D366;
     color:white;
     padding:15px;
@@ -134,111 +241,166 @@ button:hover{
     font-size:22px;
     text-decoration:none;
     box-shadow:0 4px 10px rgba(0,0,0,0.4);
+    z-index:999;
 }
+
 </style>
 </head>
 
 <body>
 
-<header>
-    <img src="logo.png" width="90">
+<!-- VIDEO BACKGROUND -->
+
+<video autoplay muted loop playsinline class="bg-video">
+    <source src="bgvideo.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<!-- SPLASH SCREEN -->
+
+<div id="splash">
+    <div class="logo">🚖</div>
     <h1>Shree Devi Travels Manipal</h1>
-    <p class="tagline">Your Journey, Our Responsibility</p>
-    <p>📞 +91 63626 35718 | +91 70198 49902</p>
-    <p>
-    📧 <a href="mailto:shreedevitravelsofficial@gmail.com" style="color:white; text-decoration:none;">
-    shreedevitravelsofficial@gmail.com
-    </a> (24×7 Customer Support)
-    </p>
+    <p>Thank you for choosing us</p>
+</div>
+
+<!-- BACKGROUND MUSIC -->
+
+<audio id="bgmusic" loop autoplay playsinline>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<header>
+
+<img src="logo.png" width="110">
+
+<h1>Shree Devi Travels Manipal</h1>
+
+<p class="tagline">
+Your Journey, Our Responsibility
+</p>
+
+<p>
+📞 +91 63626 35718 | +91 70198 49902
+</p>
+
 </header>
 
 <div class="ad-banner">
-    <a href="tel:6362635718">
-        <img src="ad-banner.jpg" alt="Shree Devi Travels Ad">
-    </a>
+
+<a href="tel:6362635718">
+<img src="ad-banner.jpg" alt="Shree Devi Travels Ad">
+</a>
+
 </div>
 
 <div class="container">
 
-<h2>🚗 Book Your Ride</h2>
+<h2 style="color:#00c6ff;">🚗 Book Your Ride</h2>
 
-<div class="input-box"><input type="text" id="name" placeholder="👤 Full Name"></div>
-<div class="input-box"><input type="tel" id="phone" placeholder="📞 Phone Number"></div>
-<div class="input-box"><input type="text" id="pickup" placeholder="📍 Pickup Location"></div>
-<div class="input-box"><input type="text" id="drop" placeholder="🏁 Drop Location"></div>
-<div class="input-box"><input type="date" id="date"></div>
-<div class="input-box"><input type="time" id="time"></div>
-<div class="input-box"><input type="number" id="persons" placeholder="👥 Passengers"></div>
+<div class="input-box">
+<input type="text" id="name" placeholder="👤 Full Name">
+</div>
+
+<div class="input-box">
+<input type="tel" id="phone" placeholder="📞 Phone Number">
+</div>
+
+<div class="input-box">
+<input type="text" id="pickup" placeholder="📍 Pickup Location">
+</div>
+
+<div class="input-box">
+<input type="text" id="drop" placeholder="🏁 Drop Location">
+</div>
+
+<div class="input-box">
+<input type="date" id="date">
+</div>
+
+<div class="input-box">
+<input type="time" id="time">
+</div>
+
+<div class="input-box">
+<input type="number" id="persons" placeholder="👥 Passengers">
+</div>
 
 <button onclick="book()">🚀 Book via WhatsApp</button>
-<button class="call-btn" onclick="callNow()">📲 Call Now</button>
-<button class="email-btn" onclick="sendEmail()">📧 Email Us</button>
 
-<hr style="margin:25px 0; border:1px solid #444;">
+<button class="call-btn" onclick="callNow()">
+📲 Call Now
+</button>
 
-<h2 style="color:#00c6ff;">ನಮ್ಮ ಬಗ್ಗೆ | About Us</h2>
+<button class="email-btn" onclick="sendEmail()">
+📧 Email Us
+</button>
 
-<p>🚖 <b>ಶ್ರೀ ದೇವಿ ಟ್ರಾವೆಲ್ಸ್ – ನಿಮ್ಮ ಪ್ರಯಾಣ, ನಮ್ಮ ಜವಾಬ್ದಾರಿ</b></p>
+<!-- ABOUT US -->
 
-<p>
-ಮಣಿಪಾಲ ಮತ್ತು ಸುತ್ತಮುತ್ತಲಿನ ಪ್ರದೇಶಗಳಲ್ಲಿ ವಿಶ್ವಾಸಾರ್ಹ ಮತ್ತು ಸುರಕ್ಷಿತ ಕ್ಯಾಬ್ ಸೇವೆ ನೀಡುತ್ತಿರುವ ಸಂಸ್ಥೆಯಾಗಿದೆ Shree Devi Travels.
-ನಾವು ಪ್ರತಿಯೊಬ್ಬ ಗ್ರಾಹಕರಿಗೂ ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ಮತ್ತು ಆರಾಮದಾಯಕ ಪ್ರಯಾಣವನ್ನು ನೀಡಲು ಬದ್ಧರಾಗಿದ್ದೇವೆ.
+<hr style="margin:25px 0; border:1px solid rgba(255,255,255,0.15);">
+
+<h2 class="about-title">
+🚖 About Shree Devi Travels
+</h2>
+
+<p style="line-height:1.8;color:#f1f1f1;">
+
+Shree Devi Travels Manipal provides safe, reliable and comfortable cab services for local and outstation travel.
+
+We are available 24×7 for airport pickup & drop, family trips, business travel and tourist destinations.
+
+<br><br>
+
+✔ Professional Drivers<br>
+✔ Affordable Pricing<br>
+✔ On-Time Pickup<br>
+✔ Clean & Comfortable Cars<br>
+✔ Local & Outstation Trips
+
 </p>
 
-<p>
-🌟 24×7 ಕ್ಯಾಬ್ ಸರ್ವೀಸ್<br>
-🌟 ಸಮಯಕ್ಕೆ ಸರಿಯಾದ ಪಿಕಪ್<br>
-🌟 ಕೈಗೆಟುಕುವ ದರಗಳು<br>
-🌟 ಅನುಭವ ಹೊಂದಿದ ಚಾಲಕರು
+<p style="color:#00c6ff;font-weight:bold;">
+Your Journey, Our Responsibility 🚖
 </p>
 
-<p>
-📍 ಲೋಕಲ್ & ಔಟ್‌ಸ್ಟೇಷನ್ ಟ್ರಿಪ್<br>
-📍 ಏರ್‌ಪೋರ್ಟ್ ಪಿಕಪ್ & ಡ್ರಾಪ್<br>
-📍 ಕುಟುಂಬ & ವ್ಯವಹಾರ ಪ್ರಯಾಣಗಳಿಗೆ ಸೂಕ್ತ
-</p>
-
-<p>💯 ನಮ್ಮ ಗುರಿ: ನಿಮ್ಮ ಪ್ರಯಾಣವನ್ನು ಸುರಕ್ಷಿತ ಮತ್ತು ಸುಲಭಗೊಳಿಸುವುದು.</p>
-
-<br>
-
-<p>🚖 <b>Shree Devi Travels – Your Journey, Our Responsibility</b></p>
-
-<p>
-We provide safe, reliable and comfortable cab services in Manipal.
-Our goal is to give every customer a smooth and stress-free travel experience.
-</p>
-
-<p>
-🌟 24×7 Service<br>
-🌟 On-Time Pickup<br>
-🌟 Affordable Pricing<br>
-🌟 Professional Drivers
-</p>
-
-<p>
-📍 Local & Outstation Trips<br>
-📍 Airport Services<br>
-📍 Family & Business Travel
-</p>
-
-<p>💯 Your satisfaction is our success.</p>
-
-<div class="version">Version 6.1</div>
+<div class="version">
+Version 6.4
+</div>
 
 </div>
 
-<a href="https://wa.me/916362635718" target="_blank" class="whatsapp">💬</a>
+<a href="https://wa.me/916362635718"
+target="_blank"
+class="whatsapp">
+💬
+</a>
 
 <div class="bottom-bar">
-    <a href="index.html">🏠<br>Home</a>
-    <a href="history.html">📄<br>History</a>
-    <a href="reviews.html">⭐<br>Reviews</a>
-    <a href="#" onclick="callNow()">📞<br>Call</a>
+
+<a href="index.html">
+🏠<br>Home
+</a>
+
+<a href="history.html">
+📄<br>History
+</a>
+
+<a href="reviews.html">
+⭐<br>Reviews
+</a>
+
+<a href="#" onclick="callNow()">
+📞<br>Call
+</a>
+
 </div>
 
 <script>
+
 function book(){
+
 let name=document.getElementById("name").value;
 let phone=document.getElementById("phone").value;
 let pickup=document.getElementById("pickup").value;
@@ -248,8 +410,10 @@ let time=document.getElementById("time").value;
 let persons=document.getElementById("persons").value;
 
 if(name==""||phone==""||pickup==""||drop==""||date==""||time==""||persons==""){
+
 alert("Fill all details ❗");
 return;
+
 }
 
 let msg=`🚗 Booking Request
@@ -262,17 +426,51 @@ Date: ${date}
 Time: ${time}
 Passengers: ${persons}`;
 
-let encodedMsg = encodeURIComponent(msg);
-window.open("https://wa.me/916362635718?text="+encodedMsg,"_blank");
+let encodedMsg=encodeURIComponent(msg);
+
+window.open(
+"https://wa.me/916362635718?text="+encodedMsg,
+"_blank"
+);
+
 }
 
 function callNow(){
+
 window.open("tel:6362635718");
+
 }
 
 function sendEmail(){
-window.location.href = "mailto:shreedevitravelsofficial@gmail.com";
+
+window.location.href="mailto:shreedevitravelsofficial@gmail.com";
+
 }
+
+const bgmusic=document.getElementById("bgmusic");
+
+bgmusic.volume=0.08;
+
+document.addEventListener("DOMContentLoaded",function(){
+
+let playPromise=bgmusic.play();
+
+if(playPromise!==undefined){
+
+playPromise.catch(()=>{
+
+document.body.addEventListener("click",function(){
+
+bgmusic.play();
+
+},{once:true});
+
+});
+
+}
+
+});
+
 </script>
 
 </body>
