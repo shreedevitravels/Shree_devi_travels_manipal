@@ -13,264 +13,339 @@
 <style>
 
 body{
-    margin:0;
-    font-family:'Segoe UI',sans-serif;
-    color:white;
-    padding-bottom:80px;
-    overflow-x:hidden;
-    background:black;
+margin:0;
+font-family:'Segoe UI',sans-serif;
+color:white;
+padding-bottom:80px;
+overflow-x:hidden;
+background:black;
 }
 
 /* VIDEO BACKGROUND */
 
 .bg-video{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    z-index:-2;
-    opacity:0.70;
-    filter:brightness(0.9);
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+object-fit:cover;
+z-index:-2;
+opacity:0.70;
+filter:brightness(0.9);
 }
 
-/* LIGHT OVERLAY */
+/* OVERLAY */
 
 .overlay{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.10);
-    z-index:-1;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.25);
+z-index:-1;
 }
 
 /* SPLASH SCREEN */
 
 #splash{
-    position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#000,#0f2027,#000);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:99999;
-    color:white;
-    animation:splashHide 1s ease forwards;
-    animation-delay:2.5s;
+position:fixed;
+inset:0;
+background:linear-gradient(135deg,#000,#0f2027,#000);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:99999;
+color:white;
+animation:splashHide 1s ease forwards;
+animation-delay:2.5s;
 }
 
 #splash .logo{
-    font-size:65px;
-    margin-bottom:15px;
-    animation:logoZoom 1.5s ease;
+font-size:70px;
+margin-bottom:15px;
+animation:logoZoom 1.5s ease;
 }
 
 #splash h1{
-    font-size:24px;
-    color:#00c6ff;
-    margin:0;
-    text-align:center;
+font-size:26px;
+color:#00c6ff;
+margin:0;
+text-align:center;
 }
 
 @keyframes logoZoom{
-    0%{
-        transform:scale(0.5);
-        opacity:0;
-    }
-    100%{
-        transform:scale(1);
-        opacity:1;
-    }
+0%{
+transform:scale(0.5);
+opacity:0;
+}
+100%{
+transform:scale(1);
+opacity:1;
+}
 }
 
 @keyframes splashHide{
-    to{
-        opacity:0;
-        visibility:hidden;
-    }
+to{
+opacity:0;
+visibility:hidden;
+}
 }
 
+/* HEADER */
+
 header{
-    text-align:center;
-    padding:25px;
-    background:rgba(0,0,0,0.15);
-    backdrop-filter:blur(6px);
+text-align:center;
+padding:25px;
+background:rgba(0,0,0,0.20);
+backdrop-filter:blur(8px);
 }
 
 header img{
-    border-radius:50%;
-    box-shadow:0 0 25px rgba(0,198,255,0.8);
+border-radius:50%;
+box-shadow:0 0 25px rgba(0,198,255,0.8);
 }
 
 header h1{
-    font-size:26px;
-    margin-top:15px;
+font-size:28px;
+margin-top:15px;
 }
 
 .tagline{
-    font-style:italic;
-    font-weight:bold;
-    color:#00c6ff;
-    font-size:18px;
+font-style:italic;
+font-weight:bold;
+color:#00c6ff;
+font-size:18px;
 }
 
 /* CONTACT BOX */
 
 .contact-box{
-    margin-top:18px;
-    background:rgba(0,198,255,0.12);
-    border:1px solid rgba(0,198,255,0.35);
-    padding:16px;
-    border-radius:20px;
-    backdrop-filter:blur(8px);
-    box-shadow:0 0 18px rgba(0,198,255,0.18);
+margin-top:18px;
+background:rgba(0,198,255,0.12);
+border:1px solid rgba(0,198,255,0.35);
+padding:16px;
+border-radius:20px;
+backdrop-filter:blur(8px);
+box-shadow:0 0 18px rgba(0,198,255,0.18);
 }
 
 .contact-box p{
-    margin:12px 0;
-    font-size:15px;
+margin:12px 0;
+font-size:15px;
 }
 
 .contact-box a{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
+color:white;
+text-decoration:none;
+font-weight:bold;
 }
 
 .contact-box a:hover{
-    color:#00c6ff;
+color:#00c6ff;
 }
 
+/* 10% OFFER */
+
+.offer-box{
+margin:25px 15px;
+padding:28px 20px;
+border-radius:28px;
+text-align:center;
+background:linear-gradient(135deg,#ff8a00,#ff2d55);
+box-shadow:0 0 35px rgba(255,120,0,0.55);
+animation:offerGlow 1.5s infinite alternate;
+position:relative;
+overflow:hidden;
+}
+
+.offer-box h2{
+font-size:34px;
+margin:12px 0;
+font-weight:900;
+color:white;
+text-shadow:0 0 15px rgba(255,255,255,0.4);
+}
+
+.offer-box p{
+font-size:16px;
+line-height:1.7;
+margin-bottom:22px;
+color:white;
+}
+
+.offer-box a{
+display:inline-block;
+padding:15px 35px;
+border-radius:40px;
+background:white;
+color:#ff2d55;
+font-size:16px;
+font-weight:bold;
+text-decoration:none;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.25);
+}
+
+.offer-box a:hover{
+transform:scale(1.05);
+}
+
+.offer-badge{
+position:absolute;
+top:15px;
+right:-40px;
+background:#fff;
+color:#ff2d55;
+padding:8px 50px;
+font-size:13px;
+font-weight:bold;
+transform:rotate(35deg);
+box-shadow:0 3px 10px rgba(0,0,0,0.25);
+}
+
+@keyframes offerGlow{
+from{
+transform:scale(1);
+box-shadow:0 0 20px rgba(255,120,0,0.45);
+}
+to{
+transform:scale(1.02);
+box-shadow:0 0 40px rgba(255,60,0,0.75);
+}
+}
+
+/* AD BANNER */
+
 .ad-banner{
-    margin:25px 15px;
+margin:25px 15px;
 }
 
 .ad-banner img{
-    width:100%;
-    border-radius:15px;
-    box-shadow:0 6px 15px rgba(0,0,0,0.5);
-    transition:0.4s;
-}
-
-.ad-banner img:hover{
-    transform:scale(1.02);
+width:100%;
+border-radius:20px;
+box-shadow:0 6px 18px rgba(0,0,0,0.5);
 }
 
 /* BOOKING SECTION */
 
 .container{
-    margin:20px;
-    padding:25px;
-    border-radius:25px;
-    background:transparent;
+margin:20px;
+padding:25px;
+border-radius:25px;
+background:rgba(255,255,255,0.03);
+backdrop-filter:blur(5px);
 }
 
 /* INPUTS */
 
 .input-box{
-    margin:15px 0;
+margin:15px 0;
 }
 
 .input-box input{
-    width:100%;
-    padding:16px;
-    border-radius:30px;
-    border:none;
-    background:rgba(255,255,255,0.12);
-    color:white;
-    font-size:16px;
-    outline:none;
-    box-sizing:border-box;
-    border:1px solid rgba(255,255,255,0.18);
+width:100%;
+padding:16px;
+border-radius:30px;
+border:none;
+background:rgba(255,255,255,0.12);
+color:white;
+font-size:16px;
+outline:none;
+box-sizing:border-box;
+border:1px solid rgba(255,255,255,0.18);
 }
 
 .input-box input::placeholder{
-    color:#eee;
+color:#eee;
 }
 
 /* BUTTONS */
 
 button{
-    width:100%;
-    padding:15px;
-    border-radius:30px;
-    border:none;
-    margin-top:12px;
-    font-size:16px;
-    font-weight:bold;
-    background:linear-gradient(45deg,#00c6ff,#0072ff);
-    color:white;
-    transition:0.3s;
+width:100%;
+padding:15px;
+border-radius:30px;
+border:none;
+margin-top:12px;
+font-size:16px;
+font-weight:bold;
+background:linear-gradient(45deg,#00c6ff,#0072ff);
+color:white;
+transition:0.3s;
+cursor:pointer;
 }
 
 button:hover{
-    transform:scale(1.03);
+transform:scale(1.03);
 }
 
 .call-btn{
-    background:linear-gradient(45deg,#00ff7f,#00c853);
+background:linear-gradient(45deg,#00ff7f,#00c853);
 }
 
 .email-btn{
-    background:linear-gradient(45deg,#ff9800,#ff5722);
+background:linear-gradient(45deg,#ff9800,#ff5722);
 }
 
 .book-title{
-    color:#00c6ff;
-    text-shadow:0 0 15px rgba(0,198,255,0.8);
+color:#00c6ff;
+text-shadow:0 0 15px rgba(0,198,255,0.8);
 }
 
 .about-title{
-    color:#00c6ff;
-    margin-top:20px;
+color:#00c6ff;
+margin-top:20px;
 }
 
 .version{
-    text-align:center;
-    font-size:12px;
-    color:#ccc;
-    margin-top:20px;
+text-align:center;
+font-size:12px;
+color:#ccc;
+margin-top:20px;
 }
 
+/* BOTTOM BAR */
+
 .bottom-bar{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#111;
-    display:flex;
-    justify-content:space-around;
-    padding:8px 0;
-    z-index:999;
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+padding:8px 0;
+z-index:999;
 }
 
 .bottom-bar a{
-    color:white;
-    text-decoration:none;
-    text-align:center;
-    font-size:13px;
+color:white;
+text-decoration:none;
+text-align:center;
+font-size:13px;
 }
 
 .bottom-bar a:hover{
-    color:#00c6ff;
+color:#00c6ff;
 }
 
+/* WHATSAPP */
+
 .whatsapp{
-    position:fixed;
-    bottom:90px;
-    right:20px;
-    background:#25D366;
-    color:white;
-    padding:15px;
-    border-radius:50%;
-    font-size:22px;
-    text-decoration:none;
-    box-shadow:0 4px 10px rgba(0,0,0,0.4);
-    z-index:999;
+position:fixed;
+bottom:90px;
+right:20px;
+background:#25D366;
+color:white;
+padding:15px;
+border-radius:50%;
+font-size:22px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,0.4);
+z-index:999;
 }
 
 </style>
@@ -278,26 +353,28 @@ button:hover{
 
 <body>
 
-<!-- VIDEO BACKGROUND -->
+<!-- VIDEO -->
 
 <video autoplay muted loop playsinline class="bg-video">
-    <source src="bgvideo.mp4" type="video/mp4">
+<source src="bgvideo.mp4" type="video/mp4">
 </video>
 
 <div class="overlay"></div>
 
-<!-- SPLASH SCREEN -->
+<!-- SPLASH -->
 
 <div id="splash">
-    <div class="logo">🚖</div>
-    <h1>Shree Devi Travels Manipal</h1>
+<div class="logo">🚖</div>
+<h1>Shree Devi Travels Manipal</h1>
 </div>
 
-<!-- BACKGROUND MUSIC -->
+<!-- MUSIC -->
 
 <audio id="bgmusic" loop autoplay playsinline>
-    <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
+
+<!-- HEADER -->
 
 <header>
 
@@ -309,8 +386,6 @@ button:hover{
 Your Journey, Our Responsibility
 </p>
 
-<!-- CONTACT DETAILS -->
-
 <div class="contact-box">
 
 <p>
@@ -318,9 +393,7 @@ Your Journey, Our Responsibility
 <a href="tel:6362635718">
 +91 63626 35718
 </a>
-
 |
-
 <a href="tel:7019849902">
 +91 70198 49902
 </a>
@@ -344,6 +417,31 @@ shreedevitravelsofficial@gmail.com
 
 </header>
 
+<!-- 10% DISCOUNT OFFER -->
+
+<div class="offer-box">
+
+<div class="offer-badge">
+🔥 LIMITED OFFER
+</div>
+
+<h2>
+🎉 GET 10% OFF
+</h2>
+
+<p>
+Book your cab now and enjoy special discount on your ride 🚖
+</p>
+
+<a href="https://wa.me/916362635718?text=Hi%20I%20want%2010%25%20discount%20offer"
+target="_blank">
+CLAIM OFFER
+</a>
+
+</div>
+
+<!-- AD -->
+
 <div class="ad-banner">
 
 <a href="tel:6362635718">
@@ -351,6 +449,8 @@ shreedevitravelsofficial@gmail.com
 </a>
 
 </div>
+
+<!-- BOOKING -->
 
 <div class="container">
 
@@ -394,8 +494,6 @@ shreedevitravelsofficial@gmail.com
 📧 Email Us
 </button>
 
-<!-- ABOUT US -->
-
 <hr style="margin:25px 0; border:1px solid rgba(255,255,255,0.15);">
 
 <h2 class="about-title">
@@ -423,16 +521,20 @@ Your Journey, Our Responsibility 🚖
 </p>
 
 <div class="version">
-Version 6.6
+Version 7.0
 </div>
 
 </div>
+
+<!-- WHATSAPP -->
 
 <a href="https://wa.me/916362635718"
 target="_blank"
 class="whatsapp">
 💬
 </a>
+
+<!-- BOTTOM BAR -->
 
 <div class="bottom-bar">
 
