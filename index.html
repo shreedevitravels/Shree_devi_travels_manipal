@@ -220,7 +220,9 @@ box-shadow:0 0 40px rgba(255,60,0,0.75);
 /* AD BANNER */
 
 .ad-banner{
-margin:25px 15px;
+margin:25px auto;
+max-width:1200px;
+padding:0 15px;
 }
 
 .ad-banner img{
@@ -232,11 +234,12 @@ box-shadow:0 6px 18px rgba(0,0,0,0.5);
 /* BOOKING SECTION */
 
 .container{
-margin:20px;
+margin:20px auto;
 padding:25px;
 border-radius:25px;
 background:rgba(255,255,255,0.03);
 backdrop-filter:blur(5px);
+max-width:1200px;
 }
 
 /* INPUTS */
@@ -346,6 +349,104 @@ font-size:22px;
 text-decoration:none;
 box-shadow:0 4px 10px rgba(0,0,0,0.4);
 z-index:999;
+}
+
+/* ONLY PC VIEW FIX */
+
+@media screen and (min-width:768px){
+
+header{
+max-width:1200px;
+margin:20px auto;
+border-radius:25px;
+padding:40px;
+}
+
+header h1{
+font-size:46px;
+}
+
+.tagline{
+font-size:24px;
+}
+
+header img{
+width:140px;
+}
+
+.contact-box{
+max-width:700px;
+margin:25px auto 0;
+padding:25px;
+}
+
+.contact-box p{
+font-size:18px;
+}
+
+.offer-box{
+max-width:1200px;
+margin:35px auto;
+padding:45px;
+}
+
+.offer-box h2{
+font-size:58px;
+}
+
+.offer-box p{
+font-size:24px;
+}
+
+.offer-box a{
+font-size:20px;
+padding:18px 45px;
+}
+
+.container{
+padding:45px;
+}
+
+.book-title,
+.about-title{
+font-size:42px;
+}
+
+.input-box input{
+padding:22px;
+font-size:19px;
+}
+
+button{
+padding:20px;
+font-size:20px;
+}
+
+.container p{
+font-size:19px;
+line-height:2;
+}
+
+.bottom-bar a{
+font-size:15px;
+}
+
+}
+
+/* LARGE PC */
+
+@media screen and (min-width:1200px){
+
+body{
+font-size:18px;
+}
+
+.offer-box,
+.container,
+header{
+width:90%;
+}
+
 }
 
 </style>
