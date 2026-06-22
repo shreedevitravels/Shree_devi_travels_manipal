@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Devi Travels - Request Quotation</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:20px;
+}
+
+.container{
+max-width:650px;
+width:100%;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(12px);
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.3);
+color:white;
+}
+
+.logo{
+text-align:center;
+font-size:24px;
+font-weight:bold;
+margin-bottom:10px;
+}
+
+h1{
+text-align:center;
+margin-bottom:20px;
+color:#00e5ff;
+}
+
+input,textarea{
+width:100%;
+padding:14px;
+margin:8px 0;
+border:none;
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+textarea{
+height:100px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:15px;
+margin-top:10px;
+border:none;
+border-radius:10px;
+background:#25D366;
+color:white;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:translateY(-2px);
+}
+
+.info{
+text-align:center;
+margin-top:20px;
+line-height:1.8;
+}
+
+.note{
+text-align:center;
+margin-top:15px;
+font-size:13px;
+opacity:.8;
+}
+
+/* Success Popup */
+
+.popup-overlay{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.7);
+display:none;
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.popup{
+background:white;
+color:black;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:90%;
+max-width:380px;
+animation:pop .3s ease;
+}
+
+.popup h2{
+color:#25D366;
+margin-bottom:10px;
+}
+
+.popup p{
+margin:15px 0;
+line-height:1.6;
+}
+
+.popup button{
+background:#25D366;
+color:white;
+}
+
+@keyframes pop{
+from{
+transform:scale(.8);
+opacity:0;
+}
+to{
+transform:scale(1);
+opacity:1;
+}
+}
+
+/* Error Toast */
+
+.toast{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:#ff4444;
+color:white;
+padding:15px 25px;
+border-radius:10px;
+font-weight:bold;
+display:none;
+z-index:9999;
+}
+</style>
+</head>
+<body>
+
+<div class="toast" id="toast">
+⚠ Please fill all required fields
+</div>
+
+<div class="container">
+
+<div class="logo">
+🚖 SHREE DEVI TRAVELS MANIPAL
+</div>
+
+<h1>Request Quotation</h1>
+
+<input type="text" id="customer" placeholder="Customer Name *">
+
+<input type="tel" id="phone" placeholder="Phone Number *">
+
+<input type="date" id="travelDate">
+
+<input type="time" id="pickupTime">
+
+<input type="text" id="pickup" placeholder="Pickup Location *">
+
+<input type="text" id="drop" placeholder="Drop Location *">
+
+<input type="number" id="passengers" placeholder="Number of Passengers *">
+
+<input type="text" id="vehicle" placeholder="Preferred Vehicle *">
+
+<textarea id="message" placeholder="Additional Requirements (Optional)"></textarea>
+
+<button onclick="sendRequest()">
+📩 Request Quotation
+</button>
+
+<div class="info">
+📞 +91 6362635718<br>
+📞 +91 7019849902<br>
+📧 shreedevitravelsofficial@gmail.com
+</div>
+
+<div class="note">
+Reliable • Safe • Comfortable Travel Services
+</div>
+
+</div>
+
+<!-- Success Popup -->
+
+<div class="popup-overlay" id="popup">
+
+<div class="popup">
+
+<h2>✅ Request Submitted</h2>
+
+<p>
+Thank you for choosing<br>
+<b>Shree Devi Travels Manipal</b><br><br>
+You will now be redirected to WhatsApp.
+</p>
+
+<button onclick="openWhatsApp()">
+Continue
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+let whatsappMessage="";
+
+function showToast(){
+let toast=document.getElementById("toast");
+toast.style.display="block";
+
+setTimeout(()=>{
+toast.style.display="none";
+},3000);
+}
+
+function sendRequest(){
+
+let customer=document.getElementById("customer").value.trim();
+let phone=document.getElementById("phone").value.trim();
+let travelDate=document.getElementById("travelDate").value;
+let pickupTime=document.getElementById("pickupTime").value;
+let pickup=document.getElementById("pickup").value.trim();
+let drop=document.getElementById("drop").value.trim();
+let passengers=document.getElementById("passengers").value;
+let vehicle=document.getElementById("vehicle").value.trim();
+let message=document.getElementById("message").value.trim();
+
+if(
+customer==="" ||
+phone==="" ||
+travelDate==="" ||
+pickupTime==="" ||
+pickup==="" ||
+drop==="" ||
+passengers==="" ||
+vehicle===""
+){
+showToast();
+return;
+}
+
+whatsappMessage=
+`🚖 SHREE DEVI TRAVELS MANIPAL
+
+*NEW QUOTATION REQUEST*
+
+👤 Customer Name:
+${customer}
+
+📞 Phone Number:
+${phone}
+
+📅 Travel Date:
+${travelDate}
+
+🕒 Pickup Time:
+${pickupTime}
+
+📍 Pickup Location:
+${pickup}
+
+📍 Drop Location:
+${drop}
+
+👥 Passengers:
+${passengers}
+
+🚘 Preferred Vehicle:
+${vehicle}
+
+📝 Additional Requirements:
+${message || "None"}
+
+Thank You`;
+
+document.getElementById("popup").style.display="flex";
+}
+
+function openWhatsApp(){
+
+window.open(
+"https://wa.me/916362635718?text="+
+encodeURIComponent(whatsappMessage),
+"_blank"
+);
+
+document.getElementById("popup").style.display="none";
+}
+
+</script>
+
+</body>
+</html>

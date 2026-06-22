@@ -534,8 +534,7 @@ shreedevitravelsofficial@gmail.com
 Book your cab now and enjoy special discount on your ride 🚖
 </p>
 
-<a href="https://wa.me/917259021694?text=Hello%20Team%20Shree%20Devi%20Travels%20Manipal%2C%0A%0AI%E2%80%99m%20interested%20in%20claiming%20the%20special%2010%25%20OFF%20offer%20for%20my%20trip%20booking.%20Kindly%20share%20the%20availability%20and%20fare%20details.%0A%0AThank%20you%20%F0%9F%9A%96"
-target="_blank">
+<a href="#" onclick="offerEnded();return false;">
 CLAIM OFFER
 </a>
 
@@ -622,7 +621,7 @@ Your Journey, Our Responsibility 🚖
 </p>
 
 <div class="version">
-Version 7.0
+Version 1. 0. 8 
 </div>
 
 </div>
@@ -647,8 +646,16 @@ class="whatsapp">
 📄<br>History
 </a>
 
-<a href="reviews.html">
-⭐<br>Reviews
+<a href="https://share.google/x9GqI1eUL1BpySXhU" target="_blank" class="reviews-btn">
+    ⭐  <br>Review
+</a>
+
+<a href="coupon.html">
+🎟️<br>coupon
+</a>
+
+<a href="quotation.html">
+  💰<br>Quotation
 </a>
 
 <a href="#" onclick="callNow()">
@@ -658,6 +665,61 @@ class="whatsapp">
 </div>
 
 <script>
+  
+  function book(){
+
+// booking code
+
+}
+
+function offerEnded(){
+
+document.body.insertAdjacentHTML('beforeend',`
+
+<div style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.75);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:99999;">
+
+<div style="
+background:white;
+color:black;
+padding:30px;
+border-radius:20px;
+text-align:center;
+width:90%;
+max-width:350px;">
+
+<h2 style="color:#ff2d55;">
+❌ Offer Ended
+</h2>
+
+<p>
+Sorry! The 10% discount offer has ended.
+</p>
+
+<button onclick="this.closest('div').parentElement.remove()">
+OK
+</button>
+
+</div>
+</div>
+`);
+
+}
+
+function callNow(){
+
+window.open("tel:6362635718");
+
+}
 
 function book(){
 
@@ -709,7 +771,7 @@ window.location.href="mailto:shreedevitravelsofficial@gmail.com";
 
 const bgmusic=document.getElementById("bgmusic");
 
-bgmusic.volume=0.08;
+bgmusic.volume=0.00;
 
 document.addEventListener("DOMContentLoaded",function(){
 
