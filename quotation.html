@@ -270,39 +270,29 @@ showToast();
 return;
 }
 
-whatsappMessage=
+whatsappMessage =
 `🚖 SHREE DEVI TRAVELS MANIPAL
 
-*NEW QUOTATION REQUEST*
+📩 New Quotation Request
 
-👤 Customer Name:
-${customer}
+Customer Name: ${customer}
+Phone Number: ${phone}
 
-📞 Phone Number:
-${phone}
+Travel Date: ${travelDate}
+Pickup Time: ${pickupTime}
 
-📅 Travel Date:
-${travelDate}
+Pickup Location: ${pickup}
+Drop Location: ${drop}
 
-🕒 Pickup Time:
-${pickupTime}
+Passengers: ${passengers}
+Preferred Vehicle: ${vehicle}
 
-📍 Pickup Location:
-${pickup}
-
-📍 Drop Location:
-${drop}
-
-👥 Passengers:
-${passengers}
-
-🚘 Preferred Vehicle:
-${vehicle}
-
-📝 Additional Requirements:
+Additional Requirements:
 ${message || "None"}
 
-Thank You`;
+Kindly provide the fare quotation for the above trip.
+
+Thank You.`;
 
 document.getElementById("popup").style.display="flex";
 }
