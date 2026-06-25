@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shree Devi Travels Admin</title>
+
+<style>
+
+h2{
+text-align:center;
+color:white;
+font-size:28px;
+font-weight:800;
+letter-spacing:2px;
+margin-bottom:25px;
+text-shadow:0 2px 8px rgba(0,0,0,.2);
+}
+
+.footer{
+text-align:center;
+color:white;
+font-size:12px;
+margin-top:18px;
+letter-spacing:1px;
+}
+
+.logo{
+position:absolute;
+top:-55px;
+left:50%;
+transform:translateX(-50%);
+width:110px;
+height:110px;
+border-radius:50%;
+overflow:hidden;
+background:#dbe9ff;
+display:flex;
+justify-content:center;
+align-items:center;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.logo img{
+width:100%;
+height:100%;
+object-fit:cover;
+display:block;
+border-radius:50%;
+}
+
+body{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#6f8fd8,#3d66bf);
+}
+
+.card{
+width:360px;
+background:#436fc4;
+padding:90px 30px 30px;
+border-radius:35px;
+position:relative;
+box-shadow:
+15px 15px 35px rgba(0,0,0,.25),
+-10px -10px 20px rgba(255,255,255,.05);
+}
+
+.logo{
+position:absolute;
+top:-55px;
+left:50%;
+transform:translateX(-50%);
+width:110px;
+height:110px;
+border-radius:50%;
+background:#dbe9ff;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:55px;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+.brand-name{
+text-align:center;
+color:#ffffff;
+font-size:32px;
+font-weight:900;
+letter-spacing:2px;
+text-transform:uppercase;
+margin-bottom:5px;
+text-shadow:0 2px 10px rgba(0,0,0,.3);
+}
+
+.tagline{
+text-align:center;
+color:#dbe9ff;
+font-size:15px;
+font-weight:600;
+letter-spacing:10px;
+margin-top:0;
+margin-bottom:25px;
+}
+
+input,textarea{
+width:100%;
+padding:15px;
+margin-bottom:15px;
+border:2px solid rgba(255,255,255,.4);
+border-radius:12px;
+background:transparent;
+color:white;
+outline:none;
+}
+
+input::placeholder,
+textarea::placeholder{
+color:#e5e5e5;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:30px;
+font-size:17px;
+font-weight:bold;
+cursor:pointer;
+margin-top:10px;
+}
+
+.login-btn{
+background:#d8ecff;
+color:#2d5cb4;
+}
+
+.publish-btn{
+background:#00d26a;
+color:white;
+}
+
+.logout-btn{
+background:#ff5252;
+color:white;
+}
+
+#dashboard{
+display:none;
+}
+
+.success{
+text-align:center;
+margin-top:15px;
+color:#d4ffd4;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginCard" class="card">
+
+<div class="logo">
+    <img src="logo.png" alt="Logo">
+</div>
+<h1 class="brand-name">SHREE DEVI TRAVELS</h1>
+<h3 class="tagline">MANIPAL</h3>
+
+
+<h2>ADMIN LOGIN</h2>
+
+<input
+type="email"
+id="email"
+placeholder="Email">
+
+<input
+type="password"
+id="password"
+placeholder="Password">
+
+<button
+class="login-btn"
+onclick="login()">
+LOGIN
+</button>
+
+<p class="footer">
+© SHREE DEVI TRAVELS MANIPAL
+</p>
+
+</div>
+
+<!-- DASHBOARD -->
+
+<div id="dashboard" class="card">
+
+<div class="logo">📊</div>
+
+<h2>CREATE POST</h2>
+
+<input
+type="text"
+id="title"
+placeholder="Post Title">
+
+<input
+type="file"
+id="image"
+accept="image/*">
+
+<textarea
+id="content"
+placeholder="Post Content"></textarea>
+
+<button
+class="publish-btn"
+onclick="addPost()">
+🚀 Publish Post
+</button>
+
+<button
+class="logout-btn"
+onclick="logout()">
+🚪 Logout
+</button>
+
+<div id="msg" class="success"></div>
+
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getAuth,
+signInWithEmailAndPassword,
+signOut
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+
+import {
+getFirestore,
+collection,
+addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+const firebaseConfig = {
+
+apiKey: "AIzaSyAhjwzCxbJGCH9gugYwOSi1y8a_KMF9i4A",
+
+authDomain:
+"shree-devi-travels-cab-manipal.firebaseapp.com",
+
+projectId:
+"shree-devi-travels-cab-manipal",
+
+storageBucket:
+"shree-devi-travels-cab-manipal.firebasestorage.app",
+
+messagingSenderId:
+"1053219618665",
+
+appId:
+"1:1053219618665:web:8425445106e1b3e494c7f8"
+
+};
+
+const app = initializeApp(firebaseConfig);
+
+const auth = getAuth(app);
+
+const db = getFirestore(app);
+
+window.login = async()=>{
+
+try{
+
+const email =
+document.getElementById("email").value;
+
+const password =
+document.getElementById("password").value;
+
+await signInWithEmailAndPassword(
+auth,
+email,
+password
+);
+
+document.getElementById(
+"loginCard"
+).style.display="none";
+
+document.getElementById(
+"dashboard"
+).style.display="block";
+
+}catch(error){
+
+alert("Invalid Email or Password");
+
+}
+
+};
+
+window.addPost = async()=>{
+
+try{
+
+const title =
+document.getElementById("title").value;
+
+const content =
+document.getElementById("content").value;
+
+await addDoc(
+collection(db,"news"),
+{
+title:title,
+content:content,
+image:"logo.png",
+created:new Date()
+}
+);
+
+document.getElementById("msg")
+.innerHTML="✅ Post Published Successfully";
+
+document.getElementById("title").value="";
+document.getElementById("content").value="";
+
+}catch(error){
+
+alert(error.message);
+
+}
+
+};
+
+window.logout = async()=>{
+
+await signOut(auth);
+
+location.reload();
+
+};
+
+</script>
+
+</body>
+</html>

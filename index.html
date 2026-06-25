@@ -448,6 +448,34 @@ width:90%;
 }
 
 }
+.menu{
+position:fixed;
+top:20px;
+right:20px;
+z-index:99999;
+}
+
+.menu-btn{
+font-size:35px;
+cursor:pointer;
+}
+
+#menuBox{
+display:none;
+background:rgba(0,0,0,.8);
+backdrop-filter:blur(10px);
+padding:15px;
+border-radius:20px;
+width:160px;
+}
+
+#menuBox a{
+display:block;
+color:white;
+text-decoration:none;
+padding:12px;
+font-weight:bold;
+}
 
 </style>
 </head>
@@ -650,17 +678,11 @@ class="whatsapp">
 ⭐<br>Review
 </a>
 
-<a href="coupon.html">
-🎟️<br>coupon
-</a>
+<a href="news.html">
+  📰<br>News
+  </a>
 
-<a href="quotation.html">
-  💰<br>Quotation
-</a>
 
-<a href="#" onclick="callNow()">
-📞<br>Call
-</a>
 
 </div>
 
@@ -792,8 +814,35 @@ bgmusic.play();
 }
 
 });
+function openMenu(){
+
+let box=document.getElementById("menuBox");
+
+box.style.display =
+box.style.display=="block" ? "none" : "block";
+
+}
 
 </script>
 
 </body>
+<div class="menu">
+
+<div class="menu-btn" onclick="openMenu()">
+☰
+</div>
+
+<div id="menuBox">
+
+<a href="admin.html">🔐 Admin</a>
+
+<a href="coupon.html">🎟️ Coupon</a>
+
+<a href="quotation.html">💰 Quotation</a>
+
+<a href="#" onclick="callNow()">📞 Call</a>
+
+</div>
+
+</div>
 </html>

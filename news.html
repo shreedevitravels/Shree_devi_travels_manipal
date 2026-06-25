@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Shree Devi Travels News</title>
+
+<style>
+.popup{
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%) scale(.8);
+background:linear-gradient(135deg,#ffffff,#dbe9ff);
+width:300px;
+padding:35px 25px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(0,0,0,.35);
+display:none;
+text-align:center;
+z-index:999;
+animation:pop .3s ease forwards;
+}
+
+@keyframes pop{
+from{
+transform:translate(-50%,-50%) scale(.5);
+opacity:0;
+}
+to{
+transform:translate(-50%,-50%) scale(1);
+opacity:1;
+}
+}
+
+.popup h3{
+font-size:24px;
+color:#2d5cb4;
+margin-bottom:10px;
+}
+
+.popup p{
+color:#555;
+font-size:16px;
+}
+
+.popup button{
+background:linear-gradient(135deg,#2d5cb4,#6f8fd8);
+color:white;
+border:none;
+padding:12px 35px;
+border-radius:30px;
+font-size:16px;
+font-weight:bold;
+}
+
+.popup h3{
+color:#2d5cb4;
+}
+
+.popup button{
+background:#2d5cb4;
+color:white;
+border:none;
+padding:10px 25px;
+border-radius:20px;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+padding:20px;
+}
+
+h1{
+text-align:center;
+color:#2d5cb4;
+}
+
+.post{
+background:white;
+padding:15px;
+margin:15px 0;
+border-radius:10px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+.post h2{
+margin:0 0 10px;
+color:#333;
+}
+
+.post p{
+color:#555;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Latest Updates</h1>
+
+<div id="posts"></div>
+
+<div id="popup" class="popup">
+<h3>✅ Link Copied</h3>
+<p>Share with your friends</p>
+<button onclick="closePopup()">OK</button>
+</div>
+
+<script type="module">
+
+import { initializeApp }
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+
+import {
+getFirestore,
+collection,
+getDocs,
+query,
+doc,
+updateDoc,
+increment,
+addDoc
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+
+const firebaseConfig = {
+
+apiKey:"AIzaSyAhjwzCxbJGCH9gugYwOSi1y8a_KMF9i4A",
+
+authDomain:"shree-devi-travels-cab-manipal.firebaseapp.com",
+
+projectId:"shree-devi-travels-cab-manipal",
+
+storageBucket:"shree-devi-travels-cab-manipal.firebasestorage.app",
+
+messagingSenderId:"1053219618665",
+
+appId:"1:1053219618665:web:8425445106e1b3e494c7f8"
+
+};
+
+
+const app = initializeApp(firebaseConfig);
+
+const db = getFirestore(app);
+
+
+const postsDiv =
+document.getElementById("posts");
+
+
+const snapshot =
+await getDocs(collection(db,"news"));
+
+
+snapshot.forEach((doc)=>{
+
+
+const post = doc.data();
+
+
+postsDiv.innerHTML += `
+
+<div class="post">
+
+<h2>${post.title || ""}</h2>
+
+
+${post.image ?
+`<img src="${post.image}" style="width:100%;border-radius:10px;">`
+:""}
+
+
+<p>${post.content || ""}</p>
+
+
+<button onclick="likePost('${doc.id}')">
+❤️ Like ${post.likes || 0}
+</button>
+
+<button onclick="sharePost()">
+📤 Share
+</button>
+
+
+</div>
+
+`;
+
+});
+
+
+
+window.likePost = async(id)=>{
+
+
+const ref = doc(db,"news",id);
+
+
+await updateDoc(ref,{
+
+likes:increment(1)
+
+});
+
+
+location.reload();
+
+
+}
+
+
+
+
+window.commentPost = async(id)=>{
+
+
+let comment = prompt("Write your comment");
+
+
+if(comment){
+
+
+await addDoc(collection(db,"comments"),{
+
+
+postId:id,
+
+comment:comment,
+
+created:new Date()
+
+
+});
+
+
+alert("💬 Comment Saved ✅");
+
+
+}
+
+
+}
+
+
+
+
+window.sharePost = ()=>{
+
+
+let link = location.href;
+
+
+navigator.clipboard.writeText(link);
+
+
+document.getElementById("popup").style.display="block";
+
+
+}
+
+
+
+
+window.closePopup = ()=>{
+
+
+document.getElementById("popup").style.display="none";
+
+
+}
+
+
+</script>
+
+</body>
+</html>
