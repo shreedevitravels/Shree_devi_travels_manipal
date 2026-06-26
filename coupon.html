@@ -1,167 +1,37 @@
-<!DOCTYPE html><html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coupon Code | Shree Devi Travels Manipal</title><style>
-
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-background:linear-gradient(135deg,#000,#0f2027,#203a43);
-color:white;
-display:flex;
-justify-content:center;
-align-items:center;
-min-height:100vh;
-padding:20px;
-}
-
-.container{
-width:90%;
-max-width:450px;
-background:rgba(255,255,255,0.08);
-backdrop-filter:blur(10px);
-padding:35px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 0 30px rgba(0,198,255,0.25);
-}
-
-.logo{
-font-size:60px;
-margin-bottom:10px;
-}
-
-h1{
-margin:0;
-color:#00c6ff;
-}
-
-p{
-color:#ddd;
-line-height:1.7;
-}
-
-input{
-width:100%;
-padding:16px;
-border:none;
-border-radius:30px;
-margin-top:15px;
-font-size:16px;
-box-sizing:border-box;
-outline:none;
-}
-
-button{
-width:100%;
-padding:15px;
-margin-top:15px;
-border:none;
-border-radius:30px;
-font-size:16px;
-font-weight:bold;
-background:linear-gradient(45deg,#00c6ff,#0072ff);
-color:white;
-cursor:pointer;
-}
-
-.home-btn{
-background:linear-gradient(45deg,#00c853,#00e676);
-}
-
-.popup{
-display:none;
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.8);
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.popup-content{
-background:white;
-color:black;
-padding:35px;
-border-radius:25px;
-text-align:center;
-width:85%;
-max-width:380px;
-}
-
-.popup-content h2{
-color:#00c853;
-}
-
-.popup-content button{
-background:#00c853;
-}
-
-#detailsForm{
-display:none;
-margin-top:20px;
-}
-
-</style></head><body><div class="container"><div class="logo">🎁</div><h1>Coupon Center</h1><p>
-Enter your special coupon code and unlock exclusive discounts from
-<b>Shree Devi Travels Manipal</b>.
-</p><input type="text" id="coupon" placeholder="Enter Coupon Code"><button onclick="applyCoupon()">
-Apply Coupon
-</button><button class="home-btn" onclick="window.location.href='index.html'">
-🏠 Back To Home
-</button><div id="detailsForm"><h2>🚖 Fill Your Details</h2><input type="text" id="name" placeholder="👤 Full Name"><input type="tel" id="phone" placeholder="📞 Phone Number"><input type="text" id="pickup" placeholder="📍 Pickup Location"><input type="text" id="drop" placeholder="🏁 Drop Location"><button onclick="sendBooking()">
-Submit Booking
-</button></div></div><div class="popup" id="couponPopup"><div class="popup-content"><div style="font-size:60px;">🎉</div><h2>Congratulations!</h2><p>
-Coupon Code <b>PREETHU10</b> Applied Successfully.
-<br><br>
-🎁 You Have Unlocked <b>10% OFF</b>
-</p><button onclick="closePopup()">
-Awesome 🚖
-</button></div></div><script>
-
-function applyCoupon(){
-
-let code=document.getElementById("coupon").value.trim().toUpperCase();
-
-if(code==="PREETHU10"){
-
-document.getElementById("couponPopup").style.display="flex";
-
-}else{
-
-alert("❌ Invalid Coupon Code");
-
-}
-
-}
-
-function closePopup(){
-
-document.getElementById("couponPopup").style.display="none";
-
-document.getElementById("detailsForm").style.display="block";
-
-}
-
-function sendBooking(){
-
-
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let pickup=document.getElementById("pickup").value;
-let drop=document.getElementById("drop").value;
-
-if(name==="" || phone==="" || pickup==="" || drop===""){
-
-alert("Please fill all details");
-return;
-
-}
-
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Coupon Code | Shree Devi Travels Manipal</title>
+<style>
+body{margin:0;font-family:Segoe UI,sans-serif;background:linear-gradient(135deg,#000,#0f2027,#203a43);color:#fff;display:flex;justify-content:center;align-items:center;min-height:100vh;padding:20px}
+.container{width:90%;max-width:450px;background:rgba(255,255,255,.08);backdrop-filter:blur(10px);padding:35px;border-radius:25px;text-align:center;box-shadow:0 0 30px rgba(0,198,255,.25)}
+input,button{width:100%;padding:16px;border:none;border-radius:30px;margin-top:15px;font-size:16px;box-sizing:border-box}
+button{background:linear-gradient(45deg,#00c6ff,#0072ff);color:#fff;font-weight:bold;cursor:pointer}
+.home-btn{background:linear-gradient(45deg,#00c853,#00e676)}
+.popup{display:none;position:fixed;inset:0;background:rgba(0,0,0,.8);justify-content:center;align-items:center;z-index:9999}
+.popup-content{background:#fff;color:#000;padding:35px;border-radius:25px;width:85%;max-width:380px;text-align:center}
+#detailsForm{display:none;margin-top:20px}
+</style></head><body>
+<div class="container">
+<div style="font-size:60px">🎁</div>
+<h1>Coupon Center</h1>
+<p>Enter your special coupon code and unlock exclusive discounts from <b>Shree Devi Travels Manipal</b>.</p>
+<input id="coupon" placeholder="Enter Coupon Code">
+<button onclick="applyCoupon()">Apply Coupon</button>
+<button class="home-btn" onclick="location.href='index.html'">🏠 Back To Home</button>
+<div id="detailsForm">
+<h2>🚖 Fill Your Details</h2>
+<input id="name" placeholder="👤 Full Name">
+<input id="phone" placeholder="📞 Phone Number">
+<input id="pickup" placeholder="📍 Pickup Location">
+<input id="drop" placeholder="🏁 Drop Location">
+<button onclick="sendBooking()">Submit Booking</button>
+</div></div>
+<div class="popup" id="couponPopup"><div class="popup-content"><div style="font-size:60px">🎉</div><h2 style="color:#00c853">Congratulations!</h2><p>Coupon <b>PREETHU10</b> applied.<br>🎁 You unlocked <b>10% OFF</b>.</p><button onclick="closePopup()">Continue Booking 🚖</button></div></div>
+<div class="popup" id="invalidPopup"><div class="popup-content"><div style="font-size:60px">❌</div><h2 style="color:#e53935">Invalid Coupon</h2><p>Please check the coupon code and try again.</p><button style="background:#e53935" onclick="invalidPopup.style.display='none'">Try Again</button></div></div>
+<script>
+function applyCoupon(){let c=coupon.value.trim().toUpperCase();if(c==="PREETHU10"){couponPopup.style.display="flex";}else{invalidPopup.style.display="flex";}}
+function closePopup(){couponPopup.style.display="none";detailsForm.style.display="block";}
+function sendBooking(){let n=name.value.trim(),p=phone.value.trim(),pu=pickup.value.trim(),d=drop.value.trim();if(!n||!p||!pu||!d){alert("Please fill all details");return;}
 let msg=`🚖 Booking Request
 
 Hello Shree Devi Travels Manipal,
@@ -186,5 +56,4 @@ window.open(
 );
 
 }
-
-</script>
+</script></body></html>
