@@ -698,13 +698,13 @@ function offerEnded(){
 
 document.body.insertAdjacentHTML('beforeend',`
 
-<div style="
+<div id="offerPopup" style="
 position:fixed;
 top:0;
 left:0;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.75);
+background:rgba(0,0,0,.75);
 display:flex;
 justify-content:center;
 align-items:center;
@@ -719,20 +719,30 @@ text-align:center;
 width:90%;
 max-width:350px;">
 
-<h2 style="color:#ff2d55;">
-❌ Offer Ended
+<h2 style="color:#00c853;">
+🎉 Congratulations!
 </h2>
 
 <p>
-Sorry! The 10% discount offer has ended.
+You are eligible for a <b>10% Website Booking Discount</b>.
 </p>
 
-<button onclick="this.closest('div').parentElement.remove()">
-OK
+<button onclick="
+document.getElementById('offerPopup').remove();
+document.querySelector('.container').scrollIntoView({behavior:'smooth'});
+" style="
+background:#00c853;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:30px;">
+Fill Details
 </button>
 
 </div>
+
 </div>
+
 `);
 
 }
@@ -755,7 +765,53 @@ let persons=document.getElementById("persons").value;
 
 if(name==""||phone==""||pickup==""||drop==""||date==""||time==""||persons==""){
 
-alert("Fill all details ❗");
+document.body.insertAdjacentHTML('beforeend',`
+
+<div id="errorPopup" style="
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.75);
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:999999;">
+
+<div style="
+background:white;
+color:black;
+padding:30px;
+border-radius:25px;
+text-align:center;
+width:90%;
+max-width:350px;">
+
+<h2 style="color:#ff3b30;">
+⚠️ Incomplete Details
+</h2>
+
+<p>
+Please fill all booking details before proceeding.
+</p>
+
+<button onclick="
+document.getElementById('errorPopup').remove()
+" style="
+background:linear-gradient(135deg,#ff1744,#d50000);
+color:white;
+border:none;
+padding:12px 30px;
+border-radius:30px;">
+OK
+</button>
+
+</div>
+</div>
+
+`);
+
 return;
 
 }
