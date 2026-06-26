@@ -121,19 +121,37 @@ Coupon Code <b>PREETHU10</b> Applied Successfully.
 🎁 You Have Unlocked <b>10% OFF</b>
 </p><button onclick="closePopup()">
 Awesome 🚖
-</button></div></div><script>
+</button></div></div>
+<div class="popup" id="invalidPopup">
+  <div class="popup-content">
+    <div style="font-size:60px;">❌</div>
+    <h2 style="color:#e53935;">Invalid Coupon</h2>
+    <p>
+      Sorry! The coupon code you entered is invalid.<br>
+      Please try again.
+    </p>
+    <button
+      style="background:#e53935;"
+      onclick="document.getElementById('invalidPopup').style.display='none'">
+      Try Again
+    </button>
+  </div>
+</div>
+
+
+<script>
 
 function applyCoupon(){
 
-let code=document.getElementById("coupon").value.trim().toUpperCase();
+let code = document.getElementById("coupon").value.trim().toUpperCase();
 
-if(code==="PREETHU10"){
+if(code === "PREETHU10"){
 
-document.getElementById("couponPopup").style.display="flex";
+    document.getElementById("couponPopup").style.display = "flex";
 
 }else{
 
-alert("❌ Invalid Coupon Code");
+    document.getElementById("invalidPopup").style.display = "flex";
 
 }
 
