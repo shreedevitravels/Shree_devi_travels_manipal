@@ -1,314 +1,1126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shree Devi Travels - Request Quotation</title>
+
+<title>SHREE DEVI TRAVELS MANIPAL - Quotation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 
 <style>
+
+:root{
+--blue:#061A40;
+--lightBlue:#0B3D91;
+--gold:#D4AF37;
+--white:#fff;
+--bg:#eef3ff;
+--shadow:0 10px 30px rgba(0,0,0,.15);
+}
+
+
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Segoe UI',sans-serif;
+font-family:'Montserrat',sans-serif;
 }
+
 
 body{
-background:linear-gradient(135deg,#0f2027,#203a43,#2c5364);
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+
+background:linear-gradient(135deg,#eef3ff,#ffffff);
 padding:20px;
+
 }
+
+
 
 .container{
-max-width:650px;
-width:100%;
-background:rgba(255,255,255,0.1);
-backdrop-filter:blur(12px);
-padding:25px;
+
+max-width:1100px;
+margin:auto;
+background:white;
 border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.3);
-color:white;
+overflow:hidden;
+box-shadow:var(--shadow);
+animation:show .6s ease;
+
 }
+
+
+
+.header{
+
+background:linear-gradient(135deg,var(--blue),var(--lightBlue));
+color:white;
+text-align:center;
+padding:35px 20px;
+
+}
+
+
 
 .logo{
-text-align:center;
-font-size:24px;
-font-weight:bold;
+
+font-size:50px;
+color:var(--gold);
 margin-bottom:10px;
+
 }
 
-h1{
-text-align:center;
+
+
+.header h1{
+
+font-size:32px;
+font-weight:800;
+
+}
+
+
+
+.header p{
+
+color:#ffe99c;
+margin-top:8px;
+
+}
+
+
+
+
+.content{
+
+padding:25px;
+
+}
+
+
+
+
+.section{
+
+background:#fff;
+border-left:5px solid var(--gold);
+padding:20px;
 margin-bottom:20px;
-color:#00e5ff;
+border-radius:15px;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
 }
 
-input,textarea{
-width:100%;
-padding:14px;
-margin:8px 0;
-border:none;
-border-radius:10px;
-font-size:15px;
-outline:none;
+
+
+
+.title{
+
+font-size:20px;
+color:var(--blue);
+font-weight:700;
+margin-bottom:15px;
+
 }
 
-textarea{
-height:100px;
-resize:none;
+
+
+
+.grid{
+
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+
 }
 
-button{
-width:100%;
-padding:15px;
-margin-top:10px;
-border:none;
-border-radius:10px;
-background:#25D366;
-color:white;
-font-size:17px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
 
-button:hover{
-transform:translateY(-2px);
-}
 
-.info{
-text-align:center;
-margin-top:20px;
-line-height:1.8;
-}
 
-.note{
-text-align:center;
-margin-top:15px;
+.field label{
+
+display:block;
 font-size:13px;
-opacity:.8;
+font-weight:700;
+margin-bottom:6px;
+color:var(--blue);
+
 }
 
-/* Success Popup */
 
-.popup-overlay{
-position:fixed;
-top:0;
-left:0;
+
+.field input,
+.field select,
+.field textarea{
+
+
 width:100%;
-height:100%;
-background:rgba(0,0,0,.7);
-display:none;
-justify-content:center;
-align-items:center;
-z-index:9999;
-}
-
-.popup{
-background:white;
-color:black;
-padding:30px;
-border-radius:20px;
-text-align:center;
-width:90%;
-max-width:380px;
-animation:pop .3s ease;
-}
-
-.popup h2{
-color:#25D366;
-margin-bottom:10px;
-}
-
-.popup p{
-margin:15px 0;
-line-height:1.6;
-}
-
-.popup button{
-background:#25D366;
-color:white;
-}
-
-@keyframes pop{
-from{
-transform:scale(.8);
-opacity:0;
-}
-to{
-transform:scale(1);
-opacity:1;
-}
-}
-
-/* Error Toast */
-
-.toast{
-position:fixed;
-top:20px;
-left:50%;
-transform:translateX(-50%);
-background:#ff4444;
-color:white;
-padding:15px 25px;
+padding:12px;
+border:1px solid #ddd;
 border-radius:10px;
-font-weight:bold;
-display:none;
-z-index:9999;
+outline:none;
+
 }
+
+
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus{
+
+border-color:var(--gold);
+
+}
+
+
+
+.full{
+
+grid-column:1/-1;
+
+}
+
+
+
+
+@keyframes show{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+
+@media(max-width:700px){
+
+body{
+padding:10px;
+}
+
+
+.header h1{
+
+font-size:22px;
+
+}
+
+
+.grid{
+
+grid-template-columns:1fr;
+
+}
+
+}
+
+
 </style>
+
 </head>
+
 <body>
 
-<div class="toast" id="toast">
-⚠ Please fill all required fields
-</div>
 
 <div class="container">
 
+
+<div class="header">
+
 <div class="logo">
-🚖 SHREE DEVI TRAVELS MANIPAL
+<i class="fa-solid fa-car"></i>
 </div>
 
-<h1>Request Quotation</h1>
 
-<input type="text" id="customer" placeholder="Customer Name *">
+<h1>
+SHREE DEVI TRAVELS MANIPAL
+</h1>
 
-<input type="tel" id="phone" placeholder="Phone Number *">
 
-<input type="date" id="travelDate">
+<p>
+Your Journey, Our Responsibility
+</p>
+
+
+</div>
+
+
+<div class="content">
+
+
+<div class="section">
+
+
+<div class="title">
+<i class="fa-solid fa-file-invoice"></i>
+Quotation Details
+</div>
+
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+Quotation Number
+</label>
+
+<input id="quotationNo" readonly>
+
+</div>
+
+
+<div class="field">
+
+<label>
+Date
+</label>
+
+<input type="date" id="date">
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+<!-- PART 2 CONTINUES HERE -->
+<!-- CUSTOMER INFORMATION -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-user"></i>
+Customer Information
+
+</div>
+
+
+
+<div class="grid">
+
+
+
+<div class="field">
+
+<label>
+Customer Name
+</label>
+
+<input id="customerName"
+placeholder="Enter customer name">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Mobile Number
+</label>
+
+<input id="customerPhone"
+placeholder="Enter mobile number">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Email Address
+</label>
+
+<input id="customerEmail"
+placeholder="Enter email">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Pickup Location
+</label>
+
+<input id="pickup"
+placeholder="Pickup location">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- TRIP INFORMATION -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-route"></i>
+Trip Information
+
+</div>
+
+
+
+
+<div class="grid">
+
+
+<div class="field">
+
+<label>
+From Location
+</label>
+
+<input id="from"
+placeholder="Starting point">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+To Location
+</label>
+
+<input id="to"
+placeholder="Destination">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Journey Date
+</label>
+
+<input type="date" id="journeyDate">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Pickup Time
+</label>
 
 <input type="time" id="pickupTime">
 
-<input type="text" id="pickup" placeholder="Pickup Location *">
-
-<input type="text" id="drop" placeholder="Drop Location *">
-
-<input type="number" id="passengers" placeholder="Number of Passengers *">
-
-<input type="text" id="vehicle" placeholder="Preferred Vehicle *">
-
-<textarea id="message" placeholder="Additional Requirements (Optional)"></textarea>
-
-<button onclick="sendRequest()">
-📩 Request Quotation
-</button>
-
-<div class="info">
-📞 +91 6362635718<br>
-📞 +91 7019849902<br>
-📧 shreedevitravelsofficial@gmail.com
 </div>
 
-<div class="note">
-Reliable • Safe • Comfortable Travel Services
-</div>
+
+
+
+<div class="field">
+
+<label>
+Trip Type
+</label>
+
+
+<select id="tripType">
+
+<option>
+One Way
+</option>
+
+<option>
+Round Trip
+</option>
+
+<option>
+Local Trip
+</option>
+
+</select>
+
 
 </div>
 
-<!-- Success Popup -->
 
-<div class="popup-overlay" id="popup">
 
-<div class="popup">
 
-<h2>✅ Request Submitted</h2>
+<div class="field">
+
+<label>
+Distance KM
+</label>
+
+<input id="distance"
+type="number"
+placeholder="Enter KM">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- VEHICLE INFORMATION -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-car-side"></i>
+Vehicle Information
+
+</div>
+
+
+
+<div class="grid">
+
+
+
+<div class="field">
+
+<label>
+Vehicle Type
+</label>
+
+
+<select id="vehicle">
+
+<option>
+Select Vehicle
+</option>
+
+<option>
+Sedan Car
+</option>
+
+<option>
+SUV / Innova
+</option>
+
+<option>
+Tempo Traveller
+</option>
+
+<option>
+Luxury Vehicle
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="field">
+
+<label>
+Vehicle Number
+</label>
+
+<input id="vehicleNo"
+placeholder="KA 00 XX 0000">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Driver Name
+</label>
+
+<input id="driver"
+placeholder="Driver name">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Driver Contact
+</label>
+
+<input id="driverPhone"
+placeholder="Driver mobile">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- FARE DETAILS -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-indian-rupee-sign"></i>
+Fare Details
+
+</div>
+
+
+
+<div class="grid">
+
+
+
+<div class="field">
+
+<label>
+Base Fare
+</label>
+
+<input id="base"
+type="number"
+value="0">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Extra Charges
+</label>
+
+<input id="extra"
+type="number"
+value="0">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Discount
+</label>
+
+<input id="discount"
+type="number"
+value="0">
+
+</div>
+
+
+
+
+<div class="field">
+
+<label>
+Grand Total
+</label>
+
+<input id="total"
+readonly
+value="0">
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<!-- PART 3 CONTINUES HERE -->
+<!-- NOTES & TERMS -->
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-note-sticky"></i>
+Notes
+
+</div>
+
+
+<div class="field">
+
+<textarea id="notes" rows="4"
+placeholder="Additional notes"></textarea>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="section">
+
+
+<div class="title">
+
+<i class="fa-solid fa-file-contract"></i>
+Terms & Conditions
+
+</div>
+
+
+<ul>
+
+<li>Advance payment confirmation is required before trip.</li>
+
+<li>Extra charges may apply for waiting time and additional distance.</li>
+
+<li>Vehicle availability is subject to confirmation.</li>
+
+<li>Customer should carry valid ID proof.</li>
+
+</ul>
+
+
+
+<br>
+
 
 <p>
-Thank you for choosing<br>
-<b>Shree Devi Travels Manipal</b><br><br>
-You will now be redirected to WhatsApp.
+<b>Authorized By:</b><br>
+Vikram Nayak<br>
+SHREE DEVI TRAVELS MANIPAL
 </p>
 
-<button onclick="openWhatsApp()">
-Continue
+
+</div>
+
+
+
+
+
+
+<!-- ACTION BUTTONS -->
+
+
+<div class="section">
+
+
+<button onclick="saveQuotation()">
+💾 Save
 </button>
 
+
+<button onclick="printPage()">
+🖨️ Print
+</button>
+
+
+<button onclick="makePDF()">
+📄 PDF
+</button>
+
+
+<button onclick="whatsappShare()">
+📱 WhatsApp
+</button>
+
+
+<button onclick="emailShare()">
+📧 Email
+</button>
+
+
+</div>
+
+
+
+
+
 </div>
 
 </div>
+
+
+
+
+
 
 <script>
 
-let whatsappMessage="";
 
-function showToast(){
-let toast=document.getElementById("toast");
-toast.style.display="block";
+// DATE + QUOTATION NUMBER
 
-setTimeout(()=>{
-toast.style.display="none";
-},3000);
+
+let now=new Date();
+
+date.value=now.toISOString().slice(0,10);
+
+
+
+let code=
+
+now.getFullYear()
+
++
+
+String(now.getMonth()+1).padStart(2,'0')
+
++
+
+String(now.getDate()).padStart(2,'0');
+
+
+
+let serial=
+
+Number(localStorage.getItem("sdtm_serial")||0)+1;
+
+
+localStorage.setItem("sdtm_serial",serial);
+
+
+
+quotationNo.value=
+
+"SDTM-"+code+"-"+String(serial).padStart(3,'0');
+
+
+
+
+
+
+// TOTAL CALCULATION
+
+
+function calculate(){
+
+
+let total=
+
+(Number(base.value)||0)
+
++
+
+(Number(extra.value)||0)
+
+-
+
+(Number(discount.value)||0);
+
+
+
+document.getElementById("total").value=total.toFixed(2);
+
+
 }
 
-function sendRequest(){
 
-let customer=document.getElementById("customer").value.trim();
-let phone=document.getElementById("phone").value.trim();
-let travelDate=document.getElementById("travelDate").value;
-let pickupTime=document.getElementById("pickupTime").value;
-let pickup=document.getElementById("pickup").value.trim();
-let drop=document.getElementById("drop").value.trim();
-let passengers=document.getElementById("passengers").value;
-let vehicle=document.getElementById("vehicle").value.trim();
-let message=document.getElementById("message").value.trim();
 
-if(
-customer==="" ||
-phone==="" ||
-travelDate==="" ||
-pickupTime==="" ||
-pickup==="" ||
-drop==="" ||
-passengers==="" ||
-vehicle===""
-){
-showToast();
-return;
-}
+document.querySelectorAll("input")
 
-whatsappMessage =
-`🚖 SHREE DEVI TRAVELS MANIPAL
+.forEach(e=>{
 
-📩 New Quotation Request
+e.oninput=calculate;
 
-Customer Name: ${customer}
-Phone Number: ${phone}
+});
 
-Travel Date: ${travelDate}
-Pickup Time: ${pickupTime}
 
-Pickup Location: ${pickup}
-Drop Location: ${drop}
 
-Passengers: ${passengers}
-Preferred Vehicle: ${vehicle}
 
-Additional Requirements:
-${message || "None"}
 
-Kindly provide the fare quotation for the above trip.
 
-Thank You.`;
 
-document.getElementById("popup").style.display="flex";
-}
+// SAVE
 
-function openWhatsApp(){
 
-window.open(
-"https://wa.me/916362635718?text="+
-encodeURIComponent(whatsappMessage),
-"_blank"
+function saveQuotation(){
+
+
+let data={
+
+quotationNo:quotationNo.value,
+
+customer:customerName.value,
+
+phone:customerPhone.value,
+
+from:from.value,
+
+to:to.value,
+
+vehicle:vehicle.value,
+
+amount:total.value,
+
+date:date.value
+
+};
+
+
+
+let list=
+
+JSON.parse(localStorage.getItem("quotations")||"[]");
+
+
+list.push(data);
+
+
+localStorage.setItem(
+
+"quotations",
+
+JSON.stringify(list)
+
 );
 
-document.getElementById("popup").style.display="none";
+
+
+alert("Quotation Saved Successfully ✅");
+
+
 }
+
+
+
+
+
+
+
+
+// PRINT
+
+
+function printPage(){
+
+window.print();
+
+}
+
+
+
+
+
+
+
+
+// PDF
+
+
+function makePDF(){
+
+
+html2pdf()
+
+.from(document.querySelector(".container"))
+
+.save(
+
+quotationNo.value+".pdf"
+
+);
+
+
+}
+
+
+
+
+
+
+
+
+// WHATSAPP
+
+
+function whatsappShare(){
+
+
+
+let msg=
+
+`🚖 SHREE DEVI TRAVELS MANIPAL
+
+Quotation No:
+${quotationNo.value}
+
+Customer:
+${customerName.value}
+
+Trip:
+${from.value} ➡️ ${to.value}
+
+Vehicle:
+${vehicle.value}
+
+Amount:
+₹${total.value}
+
+
+Your Journey, Our Responsibility`;
+
+
+
+window.open(
+
+"https://wa.me/?text="+encodeURIComponent(msg),
+
+"_blank"
+
+);
+
+
+}
+
+
+
+
+
+
+
+
+// EMAIL
+
+
+function emailShare(){
+
+
+let subject=
+
+"Quotation "+quotationNo.value;
+
+
+
+let body=
+
+"SHREE DEVI TRAVELS MANIPAL\n\n"
+
++
+
+"Customer: "
+
++
+
+customerName.value
+
++
+
+"\nAmount: ₹"
+
++
+
+total.value;
+
+
+
+window.location.href=
+
+"mailto:"+customerEmail.value+
+
+"?subject="
+
++
+
+encodeURIComponent(subject)
+
++
+
+"&body="
+
++
+
+encodeURIComponent(body);
+
+
+
+}
+
+
 
 </script>
 
+
 </body>
+
 </html>
