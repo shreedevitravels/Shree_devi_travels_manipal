@@ -1,418 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SHREE DEVI TRAVELS MANIPAL - Quotation</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Devi Travels Manipal - Quotation Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    body {
+      background-color: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
 
-<style>
-:root {
-  --blue: #061A40;
-  --lightBlue: #0B3D91;
-  --gold: #D4AF37;
-  --white: #fff;
-  --bg: #eef3ff;
-  --shadow: 0 10px 30px rgba(0, 0, 0, .15);
-}
+    .form-container {
+      width: 100%;
+      max-width: 500px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
-}
+    /* Header Banner */
+    .header-banner {
+      background: linear-gradient(135deg, #a4bada, #8daed8);
+      border-radius: 12px;
+      padding: 24px 16px;
+      text-align: center;
+      color: #ffffff;
+      margin-bottom: 20px;
+    }
 
-body {
-  background: linear-gradient(135deg, #eef3ff, #ffffff);
-  padding: 20px;
-}
+    .header-banner i {
+      font-size: 32px;
+      color: #e2cb83;
+      margin-bottom: 8px;
+    }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  background: white;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: var(--shadow);
-  animation: show .6s ease;
-}
+    .header-banner h1 {
+      font-size: 16px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
 
-.header {
-  background: linear-gradient(135deg, var(--blue), var(--lightBlue));
-  color: white;
-  text-align: center;
-  padding: 35px 20px;
-}
+    .header-banner p {
+      font-size: 11px;
+      color: #f0f4f8;
+      margin-top: 4px;
+      font-weight: 300;
+    }
 
-.logo {
-  font-size: 50px;
-  color: var(--gold);
-  margin-bottom: 10px;
-}
+    /* Section Card */
+    .section-card {
+      position: relative;
+      background-color: #ffffff;
+      border-radius: 8px;
+      padding: 16px 16px 8px 20px;
+      margin-bottom: 16px;
+    }
 
-.header h1 {
-  font-size: 32px;
-  font-weight: 800;
-}
+    /* Yellow Left Accent Border */
+    .section-card::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background-color: #e5cb80;
+      border-radius: 4px 0 0 4px;
+    }
 
-.header p {
-  color: #ffe99c;
-  margin-top: 8px;
-}
+    .section-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #8c8c8c;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
 
-.content {
-  padding: 25px;
-}
+    .section-title i {
+      font-size: 14px;
+      color: #8c8c8c;
+    }
 
-.section {
-  background: #fff;
-  border-left: 5px solid var(--gold);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 15px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, .08);
-}
+    /* Form Fields */
+    .form-group {
+      margin-bottom: 12px;
+    }
 
-.title {
-  font-size: 20px;
-  color: var(--blue);
-  font-weight: 700;
-  margin-bottom: 15px;
-}
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      color: #a0a0a0;
+      margin-bottom: 4px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
+    .form-group input, 
+    .form-group select {
+      width: 100%;
+      height: 36px;
+      padding: 0 12px;
+      border: 1px solid #f0f0f0;
+      background-color: #fcfcfc;
+      border-radius: 6px;
+      font-size: 11px;
+      color: #b0b0b0;
+      outline: none;
+    }
 
-.field label {
-  display: block;
-  font-size: 13px;
-  font-weight: 700;
-  margin-bottom: 6px;
-  color: var(--blue);
-}
-
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  outline: none;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  border-color: var(--gold);
-}
-
-.btn-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-button {
-  background: var(--lightBlue);
-  color: white;
-  border: none;
-  padding: 12px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  transition: 0.3s;
-}
-
-button:hover {
-  background: var(--blue);
-}
-
-@keyframes show {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@media(max-width: 700px) {
-  body { padding: 10px; }
-  .header h1 { font-size: 22px; }
-  .grid { grid-template-columns: 1fr; }
-}
-</style>
+    .form-group input::placeholder {
+      color: #cccccc;
+    }
+  </style>
 </head>
-
 <body>
 
-<div class="container">
-  <div class="header">
-    <div class="logo"><i class="fa-solid fa-car"></i></div>
-    <h1>SHREE DEVI TRAVELS MANIPAL</h1>
-    <p>Your Journey, Our Responsibility</p>
-  </div>
+  <div class="form-container">
+    
+    <!-- Header Banner -->
+    <div class="header-banner">
+      <i class="fa-solid fa-car"></i>
+      <h1>Shree Devi Travels Manipal</h1>
+      <p>Your Journey, Our Responsibility</p>
+    </div>
 
-  <div class="content">
-    <!-- QUOTATION DETAILS -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-file-invoice"></i> Quotation Details</div>
-      <div class="grid">
-        <div class="field">
-          <label>Quotation Number</label>
-          <input id="quotationNo" readonly>
-        </div>
-        <div class="field">
-          <label>Date</label>
-          <input type="date" id="date">
-        </div>
+    <!-- Quotation Details -->
+    <div class="section-card">
+      <div class="section-title">
+        <i class="fa-regular fa-file-lines"></i> Quotation Details
+      </div>
+      <div class="form-group">
+        <label>Quotation Number</label>
+        <input type="text" value="SDTM-20260805-001" readonly />
+      </div>
+      <div class="form-group">
+        <label>Date</label>
+        <input type="text" value="2026-08-05" readonly />
       </div>
     </div>
 
-    <!-- CUSTOMER INFORMATION -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-user"></i> Customer Information</div>
-      <div class="grid">
-        <div class="field">
-          <label>Customer Name</label>
-          <input id="customerName" placeholder="Enter customer name">
-        </div>
-        <div class="field">
-          <label>Mobile Number</label>
-          <input id="customerPhone" placeholder="Enter mobile number">
-        </div>
-        <div class="field">
-          <label>Email Address</label>
-          <input id="customerEmail" placeholder="Enter email">
-        </div>
-        <div class="field">
-          <label>Pickup Location</label>
-          <input id="pickup" placeholder="Pickup location">
-        </div>
+    <!-- Customer Information -->
+    <div class="section-card">
+      <div class="section-title">
+        <i class="fa-regular fa-user"></i> Customer Information
+      </div>
+      <div class="form-group">
+        <label>Customer Name</label>
+        <input type="text" value="Preetham" />
+      </div>
+      <div class="form-group">
+        <label>Mobile Number</label>
+        <input type="text" placeholder="Enter Mobile Number" />
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="Enter Email Address" />
+      </div>
+      <div class="form-group">
+        <label>Pickup Location</label>
+        <input type="text" placeholder="Enter Pickup Location" />
       </div>
     </div>
 
-    <!-- TRIP INFORMATION -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-route"></i> Trip Information</div>
-      <div class="grid">
-        <div class="field">
-          <label>From Location</label>
-          <input id="from" placeholder="Starting point">
-        </div>
-        <div class="field">
-          <label>To Location</label>
-          <input id="to" placeholder="Destination">
-        </div>
-        <div class="field">
-          <label>Journey Date</label>
-          <input type="date" id="journeyDate">
-        </div>
-        <div class="field">
-          <label>Pickup Time</label>
-          <input type="time" id="pickupTime">
-        </div>
-        <div class="field">
-          <label>Trip Type</label>
-          <select id="tripType">
-            <option>One Way</option>
-            <option>Round Trip</option>
-            <option>Local Trip</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Distance KM</label>
-          <input id="distance" type="number" placeholder="Enter KM">
-        </div>
+    <!-- Trip Information -->
+    <div class="section-card">
+      <div class="section-title">
+        <i class="fa-solid fa-route"></i> Trip Information
+      </div>
+      <div class="form-group">
+        <label>From Location</label>
+        <input type="text" placeholder="Enter From Location" />
+      </div>
+      <div class="form-group">
+        <label>To Location</label>
+        <input type="text" placeholder="Enter To Location" />
+      </div>
+      <div class="form-group">
+        <label>Journey Date</label>
+        <input type="text" value="2026-08-26" />
+      </div>
+      <div class="form-group">
+        <label>Pickup Time</label>
+        <input type="text" value="18:15" />
+      </div>
+      <div class="form-group">
+        <label>Trip Type</label>
+        <input type="text" value="One Way" />
+      </div>
+      <div class="form-group">
+        <label>Distance KM</label>
+        <input type="text" value="85" />
       </div>
     </div>
 
-    <!-- VEHICLE INFORMATION -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-car-side"></i> Vehicle Information</div>
-      <div class="grid">
-        <div class="field">
-          <label>Vehicle Type</label>
-          <select id="vehicle">
-            <option>Select Vehicle</option>
-            <option>Sedan Car</option>
-            <option>SUV / Innova</option>
-            <option>Tempo Traveller</option>
-            <option>Luxury Vehicle</option>
-          </select>
-        </div>
-        <div class="field">
-          <label>Vehicle Number</label>
-          <input id="vehicleNo" placeholder="KA 00 XX 0000">
-        </div>
-        <div class="field">
-          <label>Driver Name</label>
-          <input id="driver" placeholder="Driver name">
-        </div>
-        <div class="field">
-          <label>Driver Contact</label>
-          <input id="driverPhone" placeholder="Driver mobile">
-        </div>
+    <!-- Vehicle Information -->
+    <div class="section-card">
+      <div class="section-title">
+        <i class="fa-solid fa-car-side"></i> Vehicle Information
       </div>
-    </div>
-
-    <!-- FARE DETAILS -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-indian-rupee-sign"></i> Fare Details</div>
-      <div class="grid">
-        <div class="field">
-          <label>Base Fare</label>
-          <input id="base" type="number" value="0">
-        </div>
-        <div class="field">
-          <label>Extra Charges</label>
-          <input id="extra" type="number" value="0">
-        </div>
-        <div class="field">
-          <label>Discount</label>
-          <input id="discount" type="number" value="0">
-        </div>
-        <div class="field">
-          <label>Grand Total</label>
-          <input id="total" readonly value="0">
-        </div>
+      <div class="form-group">
+        <label>Vehicle Type</label>
+        <input type="text" value="Luxury Vehicle" />
       </div>
-    </div>
-
-    <!-- NOTES & TERMS -->
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-note-sticky"></i> Notes</div>
-      <div class="field">
-        <textarea id="notes" rows="4" placeholder="Additional notes"></textarea>
-      </div>
-    </div>
-
-    <div class="section">
-      <div class="title"><i class="fa-solid fa-file-contract"></i> Terms & Conditions</div>
-      <ul>
-        <li>Advance payment confirmation is required before trip.</li>
-        <li>Extra charges may apply for waiting time and additional distance.</li>
-        <li>Vehicle availability is subject to confirmation.</li>
-        <li>Customer should carry valid ID proof.</li>
-      </ul>
-      <br>
-      <p>
-        <b>Authorized By:</b><br>
-        Vikram Nayak<br>
-        SHREE DEVI TRAVELS MANIPAL
-      </p>
-    </div>
-
-    <!-- ACTION BUTTONS -->
-    <div class="section btn-group">
-      <button onclick="saveQuotation()">💾 Save</button>
-      <button onclick="printPage()">🖨️ Print</button>
-      <button onclick="makePDF()">📄 PDF</button>
-      <button onclick="whatsappShare()">📱 WhatsApp</button>
-      <button onclick="emailShare()">📧 Email</button>
     </div>
 
   </div>
-</div>
-
-<script>
-// DATE + QUOTATION NUMBER
-let now = new Date();
-document.getElementById("date").value = now.toISOString().slice(0, 10);
-
-let code = now.getFullYear() +
-  String(now.getMonth() + 1).padStart(2, '0') +
-  String(now.getDate()).padStart(2, '0');
-
-let serial = Number(localStorage.getItem("sdtm_serial") || 0) + 1;
-localStorage.setItem("sdtm_serial", serial);
-
-document.getElementById("quotationNo").value = "SDTM-" + code + "-" + String(serial).padStart(3, '0');
-
-// TOTAL CALCULATION
-function calculate() {
-  let baseVal = Number(document.getElementById("base").value) || 0;
-  let extraVal = Number(document.getElementById("extra").value) || 0;
-  let discountVal = Number(document.getElementById("discount").value) || 0;
-
-  let total = baseVal + extraVal - discountVal;
-  document.getElementById("total").value = total.toFixed(2);
-}
-
-document.querySelectorAll("#base, #extra, #discount").forEach(e => {
-  e.oninput = calculate;
-});
-
-// SAVE
-function saveQuotation() {
-  let data = {
-    quotationNo: document.getElementById("quotationNo").value,
-    customer: document.getElementById("customerName").value,
-    phone: document.getElementById("customerPhone").value,
-    from: document.getElementById("from").value,
-    to: document.getElementById("to").value,
-    vehicle: document.getElementById("vehicle").value,
-    amount: document.getElementById("total").value,
-    date: document.getElementById("date").value
-  };
-
-  let list = JSON.parse(localStorage.getItem("quotations") || "[]");
-  list.push(data);
-  localStorage.setItem("quotations", JSON.stringify(list));
-
-  alert("Quotation Saved Successfully ✅");
-}
-
-// PRINT
-function printPage() {
-  window.print();
-}
-
-// PDF
-function makePDF() {
-  document.querySelectorAll("input, textarea, select").forEach(el => {
-    el.setAttribute("value", el.value);
-  });
-
-  let element = document.querySelector(".container");
-  let qNo = document.getElementById("quotationNo").value;
-
-  let options = {
-    margin: 8,
-    filename: qNo + ".pdf",
-    image: { type: "jpeg", quality: 1 },
-    html2canvas: { scale: 3, useCORS: true, scrollY: 0 },
-    jsPDF: { unit: "mm", format: "a4", orientation: "portrait" }
-  };
-
-  html2pdf().set(options).from(element).save();
-}
-
-// WHATSAPP
-function whatsappShare() {
-  let msg = `🚖 SHREE DEVI TRAVELS MANIPAL\n\nQuotation No:\n${document.getElementById("quotationNo").value}\n\nCustomer:\n${document.getElementById("customerName").value}\n\nTrip:\n${document.getElementById("from").value} ➡️ ${document.getElementById("to").value}\n\nVehicle:\n${document.getElementById("vehicle").value}\n\nAmount:\n₹${document.getElementById("total").value}\n\nYour Journey, Our Responsibility`;
-
-  window.open("https://wa.me/?text=" + encodeURIComponent(msg), "_blank");
-}
-
-// EMAIL
-function emailShare() {
-  let qNo = document.getElementById("quotationNo").value;
-  let custName = document.getElementById("customerName").value;
-  let custEmail = document.getElementById("customerEmail").value;
-  let totalAmt = document.getElementById("total").value;
-
-  let subject = "Quotation " + qNo;
-  let body = "SHREE DEVI TRAVELS MANIPAL\n\nCustomer: " + custName + "\nAmount: ₹" + totalAmt;
-
-  window.location.href = "mailto:" + custEmail + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
-}
-</script>
 
 </body>
 </html>
