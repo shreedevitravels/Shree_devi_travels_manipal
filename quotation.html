@@ -990,27 +990,28 @@ window.print();
 
 function makePDF(){
 
-
-function makePDF(){
+document.querySelectorAll("input, textarea, select").forEach(el=>{
+    el.setAttribute("value", el.value);
+});
 
 let element = document.querySelector(".container");
 
 let options = {
-    margin: 10,
-    filename: quotationNo.value + ".pdf",
-    image: {
-        type: 'jpeg',
-        quality: 1
+    margin: 8,
+    filename: quotationNo.value+".pdf",
+    image:{
+        type:"jpeg",
+        quality:1
     },
-    html2canvas: {
-        scale: 3,
-        useCORS: true,
-        letterRendering: true
+    html2canvas:{
+        scale:3,
+        useCORS:true,
+        scrollY:0
     },
-    jsPDF: {
-        unit: 'mm',
-        format: 'a4',
-        orientation: 'portrait'
+    jsPDF:{
+        unit:"mm",
+        format:"a4",
+        orientation:"portrait"
     }
 };
 
@@ -1018,6 +1019,8 @@ html2pdf()
 .set(options)
 .from(element)
 .save();
+
+}
 
 }
 
