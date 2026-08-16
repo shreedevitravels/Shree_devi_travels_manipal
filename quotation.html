@@ -1,704 +1,2054 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shree Devi Travels - Advanced Portal</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    body {
-      background-color: #0f172a;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
-      padding: 12px;
-      color: #333;
-    }
+<title>Shree Devi Travels - Advanced Portal</title>
 
-    /* Login Screen Container */
-    .login-container {
-      width: 100%;
-      max-width: 400px;
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 24px;
-      margin-top: 60px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-      border-top: 5px solid #d4af37;
-    }
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    .login-header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
-    .login-header i {
-      font-size: 40px;
-      color: #1e3a8a;
-      margin-bottom: 8px;
-    }
+<style>
 
-    .login-header h2 {
-      font-size: 18px;
-      color: #1e3a8a;
-      text-transform: uppercase;
-    }
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
 
-    .login-header p {
-      font-size: 11px;
-      color: #64748b;
-    }
+body{
+  background-color:#0f172a;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  min-height:100vh;
+  padding:12px;
+  color:#333;
+}
 
-    .login-btn {
-      width: 100%;
-      height: 40px;
-      background-color: #1e3a8a;
-      color: #ffffff;
-      border: none;
-      border-radius: 6px;
-      font-weight: 700;
-      font-size: 13px;
-      cursor: pointer;
-      margin-top: 10px;
-      transition: background 0.2s;
-    }
+/* LOGIN */
 
-    .login-btn:hover {
-      background-color: #0f172a;
-    }
+.login-container{
+  width:100%;
+  max-width:400px;
+  background:#fff;
+  border-radius:12px;
+  padding:24px;
+  margin-top:60px;
+  box-shadow:0 10px 25px rgba(0,0,0,.4);
+  border-top:5px solid #d4af37;
+}
 
-    .error-msg {
-      color: #ef4444;
-      font-size: 11px;
-      text-align: center;
-      margin-top: 10px;
-      display: none;
-    }
+.login-header{
+  text-align:center;
+  margin-bottom:20px;
+}
 
-    /* Main App View (Hidden initially) */
-    .app-view {
-      display: none;
-      width: 100%;
-      max-width: 550px;
-    }
+.login-header i{
+  font-size:40px;
+  color:#1e3a8a;
+  margin-bottom:8px;
+}
 
-    /* Action Toolbar */
-    .toolbar {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 12px;
-      justify-content: center;
-    }
+.login-header h2{
+  font-size:18px;
+  color:#1e3a8a;
+  text-transform:uppercase;
+}
 
-    .btn {
-      flex: 1;
-      min-width: 80px;
-      padding: 10px 8px;
-      border: none;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 11px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      transition: all 0.2s ease;
-    }
+.login-header p{
+  font-size:11px;
+  color:#64748b;
+}
 
-    .btn-gold { background-color: #d4af37; color: #000; }
-    .btn-gold:hover { background-color: #c5a028; }
-    .btn-green { background-color: #25d366; color: #fff; }
-    .btn-blue { background-color: #2563eb; color: #fff; }
-    .btn-dark { background-color: #334155; color: #fff; }
-    .btn-danger { background-color: #ef4444; color: #fff; }
+.login-btn{
+  width:100%;
+  height:40px;
+  background:#1e3a8a;
+  color:#fff;
+  border:none;
+  border-radius:6px;
+  font-weight:700;
+  font-size:13px;
+  cursor:pointer;
+  margin-top:10px;
+}
 
-    /* Form Card Container */
-    .form-container {
-      width: 100%;
-      background-color: #ffffff;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-    }
+.login-btn:hover{
+  background:#0f172a;
+}
 
-    /* Header Banner */
-    .header-banner {
-      background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%);
-      border: 2px solid #d4af37;
-      border-radius: 10px;
-      padding: 20px 12px;
-      text-align: center;
-      color: #ffffff;
-      margin-bottom: 18px;
-    }
+.error-msg{
+  color:#ef4444;
+  font-size:11px;
+  text-align:center;
+  margin-top:10px;
+  display:none;
+}
 
-    .header-banner i {
-      font-size: 32px;
-      color: #d4af37;
-      margin-bottom: 6px;
-    }
+/* APP */
 
-    .header-banner h1 {
-      font-size: 18px;
-      font-weight: 700;
-      letter-spacing: 1px;
-      color: #ffffff;
-      text-transform: uppercase;
-    }
+.app-view{
+  display:none;
+  width:100%;
+  max-width:550px;
+}
 
-    .header-banner p {
-      font-size: 11px;
-      color: #d4af37;
-      margin-top: 2px;
-      font-weight: 500;
-    }
+/* TOOLBAR */
 
-    /* Sections */
-    .section-card {
-      position: relative;
-      background-color: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
+.toolbar{
+  width:100%;
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:12px;
+  justify-content:center;
+}
 
-    .section-card::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0;
-      bottom: 0;
-      width: 4px;
-      background-color: #d4af37;
-      border-radius: 4px 0 0 4px;
-    }
+.btn{
+  flex:1;
+  min-width:80px;
+  padding:10px 8px;
+  border:none;
+  border-radius:6px;
+  font-weight:600;
+  font-size:11px;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+}
 
-    .section-title {
-      font-size: 13px;
-      font-weight: 700;
-      color: #1e3a8a;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
+.btn-gold{
+  background:#d4af37;
+  color:#000;
+}
 
-    .form-group {
-      margin-bottom: 10px;
-    }
+.btn-green{
+  background:#25d366;
+  color:#fff;
+}
 
-    .form-group label {
-      display: block;
-      font-size: 11px;
-      font-weight: 600;
-      color: #64748b;
-      margin-bottom: 4px;
-    }
+.btn-blue{
+  background:#2563eb;
+  color:#fff;
+}
 
-    .form-group input, .form-group select {
-      width: 100%;
-      height: 38px;
-      padding: 0 10px;
-      border: 1px solid #cbd5e1;
-      background-color: #f8fafc;
-      border-radius: 6px;
-      font-size: 12px;
-      color: #1e293b;
-      outline: none;
-    }
+.btn-dark{
+  background:#334155;
+  color:#fff;
+}
 
-    .form-row {
-      display: flex;
-      gap: 10px;
-    }
+.btn-danger{
+  background:#ef4444;
+  color:#fff;
+}
 
-    .form-row .form-group {
-      flex: 1;
-    }
+/* FORM */
 
-    /* Price Table */
-    .price-table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 10px;
-      font-size: 12px;
-    }
+.form-container{
+  width:100%;
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,.3);
+}
 
-    .price-table td {
-      padding: 6px 0;
-      border-bottom: 1px dashed #e2e8f0;
-    }
+/* HEADER */
 
-    .price-table tr.total-row td {
-      border-bottom: none;
-      border-top: 2px solid #1e3a8a;
-      font-size: 14px;
-      color: #1e3a8a;
-      padding-top: 10px;
-    }
+.header-banner{
+  background:linear-gradient(135deg,#1e3a8a 0%,#0f172a 100%);
+  border:2px solid #d4af37;
+  border-radius:10px;
+  padding:20px 12px;
+  text-align:center;
+  color:#fff;
+  margin-bottom:18px;
+}
 
-    /* Terms & Notes */
-    .terms-box {
-      font-size: 11px;
-      color: #475569;
-      background: #f8fafc;
-      padding: 12px;
-      border-radius: 6px;
-      margin-top: 8px;
-    }
+.header-banner i{
+  font-size:32px;
+  color:#d4af37;
+  margin-bottom:6px;
+}
 
-    .terms-box ul {
-      padding-left: 16px;
-      margin-bottom: 10px;
-    }
+.header-banner h1{
+  font-size:18px;
+  font-weight:700;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
 
-    .terms-box ul li {
-      margin-bottom: 4px;
-      line-height: 1.4;
-    }
+.header-banner p{
+  font-size:11px;
+  color:#d4af37;
+  margin-top:2px;
+  font-weight:500;
+}
 
-    .thank-you-msg {
-      font-weight: 600;
-      color: #1e3a8a;
-      text-align: center;
-      margin-top: 8px;
-      font-size: 11px;
-    }
+/* SECTIONS */
 
-    /* Stamp & Sign */
-    .signature-box {
-      margin-top: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
+.section-card{
+  position:relative;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  padding:14px;
+  margin-bottom:14px;
+}
 
-    .stamp {
-      border: 2px dashed #d4af37;
-      border-radius: 50%;
-      width: 70px;
-      height: 70px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #1e3a8a;
-      font-size: 8px;
-      font-weight: 800;
-      text-align: center;
-      transform: rotate(-8deg);
-      line-height: 1.1;
-    }
+.section-card::before{
+  content:'';
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:4px;
+  background:#d4af37;
+  border-radius:4px 0 0 4px;
+}
 
-    .sign-text {
-      text-align: right;
-      font-size: 11px;
-      color: #334155;
-    }
+.section-title{
+  font-size:13px;
+  font-weight:700;
+  color:#1e3a8a;
+  margin-bottom:12px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
 
-    /* Saved History Container */
-    .history-card {
-      width: 100%;
-      background: #ffffff;
-      border-radius: 12px;
-      padding: 16px;
-      margin-top: 16px;
-      display: none;
-    }
+.form-group{
+  margin-bottom:10px;
+}
 
-    .history-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 8px 0;
-      border-bottom: 1px solid #e2e8f0;
-      font-size: 12px;
-    }
+.form-group label{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  color:#64748b;
+  margin-bottom:4px;
+}
 
-    @media print {
-      body { background-color: #fff; padding: 0; }
-      .toolbar, .history-card, .login-container { display: none !important; }
-      .app-view { display: block !important; max-width: 100%; }
-      .form-container { width: 100%; max-width: 100%; box-shadow: none; padding: 0; }
-    }
-  </style>
+.form-group input,
+.form-group select{
+  width:100%;
+  height:38px;
+  padding:0 10px;
+  border:1px solid #cbd5e1;
+  background:#f8fafc;
+  border-radius:6px;
+  font-size:12px;
+  color:#1e293b;
+  outline:none;
+}
+
+.form-row{
+  display:flex;
+  gap:10px;
+}
+
+.form-row .form-group{
+  flex:1;
+}
+
+/* PRICE TABLE */
+
+.price-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+  font-size:12px;
+}
+
+.price-table td{
+  padding:7px 0;
+  border-bottom:1px dashed #e2e8f0;
+}
+
+.price-table tr.total-row td{
+  border-bottom:none;
+  border-top:2px solid #1e3a8a;
+  font-size:14px;
+  color:#1e3a8a;
+  padding-top:10px;
+}
+
+/* TERMS */
+
+.terms-box{
+  font-size:11px;
+  color:#475569;
+  background:#f8fafc;
+  padding:12px;
+  border-radius:6px;
+  margin-top:8px;
+}
+
+.terms-box ul{
+  padding-left:16px;
+  margin-bottom:10px;
+}
+
+.terms-box ul li{
+  margin-bottom:4px;
+  line-height:1.4;
+}
+
+.thank-you-msg{
+  font-weight:600;
+  color:#1e3a8a;
+  text-align:center;
+  margin-top:8px;
+  font-size:11px;
+}
+
+/* SHREE DEVI TRAVELS LOGO STAMP */
+
+.stamp{
+  width:95px;
+  height:95px;
+  border:3px solid #1e3a8a;
+  border-radius:50%;
+  padding:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:#fff;
+  box-shadow:
+    0 0 0 2px #d4af37,
+    0 0 0 5px #fff,
+    0 0 0 7px #1e3a8a;
+  overflow:hidden;
+  transform:rotate(-5deg);
+}
+
+.stamp img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:50%;
+  display:block;
+}
+
+.stamp{
+  border:2px dashed #d4af37;
+  border-radius:50%;
+  width:70px;
+  height:70px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:#1e3a8a;
+  font-size:8px;
+  font-weight:800;
+  text-align:center;
+  transform:rotate(-8deg);
+  line-height:1.1;
+}
+
+.sign-text{
+  text-align:right;
+  font-size:11px;
+  color:#334155;
+}
+
+/* HISTORY */
+
+.history-card{
+  width:100%;
+  background:#fff;
+  border-radius:12px;
+  padding:16px;
+  margin-top:16px;
+  display:none;
+}
+
+.history-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:8px 0;
+  border-bottom:1px solid #e2e8f0;
+  font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:500px){
+
+  .form-row{
+    flex-direction:column;
+    gap:0;
+  }
+
+}
+
+/* PRINT */
+
+@media print{
+
+  body{
+    background:#fff;
+    padding:0;
+  }
+
+  .toolbar,
+  .history-card,
+  .login-container{
+    display:none!important;
+  }
+
+  .app-view{
+    display:block!important;
+    max-width:100%;
+  }
+
+  .form-container{
+    width:100%;
+    max-width:100%;
+    box-shadow:none;
+    padding:0;
+  }
+
+}
+
+</style>
 </head>
+
 <body>
 
-  <!-- Login View -->
-  <div class="login-container" id="loginCard">
-    <div class="login-header">
-      <i class="fa-solid fa-user-shield"></i>
-      <h2>Shree Devi Travels</h2>
-      <p>Portal Login Access</p>
-    </div>
-    <div class="form-group">
-      <label>Username</label>
-      <input type="text" id="loginUser" placeholder="Enter Username" />
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" id="loginPass" placeholder="Enter Password" />
-    </div>
-    <button class="login-btn" onclick="handleLogin()">Login</button>
-    <div class="error-msg" id="loginError">Invalid credentials! Please try again.</div>
-  </div>
+<!-- LOGIN -->
 
-  <!-- Main Application View -->
-  <div class="app-view" id="appView">
-    
-    <!-- Top Toolbar -->
-    <div class="toolbar">
-      <button class="btn btn-gold" onclick="downloadPDF()"><i class="fa-solid fa-file-pdf"></i> PDF</button>
-      <button class="btn btn-dark" onclick="window.print()"><i class="fa-solid fa-print"></i> Print</button>
-      <button class="btn btn-green" onclick="shareWhatsApp()"><i class="fa-brands fa-whatsapp"></i> WA</button>
-      <button class="btn btn-blue" onclick="shareEmail()"><i class="fa-solid fa-envelope"></i> Email</button>
-      <button class="btn btn-gold" onclick="saveQuotation()"><i class="fa-solid fa-floppy-disk"></i> Save</button>
-      <button class="btn btn-dark" onclick="toggleHistory()"><i class="fa-solid fa-history"></i> History</button>
-      <button class="btn btn-danger" onclick="handleLogout()"><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
-    </div>
+<div class="login-container" id="loginCard">
 
-    <!-- Printable PDF Form Container -->
-    <div class="form-container" id="pdf-content">
-      
-      <!-- Banner Header -->
-      <div class="header-banner">
-        <i class="fa-solid fa-car-side"></i>
-        <h1>Shree Devi Travels Manipal</h1>
-        <p>Your Journey, Our Responsibility</p>
-      </div>
+  <div class="login-header">
 
-      <!-- Quotation Details -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-receipt"></i> Quotation Details</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Quotation Number</label>
-            <input type="text" id="quoteNo" readonly />
-          </div>
-          <div class="form-group">
-            <label>Date</label>
-            <input type="date" id="quoteDate" onchange="generateQuoteNumber()" />
-          </div>
-        </div>
-      </div>
+    <i class="fa-solid fa-user-shield"></i>
 
-      <!-- Customer Details -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-user"></i> Customer Information</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Customer Name</label>
-            <input type="text" id="custName" placeholder="Enter Customer Name" />
-          </div>
-          <div class="form-group">
-            <label>Mobile Number</label>
-            <input type="text" id="custPhone" placeholder="Enter Mobile Number" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Email Address</label>
-            <input type="email" id="custEmail" placeholder="Enter Email Address" />
-          </div>
-          <div class="form-group">
-            <label>Pickup Location</label>
-            <input type="text" id="custPickup" placeholder="Enter Pickup Location" />
-          </div>
-        </div>
-      </div>
+    <h2>Shree Devi Travels</h2>
 
-      <!-- Driver Information -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-id-card"></i> Driver Information</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Driver Name</label>
-            <input type="text" id="driverName" placeholder="Enter Driver Name" />
-          </div>
-          <div class="form-group">
-            <label>Driver Mobile</label>
-            <input type="text" id="driverPhone" placeholder="Enter Driver Contact No" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Vehicle Reg Number</label>
-            <input type="text" id="vehicleReg" placeholder="e.g. KA 20 AB 1234" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Trip Details -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-route"></i> Trip Information</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>From Location</label>
-            <input type="text" id="fromLoc" placeholder="Enter From Location" />
-          </div>
-          <div class="form-group">
-            <label>To Location</label>
-            <input type="text" id="toLoc" placeholder="Enter To Location" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Journey Date</label>
-            <input type="date" id="journeyDate" />
-          </div>
-          <div class="form-group">
-            <label>Pickup Time</label>
-            <input type="time" id="pickupTime" />
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Trip Type</label>
-            <select id="tripType">
-              <option value="One Way">One Way</option>
-              <option value="Round Trip">Round Trip</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Distance / Info</label>
-            <input type="text" id="distanceInfo" placeholder="e.g. Approx 85 KM" />
-          </div>
-        </div>
-      </div>
-
-      <!-- Vehicle Details & Manual Fare Entry -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-calculator"></i> Vehicle Details & Billing</div>
-        <div class="form-row">
-          <div class="form-group">
-            <label>Vehicle Type</label>
-            <input type="text" id="vehicleName" placeholder="e.g. Toyota Innova Crysta" />
-          </div>
-          <div class="form-group">
-            <label>Total Amount (₹)</label>
-            <input type="number" id="manualTotal" placeholder="0" oninput="updateTotalDisplay()" />
-          </div>
-        </div>
-
-        <table class="price-table">
-          <tr>
-            <td>Trip & Vehicle Package Cost</td>
-            <td style="text-align: right;" id="displayBase">₹0</td>
-          </tr>
-          <tr class="total-row">
-            <td><strong>Grand Total Cost</strong></td>
-            <td style="text-align: right;"><strong id="displayGrandTotal">₹0</strong></td>
-          </tr>
-        </table>
-      </div>
-
-      <!-- Terms & Conditions Section -->
-      <div class="section-card">
-        <div class="section-title"><i class="fa-solid fa-circle-info"></i> Terms and Conditions</div>
-        <div class="terms-box">
-          <ul>
-            <li>The driver will follow all traffic rules and safety regulations.</li>
-            <li>Payment can be made by Cash, UPI, or Bank Transfer.</li>
-            <li>Extra kilometers and extra hours will be charged as per company rates.</li>
-          </ul>
-          <p class="thank-you-msg">Thank you for choosing SHREE DEVI TRAVELS MANIPAL. We look forward to serving you.</p>
-        </div>
-      </div>
-
-      <!-- Stamp & Signatory -->
-      <div class="signature-box">
-        <div class="stamp">SHREE DEVI<br>TRAVELS<br>VERIFIED</div>
-        <div class="sign-text">
-          <p><strong>Authorized By:</strong></p>
-          <p style="font-size: 13px; font-weight: bold; color: #1e3a8a; margin-top:2px;">Vikram Nayak</p>
-          <p style="font-size: 10px; color: #64748b;">Shree Devi Travels Manipal</p>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- History View -->
-    <div class="history-card" id="historyCard">
-      <h3 style="font-size: 14px; margin-bottom: 10px; color:#1e3a8a;">Saved Quotations History</h3>
-      <div class="form-group" style="margin-bottom: 12px;">
-        <input type="text" id="searchHistory" placeholder="Search by Quotation No or Customer Name..." oninput="filterHistory()" />
-      </div>
-      <div id="historyList"></div>
-    </div>
+    <p>Portal Login Access</p>
 
   </div>
 
-  <script>
-    function handleLogin() {
-      const user = document.getElementById('loginUser').value;
-      const pass = document.getElementById('loginPass').value;
+  <div class="form-group">
 
-      if(user === "admin" && pass === "1234") {
-        document.getElementById('loginCard').style.display = 'none';
-        document.getElementById('appView').style.display = 'block';
-        initApp();
-      } else {
-        document.getElementById('loginError').style.display = 'block';
+    <label>Username</label>
+
+    <input
+      type="text"
+      id="loginUser"
+      placeholder="Enter Username">
+
+  </div>
+
+  <div class="form-group">
+
+    <label>Password</label>
+
+    <input
+      type="password"
+      id="loginPass"
+      placeholder="Enter Password">
+
+  </div>
+
+  <button
+    class="login-btn"
+    onclick="handleLogin()">
+
+    Login
+
+  </button>
+
+  <div
+    class="error-msg"
+    id="loginError">
+
+    Invalid credentials! Please try again.
+
+  </div>
+
+</div>
+
+
+<!-- APP -->
+
+<div class="app-view" id="appView">
+
+  <!-- TOOLBAR -->
+
+  <div class="toolbar">
+
+    <button
+      class="btn btn-gold"
+      onclick="downloadPDF()">
+
+      <i class="fa-solid fa-file-pdf"></i>
+      PDF
+
+    </button>
+
+    <button
+      class="btn btn-dark"
+      onclick="window.print()">
+
+      <i class="fa-solid fa-print"></i>
+      Print
+
+    </button>
+
+    <button
+      class="btn btn-green"
+      onclick="shareWhatsApp()">
+
+      <i class="fa-brands fa-whatsapp"></i>
+      WA
+
+    </button>
+
+    <button
+      class="btn btn-blue"
+      onclick="shareEmail()">
+
+      <i class="fa-solid fa-envelope"></i>
+      Email
+
+    </button>
+
+    <button
+      class="btn btn-gold"
+      onclick="saveQuotation()">
+
+      <i class="fa-solid fa-floppy-disk"></i>
+      Save
+
+    </button>
+
+    <button
+      class="btn btn-dark"
+      onclick="toggleHistory()">
+
+      <i class="fa-solid fa-history"></i>
+      History
+
+    </button>
+
+    <button
+      class="btn btn-danger"
+      onclick="handleLogout()">
+
+      <i class="fa-solid fa-right-from-bracket"></i>
+      Logout
+
+    </button>
+
+  </div>
+
+
+  <!-- PDF CONTENT -->
+
+  <div
+    class="form-container"
+    id="pdf-content">
+
+
+    <!-- HEADER -->
+
+    <div class="header-banner">
+
+      <i class="fa-solid fa-car-side"></i>
+
+      <h1>
+        Shree Devi Travels Manipal
+      </h1>
+
+      <p>
+        Your Journey, Our Responsibility
+      </p>
+
+    </div>
+
+
+    <!-- QUOTATION DETAILS -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-receipt"></i>
+
+        Quotation Details
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Quotation Number
+          </label>
+
+          <input
+            type="text"
+            id="quoteNo"
+            readonly>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Date
+          </label>
+
+          <input
+            type="date"
+            id="quoteDate"
+            onchange="updateQuoteDate()">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- CUSTOMER -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-user"></i>
+
+        Customer Information
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Customer Name
+          </label>
+
+          <input
+            type="text"
+            id="custName"
+            placeholder="Enter Customer Name">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Mobile Number
+          </label>
+
+          <input
+            type="text"
+            id="custPhone"
+            placeholder="Enter Mobile Number">
+
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Email Address
+          </label>
+
+          <input
+            type="email"
+            id="custEmail"
+            placeholder="Enter Email Address">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Pickup Location
+          </label>
+
+          <input
+            type="text"
+            id="custPickup"
+            placeholder="Enter Pickup Location">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- DRIVER -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-id-card"></i>
+
+        Driver Information
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Driver Name
+          </label>
+
+          <input
+            type="text"
+            id="driverName"
+            placeholder="Enter Driver Name">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Driver Mobile
+          </label>
+
+          <input
+            type="text"
+            id="driverPhone"
+            placeholder="Enter Driver Contact No">
+
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Vehicle Reg Number
+          </label>
+
+          <input
+            type="text"
+            id="vehicleReg"
+            placeholder="e.g. KA 20 AB 1234">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- TRIP -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-route"></i>
+
+        Trip Information
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            From Location
+          </label>
+
+          <input
+            type="text"
+            id="fromLoc"
+            placeholder="Enter From Location">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            To Location
+          </label>
+
+          <input
+            type="text"
+            id="toLoc"
+            placeholder="Enter To Location">
+
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Journey Date
+          </label>
+
+          <input
+            type="date"
+            id="journeyDate">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Pickup Time
+          </label>
+
+          <input
+            type="time"
+            id="pickupTime">
+
+        </div>
+
+      </div>
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Trip Type
+          </label>
+
+          <select id="tripType">
+
+            <option value="One Way">
+              One Way
+            </option>
+
+            <option value="Round Trip">
+              Round Trip
+            </option>
+
+          </select>
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Distance / Info
+          </label>
+
+          <input
+            type="text"
+            id="distanceInfo"
+            placeholder="e.g. Approx 85 KM">
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- BILLING -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-calculator"></i>
+
+        Vehicle Details & Billing
+
+      </div>
+
+
+      <!-- VEHICLE + PACKAGE -->
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Vehicle Type
+          </label>
+
+          <input
+            type="text"
+            id="vehicleName"
+            placeholder="e.g. Toyota Innova Crysta">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Package Cost (₹)
+          </label>
+
+          <input
+            type="number"
+            id="manualTotal"
+            placeholder="0"
+            min="0"
+            oninput="updateTotalDisplay()">
+
+        </div>
+
+      </div>
+
+
+      <!-- DRIVER ALLOWANCE + DISCOUNT -->
+
+      <div class="form-row">
+
+        <div class="form-group">
+
+          <label>
+            Driver Allowance (₹)
+          </label>
+
+          <input
+            type="number"
+            id="driverAllowance"
+            placeholder="0"
+            min="0"
+            oninput="updateTotalDisplay()">
+
+        </div>
+
+        <div class="form-group">
+
+          <label>
+            Discount (₹)
+          </label>
+
+          <input
+            type="number"
+            id="discountAmount"
+            placeholder="0"
+            min="0"
+            oninput="updateTotalDisplay()">
+
+        </div>
+
+      </div>
+
+
+      <!-- PRICE TABLE -->
+
+      <table class="price-table">
+
+        <tr>
+
+          <td>
+            Trip & Vehicle Package Cost
+          </td>
+
+          <td
+            style="text-align:right"
+            id="displayBase">
+
+            ₹0
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Driver Allowance
+          </td>
+
+          <td
+            style="text-align:right"
+            id="displayDriverAllowance">
+
+            ₹0
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            <strong>
+              Sub Total
+            </strong>
+          </td>
+
+          <td
+            style="text-align:right"
+            id="displaySubTotal">
+
+            ₹0
+
+          </td>
+
+        </tr>
+
+
+        <tr>
+
+          <td>
+            Discount
+          </td>
+
+          <td
+            style="text-align:right"
+            id="displayDiscount">
+
+            -₹0
+
+          </td>
+
+        </tr>
+
+
+        <tr class="total-row">
+
+          <td>
+
+            <strong>
+              Grand Total Cost
+            </strong>
+
+          </td>
+
+          <td
+            style="text-align:right">
+
+            <strong id="displayGrandTotal">
+              ₹0
+            </strong>
+
+          </td>
+
+        </tr>
+
+      </table>
+
+    </div>
+
+
+    <!-- TERMS -->
+
+    <div class="section-card">
+
+      <div class="section-title">
+
+        <i class="fa-solid fa-circle-info"></i>
+
+        Terms and Conditions
+
+      </div>
+
+      <div class="terms-box">
+
+        <ul>
+
+          <li>
+            The driver will follow all traffic rules and safety regulations.
+          </li>
+
+          <li>
+            Payment can be made by Cash, UPI, or Bank Transfer.
+          </li>
+
+          <li>
+            Extra kilometers and extra hours will be charged as per company rates.
+          </li>
+
+        </ul>
+
+        <p class="thank-you-msg">
+
+          Thank you for choosing SHREE DEVI TRAVELS MANIPAL.
+          We look forward to serving you.
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- SIGNATURE -->
+
+    <div class="signature-box">
+
+      <div class="stamp">
+  <img src="logo.png" alt="SHREE DEVI TRAVELS MANIPAL Logo">
+</div>
+
+      <div class="sign-text">
+
+        <p>
+          <strong>
+            Authorized By:
+          </strong>
+        </p>
+
+        <p
+          style="font-size:13px;font-weight:bold;color:#1e3a8a;margin-top:2px">
+
+          Vikram Nayak
+
+        </p>
+
+        <p
+          style="font-size:10px;color:#64748b">
+
+          Shree Devi Travels Manipal
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- HISTORY -->
+
+  <div
+    class="history-card"
+    id="historyCard">
+
+    <h3
+      style="font-size:14px;margin-bottom:10px;color:#1e3a8a">
+
+      Saved Quotations History
+
+    </h3>
+
+
+    <div
+      class="form-group"
+      style="margin-bottom:12px">
+
+      <input
+        type="text"
+        id="searchHistory"
+        placeholder="Search by Quotation No or Customer Name..."
+        oninput="filterHistory()">
+
+    </div>
+
+
+    <div id="historyList"></div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* =========================================
+   LOGIN
+========================================= */
+
+function handleLogin(){
+
+  const user =
+    document.getElementById('loginUser').value;
+
+  const pass =
+    document.getElementById('loginPass').value;
+
+  if(user === "admin" && pass === "1234"){
+
+    document.getElementById('loginCard')
+      .style.display = 'none';
+
+    document.getElementById('appView')
+      .style.display = 'block';
+
+    initApp();
+
+  }else{
+
+    document.getElementById('loginError')
+      .style.display = 'block';
+
+  }
+
+}
+
+
+/* =========================================
+   LOGOUT
+========================================= */
+
+function handleLogout(){
+
+  document.getElementById('appView')
+    .style.display = 'none';
+
+  document.getElementById('loginCard')
+    .style.display = 'block';
+
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+
+  document.getElementById('loginError')
+    .style.display = 'none';
+
+}
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+function initApp(){
+
+  const today =
+    new Date().toISOString().split('T')[0];
+
+  document.getElementById('quoteDate').value =
+    today;
+
+  document.getElementById('journeyDate').value =
+    today;
+
+  prepareQuotationNumber();
+
+  updateTotalDisplay();
+
+  loadHistoryList();
+
+}
+
+
+/* =========================================
+   GET COUNTER
+========================================= */
+
+function getQuotationCounter(){
+
+  let counter =
+    parseInt(
+      localStorage.getItem('sd_quote_counter') || '0',
+      10
+    );
+
+
+  const history =
+    JSON.parse(
+      localStorage.getItem('sd_quotes')
+    ) || [];
+
+
+  let highestNumber = counter;
+
+
+  history.forEach(item => {
+
+    if(!item.qNo) return;
+
+    const match =
+      item.qNo.match(/-(\d{3,})$/);
+
+
+    if(match){
+
+      const number =
+        parseInt(match[1],10);
+
+      if(number > highestNumber){
+
+        highestNumber = number;
+
       }
+
     }
 
-    function handleLogout() {
-      document.getElementById('appView').style.display = 'none';
-      document.getElementById('loginCard').style.display = 'block';
-      document.getElementById('loginUser').value = '';
-      document.getElementById('loginPass').value = '';
-      document.getElementById('loginError').style.display = 'none';
+  });
+
+
+  counter = highestNumber;
+
+
+  localStorage.setItem(
+    'sd_quote_counter',
+    counter
+  );
+
+
+  return counter;
+
+}
+
+
+/* =========================================
+   PREPARE NUMBER
+========================================= */
+
+function prepareQuotationNumber(){
+
+  const dateInput =
+    document.getElementById('quoteDate').value;
+
+  const dateVal =
+    dateInput.replace(/-/g,'');
+
+
+  const counter =
+    getQuotationCounter();
+
+
+  const nextNumber =
+    counter + 1;
+
+
+  const paddedNumber =
+    String(nextNumber).padStart(3,'0');
+
+
+  document.getElementById('quoteNo').value =
+    `SDTM-${dateVal}-${paddedNumber}`;
+
+}
+
+
+/* =========================================
+   DATE CHANGE
+========================================= */
+
+function updateQuoteDate(){
+
+  prepareQuotationNumber();
+
+}
+
+
+/* Backward compatibility */
+
+function generateQuoteNumber(){
+
+  prepareQuotationNumber();
+
+}
+
+
+/* =========================================
+   BILLING CALCULATION
+========================================= */
+
+function updateTotalDisplay(){
+
+  const packageCost =
+    parseFloat(
+      document.getElementById('manualTotal').value
+    ) || 0;
+
+
+  const driverAllowance =
+    parseFloat(
+      document.getElementById('driverAllowance').value
+    ) || 0;
+
+
+  const discount =
+    parseFloat(
+      document.getElementById('discountAmount').value
+    ) || 0;
+
+
+  const subTotal =
+    packageCost + driverAllowance;
+
+
+  let grandTotal =
+    subTotal - discount;
+
+
+  if(grandTotal < 0){
+
+    grandTotal = 0;
+
+  }
+
+
+  document.getElementById('displayBase')
+    .innerText =
+    '₹' + packageCost.toLocaleString('en-IN');
+
+
+  document.getElementById('displayDriverAllowance')
+    .innerText =
+    '₹' + driverAllowance.toLocaleString('en-IN');
+
+
+  document.getElementById('displaySubTotal')
+    .innerText =
+    '₹' + subTotal.toLocaleString('en-IN');
+
+
+  document.getElementById('displayDiscount')
+    .innerText =
+    '-₹' + discount.toLocaleString('en-IN');
+
+
+  document.getElementById('displayGrandTotal')
+    .innerText =
+    '₹' + grandTotal.toLocaleString('en-IN');
+
+}
+
+
+/* =========================================
+   PDF
+========================================= */
+
+function downloadPDF(){
+
+  const element =
+    document.getElementById('pdf-content');
+
+
+  const clonedElement =
+    element.cloneNode(true);
+
+
+  const inputs =
+    clonedElement.querySelectorAll(
+      'input,select'
+    );
+
+
+  inputs.forEach(input => {
+
+    const textSpan =
+      document.createElement('div');
+
+
+    textSpan.style.fontSize = '12px';
+    textSpan.style.color = '#1e293b';
+    textSpan.style.fontWeight = '600';
+    textSpan.style.padding = '4px 0';
+
+
+    textSpan.innerText =
+      input.value || '-';
+
+
+    input.parentNode.replaceChild(
+      textSpan,
+      input
+    );
+
+  });
+
+
+  const opt = {
+
+    margin:[0.2,0.2,0.2,0.2],
+
+    filename:
+      `${document.getElementById('quoteNo').value}.pdf`,
+
+    image:{
+      type:'jpeg',
+      quality:1
+    },
+
+    html2canvas:{
+      scale:3,
+      useCORS:true,
+      dpi:300
+    },
+
+    jsPDF:{
+      unit:'in',
+      format:'a4',
+      orientation:'portrait'
     }
 
-    function initApp() {
-      const today = new Date().toISOString().split('T')[0];
-      document.getElementById('quoteDate').value = today;
-      document.getElementById('journeyDate').value = today;
-      generateQuoteNumber();
-      updateTotalDisplay();
-      loadHistoryList();
+  };
+
+
+  html2pdf()
+    .set(opt)
+    .from(clonedElement)
+    .save();
+
+}
+
+
+/* =========================================
+   WHATSAPP
+========================================= */
+
+function shareWhatsApp(){
+
+  const name =
+    document.getElementById('custName').value ||
+    'Customer';
+
+
+  const qNo =
+    document.getElementById('quoteNo').value;
+
+
+  const phone =
+    document.getElementById('custPhone')
+      .value
+      .replace(/[^0-9]/g,'');
+
+
+  const total =
+    document.getElementById('displayGrandTotal')
+      .innerText;
+
+
+  const route =
+    `${document.getElementById('fromLoc').value || '-'} to ${document.getElementById('toLoc').value || '-'}`;
+
+
+  const vehicle =
+    document.getElementById('vehicleName').value ||
+    '-';
+
+
+  const driver =
+    document.getElementById('driverName').value ||
+    '-';
+
+
+  const dPhone =
+    document.getElementById('driverPhone').value ||
+    '-';
+
+
+  const vReg =
+    document.getElementById('vehicleReg').value ||
+    '-';
+
+
+  const driverAllowance =
+    document.getElementById('driverAllowance').value ||
+    '0';
+
+
+  const discount =
+    document.getElementById('discountAmount').value ||
+    '0';
+
+
+  if(!phone){
+
+    alert(
+      'Please enter customer mobile number.'
+    );
+
+    return;
+
+  }
+
+
+  const message =
+    `Hello ${name}, Greetings from Shree Devi Travels Manipal!%0A%0A` +
+
+    `Here is your travel quotation:%0A` +
+
+    `*Quotation No:* ${qNo}%0A` +
+
+    `*Vehicle:* ${vehicle} (${vReg})%0A` +
+
+    `*Driver Details:* ${driver} (${dPhone})%0A` +
+
+    `*Route:* ${route}%0A` +
+
+    `*Driver Allowance:* ₹${driverAllowance}%0A` +
+
+    `*Discount:* ₹${discount}%0A` +
+
+    `*Total Fare:* ${total}%0A%0A` +
+
+    `Authorized By: Vikram Nayak%0A` +
+
+    `Thank you!`;
+
+
+  window.open(
+    `https://wa.me/${phone}?text=${message}`,
+    '_blank'
+  );
+
+}
+
+
+/* =========================================
+   EMAIL
+========================================= */
+
+function shareEmail(){
+
+  const email =
+    document.getElementById('custEmail').value;
+
+
+  const qNo =
+    document.getElementById('quoteNo').value;
+
+
+  const total =
+    document.getElementById('displayGrandTotal')
+      .innerText;
+
+
+  const driverAllowance =
+    document.getElementById('driverAllowance').value ||
+    '0';
+
+
+  const discount =
+    document.getElementById('discountAmount').value ||
+    '0';
+
+
+  const subject =
+    `Travel Quotation ${qNo} - Shree Devi Travels`;
+
+
+  const body =
+    `Dear Customer,%0A%0A` +
+
+    `Please find your requested travel quotation details.%0A%0A` +
+
+    `Quotation Number: ${qNo}%0A` +
+
+    `Driver Allowance: ₹${driverAllowance}%0A` +
+
+    `Discount: ₹${discount}%0A` +
+
+    `Total Cost: ${total}%0A%0A` +
+
+    `Authorized By: Vikram Nayak%0A` +
+
+    `Shree Devi Travels Manipal`;
+
+
+  window.location.href =
+    `mailto:${email}?subject=${subject}&body=${body}`;
+
+}
+
+
+/* =========================================
+   SAVE QUOTATION
+========================================= */
+
+function saveQuotation(){
+
+  let history =
+    JSON.parse(
+      localStorage.getItem('sd_quotes')
+    ) || [];
+
+
+  const qNo =
+    document.getElementById('quoteNo').value;
+
+
+  /* DUPLICATE CHECK */
+
+  if(
+    history.some(
+      item => item.qNo === qNo
+    )
+  ){
+
+    alert(
+      'This quotation number is already saved.'
+    );
+
+    prepareQuotationNumber();
+
+    return;
+
+  }
+
+
+  const data = {
+
+    qNo:qNo,
+
+    name:
+      document.getElementById('custName').value ||
+      'N/A',
+
+    vehicle:
+      document.getElementById('vehicleName').value ||
+      'N/A',
+
+    total:
+      document.getElementById('displayGrandTotal')
+        .innerText,
+
+    packageCost:
+      document.getElementById('manualTotal').value ||
+      '0',
+
+    driverAllowance:
+      document.getElementById('driverAllowance').value ||
+      '0',
+
+    discount:
+      document.getElementById('discountAmount').value ||
+      '0',
+
+    date:
+      document.getElementById('quoteDate').value
+
+  };
+
+
+  /* SAVE */
+
+  history.push(data);
+
+
+  localStorage.setItem(
+    'sd_quotes',
+    JSON.stringify(history)
+  );
+
+
+  /* UPDATE COUNTER */
+
+  const match =
+    qNo.match(/-(\d{3,})$/);
+
+
+  let currentCounter =
+    getQuotationCounter();
+
+
+  if(match){
+
+    const savedNumber =
+      parseInt(match[1],10);
+
+
+    if(savedNumber > currentCounter){
+
+      currentCounter =
+        savedNumber;
+
     }
 
-    function generateQuoteNumber() {
-      const dateVal = document.getElementById('quoteDate').value.replace(/-/g, "");
-      document.getElementById('quoteNo').value = `SDTM-${dateVal}-001`;
-    }
+  }
 
-    function updateTotalDisplay() {
-      const amt = parseFloat(document.getElementById('manualTotal').value) || 0;
-      document.getElementById('displayBase').innerText = "₹" + amt.toLocaleString('en-IN');
-      document.getElementById('displayGrandTotal').innerText = "₹" + amt.toLocaleString('en-IN');
-    }
 
-    function downloadPDF() {
-      const element = document.getElementById('pdf-content');
-      const clonedElement = element.cloneNode(true);
+  localStorage.setItem(
+    'sd_quote_counter',
+    currentCounter
+  );
 
-      const inputs = clonedElement.querySelectorAll('input, select');
-      inputs.forEach(input => {
-        const textSpan = document.createElement('div');
-        textSpan.style.fontSize = '12px';
-        textSpan.style.color = '#1e293b';
-        textSpan.style.fontWeight = '600';
-        textSpan.style.padding = '4px 0';
-        textSpan.innerText = input.value || '-';
-        
-        input.parentNode.replaceChild(textSpan, input);
-      });
 
-      const opt = {
-        margin: [0.2, 0.2, 0.2, 0.2],
-        filename: `${document.getElementById('quoteNo').value}.pdf`,
-        image: { type: 'jpeg', quality: 1.0 },
-        html2canvas: { scale: 3, useCORS: true, dpi: 300 },
-        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
-      };
+  alert(
+    `Quotation ${qNo} saved successfully!`
+  );
 
-      html2pdf().set(opt).from(clonedElement).save();
-    }
 
-    function shareWhatsApp() {
-      const name = document.getElementById('custName').value || 'Customer';
-      const qNo = document.getElementById('quoteNo').value;
-      const phone = document.getElementById('custPhone').value.replace(/[^0-9]/g, '');
-      const total = document.getElementById('displayGrandTotal').innerText;
-      const route = `${document.getElementById('fromLoc').value || '-'} to ${document.getElementById('toLoc').value || '-'}`;
-      const vehicle = document.getElementById('vehicleName').value || '-';
-      const driver = document.getElementById('driverName').value || '-';
-      const dPhone = document.getElementById('driverPhone').value || '-';
-      const vReg = document.getElementById('vehicleReg').value || '-';
+  loadHistoryList();
 
-      const message = `Hello ${name}, Greetings from Shree Devi Travels Manipal!%0A%0AHere is your travel quotation:%0A*Quotation No:* ${qNo}%0A*Vehicle:* ${vehicle} (${vReg})%0A*Driver Details:* ${driver} (${dPhone})%0A*Route:* ${route}%0A*Total Fare:* ${total}%0A%0AAuthorized By: Vikram Nayak%0AThank you!`;
-      
-      window.open(`https://wa.me/${phone}?text=${message}`, '_blank');
-    }
 
-    function shareEmail() {
-      const email = document.getElementById('custEmail').value;
-      const qNo = document.getElementById('quoteNo').value;
-      const total = document.getElementById('displayGrandTotal').innerText;
+  /* NEXT NUMBER */
 
-      const subject = `Travel Quotation ${qNo} - Shree Devi Travels`;
-      const body = `Dear Customer,%0A%0APlease find your requested travel quotation details.%0AQuotation Number: ${qNo}%0ATotal Cost: ${total}%0A%0AAuthorized By: Vikram Nayak%0AShree Devi Travels Manipal`;
+  prepareQuotationNumber();
 
-      window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
-    }
 
-    function saveQuotation() {
-      const data = {
-        qNo: document.getElementById('quoteNo').value,
-        name: document.getElementById('custName').value || 'N/A',
-        vehicle: document.getElementById('vehicleName').value || 'N/A',
-        total: document.getElementById('displayGrandTotal').innerText,
-        date: document.getElementById('quoteDate').value
-      };
+  /* CLEAR FORM */
 
-      let history = JSON.parse(localStorage.getItem('sd_quotes')) || [];
-      history.push(data);
-      localStorage.setItem('sd_quotes', JSON.stringify(history));
-      alert("Quotation saved successfully!");
-      loadHistoryList();
-    }
+  clearQuotationForm();
 
-    function toggleHistory() {
-      const card = document.getElementById('historyCard');
-      card.style.display = card.style.display === 'block' ? 'none' : 'block';
-    }
+}
 
-    function loadHistoryList(filterText = "") {
-      const history = JSON.parse(localStorage.getItem('sd_quotes')) || [];
-      const listContainer = document.getElementById('historyList');
-      listContainer.innerHTML = '';
 
-      const filtered = history.filter(item => 
-        item.qNo.toLowerCase().includes(filterText.toLowerCase()) || 
-        item.name.toLowerCase().includes(filterText.toLowerCase())
+/* =========================================
+   CLEAR FORM
+========================================= */
+
+function clearQuotationForm(){
+
+  document.getElementById('custName').value='';
+  document.getElementById('custPhone').value='';
+  document.getElementById('custEmail').value='';
+  document.getElementById('custPickup').value='';
+
+  document.getElementById('driverName').value='';
+  document.getElementById('driverPhone').value='';
+  document.getElementById('vehicleReg').value='';
+
+  document.getElementById('fromLoc').value='';
+  document.getElementById('toLoc').value='';
+
+  document.getElementById('pickupTime').value='';
+  document.getElementById('distanceInfo').value='';
+
+  document.getElementById('vehicleName').value='';
+  document.getElementById('manualTotal').value='';
+
+  document.getElementById('driverAllowance').value='';
+  document.getElementById('discountAmount').value='';
+
+
+  document.getElementById('displayBase')
+    .innerText='₹0';
+
+  document.getElementById('displayDriverAllowance')
+    .innerText='₹0';
+
+  document.getElementById('displaySubTotal')
+    .innerText='₹0';
+
+  document.getElementById('displayDiscount')
+    .innerText='-₹0';
+
+  document.getElementById('displayGrandTotal')
+    .innerText='₹0';
+
+}
+
+
+/* =========================================
+   HISTORY TOGGLE
+========================================= */
+
+function toggleHistory(){
+
+  const card =
+    document.getElementById('historyCard');
+
+
+  card.style.display =
+    card.style.display === 'block'
+      ? 'none'
+      : 'block';
+
+}
+
+
+/* =========================================
+   LOAD HISTORY
+========================================= */
+
+function loadHistoryList(filterText=''){
+
+  const history =
+    JSON.parse(
+      localStorage.getItem('sd_quotes')
+    ) || [];
+
+
+  const listContainer =
+    document.getElementById('historyList');
+
+
+  listContainer.innerHTML='';
+
+
+  const search =
+    filterText.toLowerCase();
+
+
+  const filtered =
+    history.filter(item => {
+
+      const qNo =
+        String(item.qNo || '')
+          .toLowerCase();
+
+
+      const name =
+        String(item.name || '')
+          .toLowerCase();
+
+
+      return(
+        qNo.includes(search) ||
+        name.includes(search)
       );
 
-      if(filtered.length === 0) {
-        listContainer.innerHTML = '<p style="font-size:11px; color:#999; text-align:center; padding:10px;">No quotations found.</p>';
-        return;
-      }
+    });
 
-      filtered.forEach((item, index) => {
-        const div = document.createElement('div');
-        div.className = 'history-item';
-        div.innerHTML = `
-          <div>
-            <strong>${item.qNo}</strong> - ${item.name} (${item.vehicle})<br>
-            <span style="color: #1e3a8a; font-weight:bold;">${item.total}</span>
-          </div>
-          <button class="btn btn-danger" style="min-width:auto; padding:5px 8px;" onclick="deleteHistory(${index})"><i class="fa-solid fa-trash"></i></button>
-        `;
-        listContainer.appendChild(div);
-      });
-    }
 
-    function filterHistory() {
-      const query = document.getElementById('searchHistory').value;
-      loadHistoryList(query);
-    }
+  if(filtered.length===0){
 
-    function deleteHistory(index) {
-      let history = JSON.parse(localStorage.getItem('sd_quotes')) || [];
-      history.splice(index, 1);
-      localStorage.setItem('sd_quotes', JSON.stringify(history));
-      loadHistoryList();
-    }
-  </script>
+    listContainer.innerHTML =
+      '<p style="font-size:11px;color:#999;text-align:center;padding:10px;">No quotations found.</p>';
+
+    return;
+
+  }
+
+
+  filtered.forEach(item => {
+
+    const div =
+      document.createElement('div');
+
+
+    div.className =
+      'history-item';
+
+
+    const originalIndex =
+      history.findIndex(
+        h => h.qNo === item.qNo
+      );
+
+
+    div.innerHTML = `
+
+      <div>
+
+        <strong>
+          ${item.qNo}
+        </strong>
+
+        - ${item.name}
+        (${item.vehicle})
+
+        <br>
+
+        <span
+          style="color:#1e3a8a;font-weight:bold">
+
+          ${item.total}
+
+        </span>
+
+      </div>
+
+
+      <button
+        class="btn btn-danger"
+        style="min-width:auto;padding:5px 8px"
+        onclick="deleteHistory(${originalIndex})">
+
+        <i class="fa-solid fa-trash"></i>
+
+      </button>
+
+    `;
+
+
+    listContainer.appendChild(div);
+
+  });
+
+}
+
+
+/* =========================================
+   SEARCH HISTORY
+========================================= */
+
+function filterHistory(){
+
+  const query =
+    document.getElementById(
+      'searchHistory'
+    ).value;
+
+
+  loadHistoryList(query);
+
+}
+
+
+/* =========================================
+   DELETE HISTORY
+========================================= */
+
+function deleteHistory(index){
+
+  let history =
+    JSON.parse(
+      localStorage.getItem('sd_quotes')
+    ) || [];
+
+
+  if(
+    index < 0 ||
+    index >= history.length
+  ){
+
+    return;
+
+  }
+
+
+  const deletedQuote =
+    history[index].qNo;
+
+
+  const confirmDelete =
+    confirm(
+      `Delete quotation ${deletedQuote}?`
+    );
+
+
+  if(!confirmDelete){
+
+    return;
+
+  }
+
+
+  history.splice(index,1);
+
+
+  localStorage.setItem(
+    'sd_quotes',
+    JSON.stringify(history)
+  );
+
+
+  /*
+    IMPORTANT:
+    Counter NEVER decreases after deletion.
+  */
+
+  getQuotationCounter();
+
+  loadHistoryList();
+
+  prepareQuotationNumber();
+
+}
+
+</script>
+
 </body>
 </html>

@@ -476,7 +476,214 @@ text-decoration:none;
 padding:12px;
 font-weight:bold;
 }
+/* PREMIUM WHY CHOOSE US - UPDATED */
 
+.why-choose{
+    margin:25px auto;
+    padding:28px 16px;
+    max-width:1200px;
+    border-radius:28px;
+
+    background:
+    linear-gradient(
+        135deg,
+        rgba(0,198,255,0.12),
+        rgba(0,0,0,0.62)
+    );
+
+    border:1px solid rgba(0,198,255,0.45);
+
+    box-shadow:
+        0 0 30px rgba(0,198,255,0.18),
+        inset 0 0 30px rgba(255,255,255,0.03);
+
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+
+    text-align:center;
+}
+
+.why-choose h2{
+    margin:0;
+    font-size:28px;
+    line-height:1.2;
+    color:#00c6ff;
+    text-shadow:0 0 18px rgba(0,198,255,0.75);
+}
+
+.why-subtitle{
+    margin:10px auto 20px;
+    max-width:500px;
+    color:#e5e5e5;
+    font-size:14px;
+    line-height:1.5;
+}
+
+/* CARDS */
+
+.why-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.why-card{
+    min-height:185px;
+    padding:18px 10px;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:22px;
+
+    background:rgba(255,255,255,0.055);
+
+    border:1px solid rgba(255,255,255,0.16);
+
+    box-shadow:
+        inset 0 0 20px rgba(255,255,255,0.025);
+
+    transition:all .3s ease;
+}
+
+.why-card:hover{
+    transform:translateY(-5px);
+    border-color:#00c6ff;
+    box-shadow:
+        0 8px 25px rgba(0,198,255,0.22);
+}
+
+.why-icon{
+    font-size:34px;
+    margin-bottom:7px;
+}
+
+.why-card h3{
+    margin:5px 0 8px;
+    color:white;
+    font-size:17px;
+    line-height:1.25;
+}
+
+.why-card p{
+    margin:0;
+    color:#ddd;
+    font-size:13px;
+    line-height:1.5;
+}
+
+/* BOTTOM BRAND BOX */
+
+.why-bottom{
+    margin-top:18px;
+    padding:14px;
+
+    border-radius:18px;
+
+    background:
+    linear-gradient(
+        90deg,
+        rgba(0,198,255,0.10),
+        rgba(0,114,255,0.12)
+    );
+
+    border:1px solid rgba(0,198,255,0.20);
+
+    color:#00c6ff;
+    font-size:15px;
+}
+
+.why-bottom span{
+    color:white;
+    font-size:12px;
+    font-style:italic;
+}
+
+/* MOBILE */
+
+@media(max-width:767px){
+
+    .why-choose{
+        margin:22px 12px;
+        padding:24px 12px;
+        border-radius:26px;
+    }
+
+    .why-choose h2{
+        font-size:26px;
+    }
+
+    .why-subtitle{
+        font-size:14px;
+        margin-bottom:18px;
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:11px;
+    }
+
+    .why-card{
+        min-height:175px;
+        padding:16px 9px;
+        border-radius:21px;
+    }
+
+    .why-icon{
+        font-size:32px;
+    }
+
+    .why-card h3{
+        font-size:16px;
+    }
+
+    .why-card p{
+        font-size:12.5px;
+        line-height:1.5;
+    }
+
+    .why-bottom{
+        margin-top:16px;
+    }
+}
+
+/* PC */
+
+@media(min-width:768px){
+
+    .why-choose{
+        padding:42px;
+    }
+
+    .why-choose h2{
+        font-size:40px;
+    }
+
+    .why-subtitle{
+        font-size:17px;
+        margin-bottom:28px;
+    }
+
+    .why-grid{
+        grid-template-columns:repeat(3,1fr);
+        gap:18px;
+    }
+
+    .why-card{
+        min-height:200px;
+        padding:22px;
+    }
+
+    .why-card h3{
+        font-size:19px;
+    }
+
+    .why-card p{
+        font-size:14px;
+    }
+}
 </style>
 </head>
 
@@ -643,10 +850,37 @@ We are available 24×7 for airport pickup & drop, family trips, business travel 
 ✔ Local & Outstation Trips
 
 </p>
+<!-- WHY CHOOSE US --><div class="why-choose"><h2>✨ Why Choose Shree Devi Travels?</h2><p class="why-subtitle">
+Your comfort, safety and satisfaction are our priority.
+</p><div class="why-grid"><div class="why-card">
+<div class="why-icon">🛡️</div>
+<h3>Safe & Reliable</h3>
+<p>Safe and dependable travel with experienced professional drivers.</p>
+</div><div class="why-card">
+<div class="why-icon">⏱️</div>
+<h3>On-Time Pickup</h3>
+<p>We value your time and ensure timely pickup and drop services.</p>
+</div><div class="why-card">
+<div class="why-icon">🚘</div>
+<h3>Clean & Comfortable</h3>
+<p>Well-maintained vehicles for a smooth and comfortable journey.</p>
+</div><div class="why-card">
+<div class="why-icon">💰</div>
+<h3>Affordable Pricing</h3>
+<p>Quality travel service at competitive and transparent prices.</p>
+</div><div class="why-card">
+<div class="why-icon">📍</div>
+<h3>Local & Outstation</h3>
+<p>Local trips, airport transfers and outstation travel available.</p>
+</div><div class="why-card">
+<div class="why-icon">📞</div>
+<h3>24×7 Support</h3>
+<p>We're available whenever you need a reliable travel partner.</p>
+</div></div><div class="why-bottom">
+🚖 <b>SHREE DEVI TRAVELS MANIPAL</b><br>
+<span>Your Journey, Our Responsibility</span>
+</div></div>
 
-<p style="color:#00c6ff;font-weight:bold;">
-Your Journey, Our Responsibility 🚖
-</p>
 
 <div class="version">
 Version 1. 0. 8 
