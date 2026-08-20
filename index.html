@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
 
-<title>Shree Devi Travels Manipal | Cab Service</title>
+<meta charset="UTF-8">
 
-<meta name="description" content="Shree Devi Travels Manipal. Best cab service in Manipal. Call +91 6362635718 or +91 7019849902 for booking.">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SHREE DEVI TRAVELS MANIPAL | Cab & Taxi Service</title>
 
-<link rel="canonical" href="https://shreedevitravels.github.io/">
+<meta name="description"
+content="SHREE DEVI TRAVELS MANIPAL - Safe, reliable and comfortable cab service for Manipal, Udupi, Mangalore, airport transfers and outstation trips. Book now.">
+
+<meta name="keywords"
+content="Shree Devi Travels Manipal, Manipal cab service, Manipal taxi, Udupi taxi, Mangalore airport cab, airport taxi Manipal, outstation taxi">
+
+<meta name="author"
+content="SHREE DEVI TRAVELS MANIPAL">
+
+<meta name="version" content="1.0.9">
+
+<link rel="canonical"
+href="https://shreedevitravels.github.io/Shree_devi_travels_manipal/">
 
 <style>
 
-body{
-margin:0;
-font-family:'Segoe UI',sans-serif;
-color:white;
-padding-bottom:80px;
-overflow-x:hidden;
-background:black;
+*{
+box-sizing:border-box;
+scroll-behavior:smooth;
 }
 
-/* VIDEO BACKGROUND */
+html{
+scroll-behavior:smooth;
+}
+
+body{
+margin:0;
+font-family:'Segoe UI',Arial,sans-serif;
+color:white;
+background:#02070b;
+overflow-x:hidden;
+padding-bottom:75px;
+}
+
+/* VIDEO */
 
 .bg-video{
 position:fixed;
@@ -30,55 +53,75 @@ left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-2;
-opacity:0.70;
-filter:brightness(0.9);
+z-index:-3;
+opacity:.55;
+filter:brightness(.65);
 }
-
-/* OVERLAY */
 
 .overlay{
 position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.25);
-z-index:-1;
+inset:0;
+background:
+linear-gradient(
+135deg,
+rgba(0,0,0,.78),
+rgba(0,35,55,.42),
+rgba(0,0,0,.82)
+);
+z-index:-2;
 }
 
-/* SPLASH SCREEN */
+/* SPLASH */
 
 #splash{
 position:fixed;
 inset:0;
-background:linear-gradient(135deg,#000,#0f2027,#000);
+background:
+radial-gradient(
+circle at center,
+#07354b 0%,
+#02080d 55%,
+#000 100%
+);
 display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-z-index:99999;
-color:white;
+z-index:999999;
 animation:splashHide 1s ease forwards;
-animation-delay:2.5s;
+animation-delay:2.3s;
 }
 
-#splash .logo{
-font-size:70px;
-margin-bottom:15px;
+.splash-logo{
+font-size:72px;
 animation:logoZoom 1.5s ease;
+filter:drop-shadow(0 0 20px #00c6ff);
 }
 
 #splash h1{
-font-size:26px;
-color:#00c6ff;
-margin:0;
+margin:15px;
 text-align:center;
+font-size:25px;
+color:#00c6ff;
+text-transform:uppercase;
+letter-spacing:1px;
+}
+
+.splash-line{
+width:180px;
+height:3px;
+background:linear-gradient(
+90deg,
+transparent,
+#00c6ff,
+transparent
+);
+animation:pulseLine 1.5s infinite;
 }
 
 @keyframes logoZoom{
 0%{
-transform:scale(0.5);
+transform:scale(.3);
 opacity:0;
 }
 100%{
@@ -94,47 +137,87 @@ visibility:hidden;
 }
 }
 
+@keyframes pulseLine{
+0%,100%{
+opacity:.3;
+transform:scaleX(.6);
+}
+50%{
+opacity:1;
+transform:scaleX(1);
+}
+}
+
 /* HEADER */
 
 header{
+margin:15px;
+padding:30px 18px;
 text-align:center;
-padding:25px;
-background:rgba(0,0,0,0.20);
-backdrop-filter:blur(8px);
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,198,255,.10),
+rgba(0,0,0,.55)
+);
+
+border:1px solid rgba(0,198,255,.25);
+
+backdrop-filter:blur(14px);
+-webkit-backdrop-filter:blur(14px);
+
+box-shadow:
+0 0 35px rgba(0,198,255,.12);
 }
 
 header img{
+width:115px;
+height:115px;
+object-fit:cover;
 border-radius:50%;
-box-shadow:0 0 25px rgba(0,198,255,0.8);
+
+border:2px solid rgba(0,198,255,.7);
+
+box-shadow:
+0 0 15px rgba(0,198,255,.5),
+0 0 40px rgba(0,198,255,.2);
 }
 
 header h1{
 font-size:28px;
-margin-top:15px;
+margin:18px 0 8px;
+text-transform:uppercase;
+letter-spacing:.5px;
 }
 
 .tagline{
-font-style:italic;
+font-size:17px;
 font-weight:bold;
+font-style:italic;
 color:#00c6ff;
-font-size:18px;
+margin:0;
 }
 
-/* CONTACT BOX */
+/* CONTACT */
 
 .contact-box{
-margin-top:18px;
-background:rgba(0,198,255,0.12);
-border:1px solid rgba(0,198,255,0.35);
+margin:22px auto 0;
+max-width:700px;
 padding:16px;
+
 border-radius:20px;
+
+background:rgba(0,198,255,.07);
+border:1px solid rgba(0,198,255,.25);
+
 backdrop-filter:blur(8px);
-box-shadow:0 0 18px rgba(0,198,255,0.18);
 }
 
 .contact-box p{
-margin:12px 0;
-font-size:15px;
+margin:11px 0;
+font-size:14px;
 }
 
 .contact-box a{
@@ -147,167 +230,983 @@ font-weight:bold;
 color:#00c6ff;
 }
 
-/* 10% OFFER */
+/* QUICK BUTTONS */
 
-.offer-box{
-margin:25px 15px;
-padding:28px 20px;
-border-radius:28px;
-text-align:center;
-background:linear-gradient(135deg,#ff8a00,#ff2d55);
-box-shadow:0 0 35px rgba(255,120,0,0.55);
-animation:offerGlow 1.5s infinite alternate;
-position:relative;
-overflow:hidden;
+.quick-buttons{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+
+margin:22px auto 0;
+max-width:600px;
 }
 
-.offer-box h2{
-font-size:34px;
-margin:12px 0;
-font-weight:900;
-color:white;
-text-shadow:0 0 15px rgba(255,255,255,0.4);
-}
-
-.offer-box p{
-font-size:16px;
-line-height:1.7;
-margin-bottom:22px;
-color:white;
-}
-
-.offer-box a{
-display:inline-block;
-padding:15px 35px;
-border-radius:40px;
-background:white;
-color:#ff2d55;
-font-size:16px;
-font-weight:bold;
+.quick-buttons a{
+padding:13px 10px;
+border-radius:30px;
 text-decoration:none;
-transition:0.3s;
-box-shadow:0 5px 15px rgba(0,0,0,0.25);
-}
-
-.offer-box a:hover{
-transform:scale(1.05);
-}
-
-.offer-badge{
-position:absolute;
-top:15px;
-right:-40px;
-background:#fff;
-color:#ff2d55;
-padding:8px 50px;
-font-size:13px;
+color:white;
 font-weight:bold;
-transform:rotate(35deg);
-box-shadow:0 3px 10px rgba(0,0,0,0.25);
+font-size:14px;
+transition:.3s;
 }
 
-@keyframes offerGlow{
-from{
-transform:scale(1);
-box-shadow:0 0 20px rgba(255,120,0,0.45);
-}
-to{
-transform:scale(1.02);
-box-shadow:0 0 40px rgba(255,60,0,0.75);
-}
+.quick-call{
+background:
+linear-gradient(
+45deg,
+#00c853,
+#00e676
+);
 }
 
-/* AD BANNER */
+.quick-whatsapp{
+background:
+linear-gradient(
+45deg,
+#20c66b,
+#25d366
+);
+}
+
+.quick-buttons a:hover{
+transform:translateY(-3px);
+}
+
+/* EXISTING MAIN AD */
 
 .ad-banner{
 margin:25px auto;
 max-width:1200px;
-padding:0 15px;
+padding:0 12px;
 }
 
 .ad-banner img{
 width:100%;
-border-radius:20px;
-box-shadow:0 6px 18px rgba(0,0,0,0.5);
+display:block;
+border-radius:22px;
+box-shadow:
+0 8px 25px rgba(0,0,0,.5);
 }
 
-/* BOOKING SECTION */
+/* SPONSORED BUSINESS PROMOTION */
 
-.container{
-margin:20px auto;
-padding:25px;
-border-radius:25px;
-background:rgba(255,255,255,0.03);
-backdrop-filter:blur(5px);
+.promo-section{
 max-width:1200px;
+margin:28px auto;
+padding:0 12px;
 }
 
-/* INPUTS */
+.promo-card{
+position:relative;
+overflow:hidden;
+border-radius:28px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,198,255,.12),
+rgba(0,0,0,.72),
+rgba(0,114,255,.10)
+);
+
+border:1px solid rgba(0,198,255,.32);
+
+box-shadow:
+0 12px 35px rgba(0,0,0,.45),
+0 0 30px rgba(0,198,255,.10);
+
+backdrop-filter:blur(15px);
+-webkit-backdrop-filter:blur(15px);
+}
+
+.promo-top{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+padding:16px 18px 8px;
+}
+
+.promo-label{
+display:inline-flex;
+align-items:center;
+gap:7px;
+padding:7px 13px;
+border-radius:20px;
+
+background:
+linear-gradient(45deg,#ff9800,#ff5722);
+
+color:white;
+font-size:11px;
+font-weight:900;
+letter-spacing:.8px;
+
+box-shadow:
+0 4px 14px rgba(255,87,34,.28);
+}
+
+.promo-sponsored{
+font-size:10px;
+color:#aaa;
+letter-spacing:1px;
+font-weight:bold;
+}
+
+.promo-title{
+text-align:center;
+font-size:12px;
+color:#00c6ff;
+font-weight:900;
+letter-spacing:1.5px;
+margin:5px 0 10px;
+text-transform:uppercase;
+}
+
+.promo-slider{
+position:relative;
+height:245px;
+margin:0 12px;
+overflow:hidden;
+border-radius:20px;
+background:#071018;
+}
+
+.promo-slide{
+position:absolute;
+inset:0;
+width:100%;
+height:100%;
+object-fit:cover;
+opacity:0;
+transition:opacity .7s ease;
+}
+
+.promo-slide.active{
+opacity:1;
+}
+
+.promo-gradient{
+position:absolute;
+inset:0;
+background:
+linear-gradient(
+180deg,
+rgba(0,0,0,.03) 35%,
+rgba(0,0,0,.72) 100%
+);
+pointer-events:none;
+}
+
+.promo-dots{
+position:absolute;
+bottom:10px;
+left:0;
+right:0;
+display:flex;
+justify-content:center;
+gap:6px;
+z-index:3;
+}
+
+.promo-dot{
+width:7px;
+height:7px;
+border-radius:50%;
+background:rgba(255,255,255,.45);
+transition:.3s;
+}
+
+.promo-dot.active{
+width:22px;
+border-radius:10px;
+background:#00c6ff;
+}
+
+.promo-content{
+padding:18px 18px 20px;
+text-align:center;
+}
+
+.promo-content h2{
+margin:0 0 7px;
+font-size:27px;
+letter-spacing:.5px;
+}
+
+.promo-tagline{
+margin:0 0 10px;
+font-size:13px;
+color:#ddd;
+line-height:1.5;
+}
+
+.promo-location{
+font-size:13px;
+font-weight:bold;
+color:#00c6ff;
+margin:8px 0;
+}
+
+.promo-phone{
+font-size:18px;
+font-weight:900;
+color:white;
+margin:8px 0 15px;
+}
+
+.promo-actions{
+display:flex;
+justify-content:center;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.promo-btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+padding:11px 20px;
+border-radius:25px;
+text-decoration:none;
+font-size:13px;
+font-weight:900;
+transition:.3s;
+}
+
+.promo-call{
+background:linear-gradient(45deg,#00c853,#00e676);
+color:white;
+}
+
+.promo-whatsapp{
+background:linear-gradient(45deg,#20c66b,#25d366);
+color:white;
+}
+
+.promo-btn:hover{
+transform:translateY(-3px);
+box-shadow:0 8px 20px rgba(0,0,0,.3);
+}
+
+.promo-footer{
+text-align:center;
+font-size:10px;
+color:#777;
+padding:0 15px 15px;
+letter-spacing:.5px;
+}
+
+/* SECTION */
+
+.section{
+max-width:1200px;
+
+margin:30px auto;
+padding:28px 16px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,198,255,.07),
+rgba(0,0,0,.45)
+);
+
+border:1px solid rgba(255,255,255,.12);
+
+border-radius:28px;
+
+backdrop-filter:blur(12px);
+}
+
+.section-title{
+text-align:center;
+color:#00c6ff;
+font-size:29px;
+margin:0 0 8px;
+
+text-shadow:
+0 0 15px rgba(0,198,255,.5);
+}
+
+.section-subtitle{
+text-align:center;
+color:#ddd;
+font-size:14px;
+line-height:1.6;
+margin:0 auto 25px;
+max-width:650px;
+}
+
+/* SERVICES */
+
+.services-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.service-card{
+padding:20px 10px;
+text-align:center;
+border-radius:20px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid rgba(255,255,255,.12);
+
+transition:.3s;
+}
+
+.service-card:hover{
+transform:translateY(-5px);
+border-color:#00c6ff;
+
+box-shadow:
+0 10px 25px rgba(0,198,255,.15);
+}
+
+.service-icon{
+font-size:35px;
+}
+
+.service-card h3{
+font-size:16px;
+margin:9px 0 6px;
+}
+
+.service-card p{
+font-size:12px;
+color:#ccc;
+line-height:1.5;
+margin:0;
+}
+
+/* VEHICLES */
+
+.fleet-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
+}
+
+.fleet-card{
+overflow:hidden;
+border-radius:22px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid rgba(255,255,255,.14);
+
+transition:.3s;
+}
+
+.fleet-card:hover{
+transform:translateY(-5px);
+border-color:#00c6ff;
+
+box-shadow:
+0 10px 25px rgba(0,198,255,.15);
+}
+
+.fleet-photo{
+height:135px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+font-size:60px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,198,255,.15),
+rgba(0,0,0,.5)
+);
+}
+
+.fleet-content{
+padding:15px;
+text-align:center;
+}
+
+.fleet-content h3{
+margin:0 0 6px;
+font-size:17px;
+}
+
+.fleet-content p{
+margin:0 0 12px;
+font-size:12px;
+color:#ccc;
+line-height:1.5;
+}
+
+.fleet-btn{
+display:inline-block;
+
+padding:9px 18px;
+
+border-radius:25px;
+
+background:
+linear-gradient(
+45deg,
+#00c6ff,
+#0072ff
+);
+
+color:white;
+text-decoration:none;
+
+font-size:12px;
+font-weight:bold;
+}
+
+/* ALL TYPES AVAILABLE */
+
+.all-vehicles{
+margin-top:22px;
+text-align:center;
+padding:17px 10px;
+
+border-radius:20px;
+
+background:
+linear-gradient(
+90deg,
+rgba(0,198,255,.10),
+rgba(0,114,255,.15),
+rgba(0,198,255,.10)
+);
+
+border:1px solid rgba(0,198,255,.35);
+
+box-shadow:
+0 0 20px rgba(0,198,255,.12);
+}
+
+.all-vehicles-title{
+font-size:19px;
+font-weight:900;
+color:#00c6ff;
+
+text-shadow:
+0 0 12px rgba(0,198,255,.7);
+}
+
+.all-vehicles-text{
+font-size:12px;
+color:#ddd;
+margin-top:6px;
+}
+
+/* ROUTES */
+
+.routes-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:10px;
+}
+
+.route-card{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:10px;
+
+padding:15px;
+
+border-radius:18px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid rgba(255,255,255,.1);
+}
+
+.route-name{
+font-size:14px;
+font-weight:bold;
+}
+
+.route-btn{
+padding:8px 13px;
+border-radius:20px;
+background:#00c853;
+color:white;
+text-decoration:none;
+font-size:11px;
+font-weight:bold;
+white-space:nowrap;
+}
+
+/* BOOKING */
+
+.booking-section{
+margin:25px auto;
+max-width:1200px;
+padding:28px 16px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,198,255,.11),
+rgba(0,0,0,.58)
+);
+
+border-radius:28px;
+
+border:
+1px solid rgba(0,198,255,.28);
+
+backdrop-filter:blur(15px);
+}
 
 .input-box{
-margin:15px 0;
+margin:12px 0;
 }
 
-.input-box input{
+.input-box label{
+display:block;
+font-size:13px;
+color:#ddd;
+margin:0 0 6px 8px;
+}
+
+.input-box input,
+.input-box select,
+.input-box textarea{
+
 width:100%;
-padding:16px;
-border-radius:30px;
-border:none;
-background:rgba(255,255,255,0.12);
-color:white;
-font-size:16px;
-outline:none;
-box-sizing:border-box;
-border:1px solid rgba(255,255,255,0.18);
-}
 
-.input-box input::placeholder{
-color:#eee;
-}
-
-/* BUTTONS */
-
-button{
-width:100%;
 padding:15px;
+
+border-radius:18px;
+
+border:
+1px solid rgba(255,255,255,.16);
+
+background:
+rgba(255,255,255,.09);
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+}
+
+.input-box textarea{
+min-height:90px;
+resize:vertical;
+}
+
+.input-box input::placeholder,
+.input-box textarea::placeholder{
+color:#ddd;
+}
+
+.input-box select option{
+color:black;
+}
+
+.booking-row{
+display:grid;
+grid-template-columns:1fr;
+gap:0;
+}
+
+.booking-full{
+grid-column:1/-1;
+}
+
+.other-vehicle-box{
+display:none;
+}
+
+.main-btn{
+width:100%;
+
+padding:16px;
+
+border:0;
 border-radius:30px;
-border:none;
-margin-top:12px;
+
+background:
+linear-gradient(
+45deg,
+#00c6ff,
+#0072ff
+);
+
+color:white;
+
 font-size:16px;
 font-weight:bold;
-background:linear-gradient(45deg,#00c6ff,#0072ff);
-color:white;
-transition:0.3s;
+
 cursor:pointer;
+
+transition:.3s;
 }
 
-button:hover{
-transform:scale(1.03);
+.main-btn:hover{
+transform:translateY(-2px);
+
+box-shadow:
+0 8px 20px rgba(0,114,255,.35);
 }
 
 .call-btn{
-background:linear-gradient(45deg,#00ff7f,#00c853);
+width:100%;
+padding:16px;
+
+border:0;
+border-radius:30px;
+margin-top:10px;
+
+background:
+linear-gradient(
+45deg,
+#00c853,
+#00e676
+);
+
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
 }
 
 .email-btn{
-background:linear-gradient(45deg,#ff9800,#ff5722);
+width:100%;
+padding:16px;
+
+border:0;
+border-radius:30px;
+margin-top:10px;
+
+background:
+linear-gradient(
+45deg,
+#ff9800,
+#ff5722
+);
+
+color:white;
+font-weight:bold;
+font-size:16px;
+cursor:pointer;
 }
 
-.book-title{
-color:#00c6ff;
-text-shadow:0 0 15px rgba(0,198,255,0.8);
+/* WHY */
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:12px;
 }
 
-.about-title{
-color:#00c6ff;
-margin-top:20px;
-}
+.why-card{
+min-height:175px;
+padding:18px 10px;
 
-.version{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+
 text-align:center;
-font-size:12px;
-color:#ccc;
+
+border-radius:21px;
+
+background:
+rgba(255,255,255,.055);
+
+border:
+1px solid rgba(255,255,255,.14);
+
+transition:.3s;
+}
+
+.why-card:hover{
+transform:translateY(-5px);
+border-color:#00c6ff;
+}
+
+.why-icon{
+font-size:34px;
+}
+
+.why-card h3{
+font-size:16px;
+margin:8px 0;
+}
+
+.why-card p{
+font-size:12.5px;
+color:#ddd;
+line-height:1.5;
+margin:0;
+}
+
+/* ABOUT */
+
+.about-text{
+font-size:15px;
+line-height:1.8;
+color:#eee;
+text-align:center;
+}
+
+/* TRUST */
+
+.trust-box{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
 margin-top:20px;
+}
+
+.trust-item{
+padding:14px;
+text-align:center;
+
+border-radius:17px;
+
+background:
+rgba(0,198,255,.07);
+
+border:
+1px solid rgba(0,198,255,.18);
+}
+
+.trust-item strong{
+display:block;
+font-size:20px;
+color:#00c6ff;
+}
+
+.trust-item span{
+font-size:11px;
+color:#ddd;
+}
+
+/* REVIEWS */
+
+.review-box{
+text-align:center;
+padding:25px;
+
+background:
+linear-gradient(
+135deg,
+rgba(255,193,7,.08),
+rgba(0,0,0,.35)
+);
+
+border:
+1px solid rgba(255,193,7,.2);
+
+border-radius:23px;
+}
+
+.stars{
+font-size:28px;
+letter-spacing:3px;
+}
+
+.review-box p{
+color:#ddd;
+font-size:14px;
+line-height:1.6;
+}
+
+.review-btn{
+display:inline-block;
+padding:13px 25px;
+
+border-radius:30px;
+
+background:
+linear-gradient(
+45deg,
+#ffc107,
+#ff9800
+);
+
+color:#111;
+font-weight:bold;
+text-decoration:none;
+}
+
+/* CONTACT */
+
+.contact-grid{
+display:grid;
+grid-template-columns:1fr;
+gap:12px;
+}
+
+.contact-card{
+padding:20px;
+text-align:center;
+
+border-radius:20px;
+
+background:
+rgba(255,255,255,.05);
+
+border:
+1px solid rgba(255,255,255,.12);
+}
+
+.contact-card .icon{
+font-size:30px;
+}
+
+.contact-card h3{
+margin:8px 0;
+}
+
+.contact-card a{
+color:#00c6ff;
+text-decoration:none;
+font-weight:bold;
+font-size:14px;
+word-break:break-word;
+}
+
+/* FOOTER */
+
+footer{
+margin-top:30px;
+padding:35px 18px 100px;
+
+background:
+linear-gradient(
+135deg,
+rgba(0,0,0,.95),
+rgba(0,32,48,.95)
+);
+
+border-top:
+1px solid rgba(0,198,255,.2);
+
+text-align:center;
+}
+
+.footer-logo{
+font-size:25px;
+font-weight:900;
+color:#00c6ff;
+}
+
+.footer-tagline{
+font-size:13px;
+color:#aaa;
+font-style:italic;
+margin:8px 0 20px;
+}
+
+.footer-links{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:8px;
+}
+
+.footer-links a{
+color:#ddd;
+text-decoration:none;
+font-size:12px;
+padding:7px 10px;
+}
+
+.footer-links a:hover{
+color:#00c6ff;
+}
+
+.footer-copy{
+margin-top:20px;
+font-size:11px;
+color:#888;
+}
+
+/* MANAGED BY */
+
+.managed-by{
+margin-top:12px;
+font-size:12px;
+color:#aaa;
+}
+
+.managed-by a{
+color:#00c6ff;
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
+}
+
+.managed-by a:hover{
+color:white;
+text-shadow:0 0 10px #00c6ff;
+}
+
+/* WHATSAPP */
+
+.whatsapp{
+position:fixed;
+bottom:88px;
+right:18px;
+
+width:55px;
+height:55px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:#25D366;
+color:white;
+
+border-radius:50%;
+
+font-size:25px;
+text-decoration:none;
+
+box-shadow:
+0 5px 18px rgba(0,0,0,.5);
+
+z-index:999;
+
+animation:whatsappPulse 2s infinite;
+}
+
+@keyframes whatsappPulse{
+
+0%{
+box-shadow:
+0 0 0 0 rgba(37,211,102,.6);
+}
+
+70%{
+box-shadow:
+0 0 0 14px rgba(37,211,102,0);
+}
+
+100%{
+box-shadow:
+0 0 0 0 rgba(37,211,102,0);
+}
+
 }
 
 /* BOTTOM BAR */
@@ -317,382 +1216,377 @@ position:fixed;
 bottom:0;
 left:0;
 width:100%;
-background:#111;
+
+background:
+rgba(0,0,0,.93);
+
+backdrop-filter:blur(10px);
+
+border-top:
+1px solid rgba(0,198,255,.2);
+
 display:flex;
 justify-content:space-around;
+
 padding:8px 0;
-z-index:999;
+
+z-index:998;
 }
 
 .bottom-bar a{
 color:white;
 text-decoration:none;
 text-align:center;
-font-size:13px;
+font-size:11px;
+min-width:60px;
 }
 
 .bottom-bar a:hover{
 color:#00c6ff;
 }
 
-/* WHATSAPP */
+/* MENU */
 
-.whatsapp{
-position:fixed;
-bottom:90px;
-right:20px;
-background:#25D366;
-color:white;
-padding:15px;
-border-radius:50%;
-font-size:22px;
-text-decoration:none;
-box-shadow:0 4px 10px rgba(0,0,0,0.4);
-z-index:999;
-}
-
-/* ONLY PC VIEW FIX */
-
-@media screen and (min-width:768px){
-
-header{
-max-width:1200px;
-margin:20px auto;
-border-radius:25px;
-padding:40px;
-}
-
-header h1{
-font-size:46px;
-}
-
-.tagline{
-font-size:24px;
-}
-
-header img{
-width:140px;
-}
-
-.contact-box{
-max-width:700px;
-margin:25px auto 0;
-padding:25px;
-}
-
-.contact-box p{
-font-size:18px;
-}
-
-.offer-box{
-max-width:1200px;
-margin:35px auto;
-padding:45px;
-}
-
-.offer-box h2{
-font-size:58px;
-}
-
-.offer-box p{
-font-size:24px;
-}
-
-.offer-box a{
-font-size:20px;
-padding:18px 45px;
-}
-
-.container{
-padding:45px;
-}
-
-.book-title,
-.about-title{
-font-size:42px;
-}
-
-.input-box input{
-padding:22px;
-font-size:19px;
-}
-
-button{
-padding:20px;
-font-size:20px;
-}
-
-.container p{
-font-size:19px;
-line-height:2;
-}
-
-.bottom-bar a{
-font-size:15px;
-}
-
-}
-
-/* LARGE PC */
-
-@media screen and (min-width:1200px){
-
-body{
-font-size:18px;
-}
-
-.offer-box,
-.container,
-header{
-width:90%;
-}
-
-}
 .menu{
 position:fixed;
-top:20px;
-right:20px;
-z-index:99999;
+top:18px;
+right:18px;
+z-index:9999;
 }
 
 .menu-btn{
-font-size:35px;
+width:45px;
+height:45px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:
+rgba(0,0,0,.7);
+
+border:
+1px solid rgba(0,198,255,.35);
+
+font-size:25px;
 cursor:pointer;
 }
 
 #menuBox{
 display:none;
-background:rgba(0,0,0,.8);
-backdrop-filter:blur(10px);
-padding:15px;
-border-radius:20px;
-width:160px;
+
+position:absolute;
+right:0;
+top:52px;
+
+width:180px;
+padding:10px;
+
+border-radius:18px;
+
+background:
+rgba(0,0,0,.9);
+
+border:
+1px solid rgba(0,198,255,.3);
+
+backdrop-filter:blur(12px);
 }
 
 #menuBox a{
 display:block;
+padding:12px;
+
 color:white;
 text-decoration:none;
-padding:12px;
+
+font-size:14px;
 font-weight:bold;
-}
-/* PREMIUM WHY CHOOSE US - UPDATED */
 
-.why-choose{
-    margin:25px auto;
-    padding:28px 16px;
-    max-width:1200px;
-    border-radius:28px;
-
-    background:
-    linear-gradient(
-        135deg,
-        rgba(0,198,255,0.12),
-        rgba(0,0,0,0.62)
-    );
-
-    border:1px solid rgba(0,198,255,0.45);
-
-    box-shadow:
-        0 0 30px rgba(0,198,255,0.18),
-        inset 0 0 30px rgba(255,255,255,0.03);
-
-    backdrop-filter:blur(14px);
-    -webkit-backdrop-filter:blur(14px);
-
-    text-align:center;
+border-radius:10px;
 }
 
-.why-choose h2{
-    margin:0;
-    font-size:28px;
-    line-height:1.2;
-    color:#00c6ff;
-    text-shadow:0 0 18px rgba(0,198,255,0.75);
+#menuBox a:hover{
+background:
+rgba(0,198,255,.12);
+
+color:#00c6ff;
 }
 
-.why-subtitle{
-    margin:10px auto 20px;
-    max-width:500px;
-    color:#e5e5e5;
-    font-size:14px;
-    line-height:1.5;
+/* POPUP */
+
+.popup-overlay{
+position:fixed;
+inset:0;
+
+background:
+rgba(0,0,0,.78);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+z-index:999999;
 }
 
-/* CARDS */
+.popup{
+width:90%;
+max-width:370px;
 
-.why-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
+padding:28px;
+
+border-radius:25px;
+
+background:white;
+color:#111;
+
+text-align:center;
+
+box-shadow:
+0 10px 50px rgba(0,0,0,.6);
 }
 
-.why-card{
-    min-height:185px;
-    padding:18px 10px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    border-radius:22px;
-
-    background:rgba(255,255,255,0.055);
-
-    border:1px solid rgba(255,255,255,0.16);
-
-    box-shadow:
-        inset 0 0 20px rgba(255,255,255,0.025);
-
-    transition:all .3s ease;
+.popup h2{
+margin-top:0;
 }
 
-.why-card:hover{
-    transform:translateY(-5px);
-    border-color:#00c6ff;
-    box-shadow:
-        0 8px 25px rgba(0,198,255,0.22);
-}
+.popup button{
+width:auto;
+padding:12px 25px;
 
-.why-icon{
-    font-size:34px;
-    margin-bottom:7px;
-}
+border:0;
+border-radius:30px;
 
-.why-card h3{
-    margin:5px 0 8px;
-    color:white;
-    font-size:17px;
-    line-height:1.25;
-}
+background:#00c853;
 
-.why-card p{
-    margin:0;
-    color:#ddd;
-    font-size:13px;
-    line-height:1.5;
-}
-
-/* BOTTOM BRAND BOX */
-
-.why-bottom{
-    margin-top:18px;
-    padding:14px;
-
-    border-radius:18px;
-
-    background:
-    linear-gradient(
-        90deg,
-        rgba(0,198,255,0.10),
-        rgba(0,114,255,0.12)
-    );
-
-    border:1px solid rgba(0,198,255,0.20);
-
-    color:#00c6ff;
-    font-size:15px;
-}
-
-.why-bottom span{
-    color:white;
-    font-size:12px;
-    font-style:italic;
-}
-
-/* MOBILE */
-
-@media(max-width:767px){
-
-    .why-choose{
-        margin:22px 12px;
-        padding:24px 12px;
-        border-radius:26px;
-    }
-
-    .why-choose h2{
-        font-size:26px;
-    }
-
-    .why-subtitle{
-        font-size:14px;
-        margin-bottom:18px;
-    }
-
-    .why-grid{
-        grid-template-columns:repeat(2,1fr);
-        gap:11px;
-    }
-
-    .why-card{
-        min-height:175px;
-        padding:16px 9px;
-        border-radius:21px;
-    }
-
-    .why-icon{
-        font-size:32px;
-    }
-
-    .why-card h3{
-        font-size:16px;
-    }
-
-    .why-card p{
-        font-size:12.5px;
-        line-height:1.5;
-    }
-
-    .why-bottom{
-        margin-top:16px;
-    }
+color:white;
+font-weight:bold;
+cursor:pointer;
 }
 
 /* PC */
 
 @media(min-width:768px){
 
-    .why-choose{
-        padding:42px;
-    }
-
-    .why-choose h2{
-        font-size:40px;
-    }
-
-    .why-subtitle{
-        font-size:17px;
-        margin-bottom:28px;
-    }
-
-    .why-grid{
-        grid-template-columns:repeat(3,1fr);
-        gap:18px;
-    }
-
-    .why-card{
-        min-height:200px;
-        padding:22px;
-    }
-
-    .why-card h3{
-        font-size:19px;
-    }
-
-    .why-card p{
-        font-size:14px;
-    }
+header{
+max-width:1200px;
+margin:25px auto;
+padding:45px;
 }
+
+header img{
+width:140px;
+height:140px;
+}
+
+header h1{
+font-size:45px;
+}
+
+.tagline{
+font-size:23px;
+}
+
+.contact-box p{
+font-size:17px;
+}
+
+.quick-buttons{
+grid-template-columns:repeat(2,220px);
+justify-content:center;
+}
+
+.promo-slider{
+height:400px;
+}
+
+.promo-content h2{
+font-size:34px;
+}
+
+.promo-tagline{
+font-size:15px;
+}
+
+.section,
+.booking-section{
+padding:45px;
+}
+
+.section-title{
+font-size:40px;
+}
+
+.services-grid{
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.service-card{
+padding:28px 18px;
+}
+
+.service-icon{
+font-size:45px;
+}
+
+.service-card h3{
+font-size:19px;
+}
+
+.service-card p{
+font-size:14px;
+}
+
+.fleet-grid{
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+}
+
+.fleet-photo{
+height:170px;
+}
+
+.fleet-content h3{
+font-size:19px;
+}
+
+.fleet-content p{
+font-size:13px;
+}
+
+.all-vehicles-title{
+font-size:24px;
+}
+
+.all-vehicles-text{
+font-size:14px;
+}
+
+.routes-grid{
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.booking-row{
+grid-template-columns:repeat(2,1fr);
+gap:0 15px;
+}
+
+.why-grid{
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+
+.why-card{
+min-height:200px;
+padding:25px;
+}
+
+.why-card h3{
+font-size:19px;
+}
+
+.why-card p{
+font-size:14px;
+}
+
+.trust-box{
+grid-template-columns:repeat(4,1fr);
+}
+
+.contact-grid{
+grid-template-columns:repeat(3,1fr);
+}
+
+.bottom-bar a{
+font-size:14px;
+}
+
+}
+
+/* LARGE PC */
+
+@media(min-width:1200px){
+
+body{
+font-size:18px;
+}
+
+.section,
+.booking-section{
+width:90%;
+}
+
+}
+
+/* SMALL MOBILE */
+
+@media(max-width:360px){
+
+header h1{
+font-size:23px;
+}
+
+.section-title{
+font-size:25px;
+}
+
+.service-card p{
+font-size:11px;
+}
+
+.fleet-card p{
+font-size:11px;
+}
+
+.all-vehicles-title{
+font-size:16px;
+}
+
+.promo-content h2{
+font-size:24px;
+}
+
+.promo-slider{
+height:220px;
+}
+
+}
+.slv-footer-tagline{
+    margin: 20px -10px -10px;
+    padding: 14px 10px;
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #ffffff;
+    background: linear-gradient(90deg, #0b1f33, #123b5d, #0b1f33);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    border-radius: 0 0 22px 22px;
+}
+
 </style>
+
 </head>
 
 <body>
 
 <!-- VIDEO -->
 
-<video autoplay muted loop playsinline class="bg-video">
-<source src="bgvideo.mp4" type="video/mp4">
+<video
+autoplay
+muted
+loop
+playsinline
+class="bg-video">
+
+<source
+src="bgvideo.mp4"
+type="video/mp4">
+
 </video>
 
 <div class="overlay"></div>
@@ -700,23 +1594,89 @@ font-weight:bold;
 <!-- SPLASH -->
 
 <div id="splash">
-<div class="logo">🚖</div>
-<h1>Shree Devi Travels Manipal</h1>
+
+<div class="splash-logo">
+🚖
+</div>
+
+<h1>
+SHREE DEVI TRAVELS MANIPAL
+</h1>
+
+<div class="splash-line"></div>
+
 </div>
 
 <!-- MUSIC -->
 
-<audio id="bgmusic" loop autoplay playsinline>
-<source src="music.mp3" type="audio/mpeg">
+<audio
+id="bgmusic"
+loop
+autoplay>
+
+<source
+src="music.mp3"
+type="audio/mpeg">
+
 </audio>
+
+<!-- MENU -->
+
+<div class="menu">
+
+<div
+class="menu-btn"
+onclick="openMenu()">
+
+☰
+
+</div>
+
+<div id="menuBox">
+
+<a href="admin.html">
+🔐 Admin
+</a>
+
+<a href="coupon.html">
+🎟️ Coupon
+</a>
+
+<a href="quotation.html">
+💰 Quotation
+</a>
+
+<a href="history.html">
+📄 Booking History
+</a>
+
+<a href="news.html">
+📰 News
+</a>
+
+<a
+href="#"
+onclick="callNow();return false;">
+
+📞 Call
+
+</a>
+
+</div>
+
+</div>
 
 <!-- HEADER -->
 
-<header>
+<header id="home">
 
-<img src="logo.png" width="110">
+<img
+src="logo.png"
+alt="SHREE DEVI TRAVELS MANIPAL Logo">
 
-<h1>Shree Devi Travels Manipal</h1>
+<h1>
+SHREE DEVI TRAVELS MANIPAL
+</h1>
 
 <p class="tagline">
 Your Journey, Our Responsibility
@@ -725,342 +1685,1620 @@ Your Journey, Our Responsibility
 <div class="contact-box">
 
 <p>
-📞 
+
+📞
+
 <a href="tel:6362635718">
 +91 63626 35718
 </a>
-|
+
+&nbsp; | &nbsp;
+
 <a href="tel:7019849902">
 +91 70198 49902
 </a>
+
 </p>
 
 <p>
-📧 
-<a href="mailto:shreedevitravelsofficial@gmail.com">
+
+📧
+
+<a
+href="mailto:shreedevitravelsofficial@gmail.com">
+
 shreedevitravelsofficial@gmail.com
+
 </a>
+
 </p>
 
 <p>
+
 📸 Instagram :
-<a href="https://www.instagram.com/shree_devitravels_manipal?igsh=MWw0NDBnOHc1ZXJnbA==" target="_blank">
+
+<a
+href="https://www.instagram.com/shree_devitravels_manipal"
+target="_blank"
+rel="noopener noreferrer">
+
 @shree_devitravels_manipal
+
 </a>
+
 </p>
+
+</div>
+
+<div class="quick-buttons">
+
+<a
+class="quick-call"
+href="tel:6362635718">
+
+📞 Call Now
+
+</a>
+
+<a
+class="quick-whatsapp"
+href="https://wa.me/916362635718"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 WhatsApp
+
+</a>
 
 </div>
 
 </header>
 
-<!-- 10% DISCOUNT OFFER -->
-
-<div class="offer-box">
-
-<div class="offer-badge">
-🔥 LIMITED OFFER
-</div>
-
-<h2>
-🎉 GET 10% OFF
-</h2>
-
-<p>
-Book your cab now and enjoy special discount on your ride 🚖
-</p>
-
-<a href="#" onclick="offerEnded();return false;">
-CLAIM OFFER
-</a>
-
-</div>
-
-<!-- AD -->
+<!-- EXISTING AD -->
 
 <div class="ad-banner">
 
 <a href="tel:6362635718">
-<img src="ad-banner.jpg" alt="Shree Devi Travels Ad">
+
+<img
+src="ad-banner.jpg"
+alt="SHREE DEVI TRAVELS MANIPAL Cab Service">
+
 </a>
 
 </div>
 
-<!-- BOOKING -->
+<!-- SLV INTERIORS SPONSORED PROMOTION -->
 
-<div class="container">
+<section class="promo-section" id="slv-promotion">
 
-<h2 class="book-title">🚗 Book Your Ride</h2>
+<div class="promo-card">
 
-<div class="input-box">
-<input type="text" id="name" placeholder="👤 Full Name">
+<div class="promo-top">
+
+<div class="promo-label">
+📢 FEATURED BUSINESS
 </div>
 
-<div class="input-box">
-<input type="tel" id="phone" placeholder="📞 Phone Number">
+<div class="promo-sponsored">
+SPONSORED
 </div>
 
-<div class="input-box">
-<input type="text" id="pickup" placeholder="📍 Pickup Location">
 </div>
 
-<div class="input-box">
-<input type="text" id="drop" placeholder="🏁 Drop Location">
+
+<div class="promo-slider" id="slvSlider">
+
+<img
+class="promo-slide active"
+src="slv1.jpg"
+alt="SLV Interiors Project 1">
+
+<img
+class="promo-slide"
+src="slv2.jpg"
+alt="SLV Interiors Project 2">
+
+<img
+class="promo-slide"
+src="slv3.jpg"
+alt="SLV Interiors Project 3">
+
+<div class="promo-gradient"></div>
+
+<div class="promo-dots">
+
+<span class="promo-dot active"></span>
+<span class="promo-dot"></span>
+<span class="promo-dot"></span>
+
 </div>
 
-<div class="input-box">
-<input type="date" id="date">
 </div>
 
-<div class="input-box">
-<input type="time" id="time">
-</div>
+<div class="promo-content">
 
-<div class="input-box">
-<input type="number" id="persons" placeholder="👥 Passengers">
-</div>
-
-<button onclick="book()">🚀 Book via WhatsApp</button>
-
-<button class="call-btn" onclick="callNow()">
-📲 Call Now
-</button>
-
-<button class="email-btn" onclick="sendEmail()">
-📧 Email Us
-</button>
-
-<hr style="margin:25px 0; border:1px solid rgba(255,255,255,0.15);">
-
-<h2 class="about-title">
-🚖 About Shree Devi Travels
+<h2>
+SLV INTERIORS
 </h2>
 
-<p style="line-height:1.8;color:#f1f1f1;">
+<p class="promo-tagline">
+Interior Design • Modular Kitchen • Home Interiors
+</p>
 
-Shree Devi Travels Manipal provides safe, reliable and comfortable cab services for local and outstation travel.
+<div class="promo-location">
+📍 Serving All Over Karnataka
+</div>
 
-We are available 24×7 for airport pickup & drop, family trips, business travel and tourist destinations.
+<div class="promo-phone">
+📞 +91 90087 24427
+</div>
+
+<div class="promo-actions">
+
+<a
+class="promo-btn promo-call"
+href="tel:9008724427">
+
+📞 Call Now
+
+</a>
+
+<a
+class="promo-btn promo-whatsapp"
+href="https://wa.me/919008724427?text=Hello%20SLV%20Interiors%20Team%20%F0%9F%99%8F%E2%9C%A8%0A%0AI%20came%20across%20your%20business%20through%20the%20SHREE%20DEVI%20TRAVELS%20MANIPAL%20website.%20I%27m%20interested%20in%20your%20interior%20design%20services%20and%20would%20love%20to%20know%20more%20about%20your%20specialized%20designs%20and%20solutions.%0A%0ACould%20you%20please%20share%20details%20about%20your%20services,%20design%20options,%20and%20estimated%20pricing%20based%20on%20our%20requirements%3F%0A%0AI%20look%20forward%20to%20hearing%20from%20you.%0A%0AThank%20you%20%F0%9F%99%8F"
+target="_blank"
+rel="noopener noreferrer">
+
+💬 WhatsApp
+
+</a>
+
+</div>
+
+</div>
+
+<div class="slv-footer-tagline">
+    ✨ Designing Spaces. Creating Lifestyles. ✨
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section
+class="section"
+id="services">
+
+<h2 class="section-title">
+🚖 Our Services
+</h2>
+
+<p class="section-subtitle">
+
+Comfortable and reliable travel solutions
+for local, airport and outstation journeys.
+
+</p>
+
+<div class="services-grid">
+
+<div class="service-card">
+
+<div class="service-icon">
+✈️
+</div>
+
+<h3>
+Airport Transfer
+</h3>
+
+<p>
+Reliable airport pickup and drop service.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+🚕
+</div>
+
+<h3>
+Local Taxi
+</h3>
+
+<p>
+Comfortable cab service around Manipal and Udupi.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+🛣️
+</div>
+
+<h3>
+Outstation Trips
+</h3>
+
+<p>
+Travel comfortably to destinations across Karnataka and beyond.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+👨‍👩‍👧
+</div>
+
+<h3>
+Family Trips
+</h3>
+
+<p>
+Comfortable vehicles for family travel and holidays.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+🏢
+</div>
+
+<h3>
+Corporate Travel
+</h3>
+
+<p>
+Professional transportation for business requirements.
+</p>
+
+</div>
+
+<div class="service-card">
+
+<div class="service-icon">
+🏞️
+</div>
+
+<h3>
+Tourist Trips
+</h3>
+
+<p>
+Explore beautiful destinations with comfortable travel.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- VEHICLES -->
+
+<section
+class="section"
+id="fleet">
+
+<h2 class="section-title">
+🚘 Our Vehicles
+</h2>
+
+<p class="section-subtitle">
+
+Choose the right vehicle according to
+your trip and group size.
+
+</p>
+
+<div class="fleet-grid">
+
+<div class="fleet-card">
+
+<div class="fleet-photo">
+🚘
+</div>
+
+<div class="fleet-content">
+
+<h3>
+Toyota Innova Crysta
+</h3>
+
+<p>
+Premium, spacious and comfortable for
+family and long-distance travel.
+</p>
+
+<a
+href="#booking"
+class="fleet-btn"
+onclick="selectVehicle('Toyota Innova Crysta')">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-photo">
+🚙
+</div>
+
+<div class="fleet-content">
+
+<h3>
+Toyota Taisor
+</h3>
+
+<p>
+Comfortable and stylish vehicle for
+local and outstation journeys.
+</p>
+
+<a
+href="#booking"
+class="fleet-btn"
+onclick="selectVehicle('Toyota Taisor')">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-photo">
+🚐
+</div>
+
+<div class="fleet-content">
+
+<h3>
+Tempo Traveller – 12 Seater
+</h3>
+
+<p>
+Spacious vehicle ideal for groups,
+family trips and tours.
+</p>
+
+<a
+href="#booking"
+class="fleet-btn"
+onclick="selectVehicle('Tempo Traveller - 12 Seater')">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+<div class="fleet-card">
+
+<div class="fleet-photo">
+🚖
+</div>
+
+<div class="fleet-content">
+
+<h3>
+Other Vehicle
+</h3>
+
+<p>
+Need another vehicle?
+Tell us your requirement.
+</p>
+
+<a
+href="#booking"
+class="fleet-btn"
+onclick="selectVehicle('Other Vehicle')">
+
+Book Now
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="all-vehicles">
+
+<div class="all-vehicles-title">
+
+🚘 ALL TYPES OF VEHICLES AVAILABLE 🚘
+
+</div>
+
+<div class="all-vehicles-text">
+
+Contact us for vehicle availability and requirements.
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ROUTES -->
+
+<section
+class="section"
+id="routes">
+
+<h2 class="section-title">
+📍 Popular Routes
+</h2>
+
+<p class="section-subtitle">
+
+Book comfortable rides from Manipal to
+popular destinations, airports and tourist places.
+
+</p>
+
+<div class="routes-grid">
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Mangalore Airport
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Mangalore Airport')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Mangalore Airport → Manipal
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Mangalore Airport','Manipal')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Udupi
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Udupi')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Kundapura
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Kundapura')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Kollur
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Kollur')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Murudeshwar
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Murudeshwar')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Kodachadri
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Kodachadri')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Goa
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Goa')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Bengaluru
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Bengaluru')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Gokarna
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Gokarna')">
+
+Book
+
+</a>
+
+</div>
+
+<div class="route-card">
+
+<div class="route-name">
+📍 Manipal → Agumbe
+</div>
+
+<a
+class="route-btn"
+href="#booking"
+onclick="setRoute('Manipal','Agumbe')">
+
+Book
+
+</a>
+
+</div>
+
+</div>
+
+<div class="all-vehicles">
+
+<div class="all-vehicles-title">
+
+🌍 WE COVER ALL TOURIST DESTINATIONS
+
+</div>
+
+<div class="all-vehicles-text">
+
+We Cover All Tourist Destinations Around
+Udupi & Outstation
+
+</div>
+
+</div>
+
+</section>
+
+<!-- BOOKING -->
+
+<section
+class="booking-section"
+id="booking">
+
+<h2 class="section-title">
+🚗 Book Your Ride
+</h2>
+
+<p class="section-subtitle">
+
+Fill your trip details and send your
+booking request directly through WhatsApp.
+
+</p>
+
+<div class="booking-row">
+
+<div class="input-box">
+
+<label>
+👤 Full Name
+</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name">
+
+</div>
+
+<div class="input-box">
+
+<label>
+📞 Phone Number
+</label>
+
+<input
+type="tel"
+id="phone"
+placeholder="Enter phone number">
+
+</div>
+
+<div class="input-box">
+
+<label>
+📍 Pickup Location
+</label>
+
+<input
+type="text"
+id="pickup"
+placeholder="Enter pickup location">
+
+</div>
+
+<div class="input-box">
+
+<label>
+🏁 Drop Location
+</label>
+
+<input
+type="text"
+id="drop"
+placeholder="Enter destination">
+
+</div>
+
+<div class="input-box">
+
+<label>
+📅 Travel Date
+</label>
+
+<input
+type="date"
+id="date">
+
+</div>
+
+<div class="input-box">
+
+<label>
+⏰ Pickup Time
+</label>
+
+<input
+type="time"
+id="time">
+
+</div>
+
+<div class="input-box">
+
+<label>
+👥 Passengers
+</label>
+
+<input
+type="number"
+id="persons"
+min="1"
+placeholder="Number of passengers">
+
+</div>
+
+<div class="input-box">
+
+<label>
+🚘 Vehicle Type
+</label>
+
+<select
+id="vehicle"
+onchange="vehicleChange()">
+
+<option value="">
+Select Vehicle
+</option>
+
+<option value="Toyota Innova Crysta">
+Toyota Innova Crysta
+</option>
+
+<option value="Toyota Taisor">
+Toyota Taisor
+</option>
+
+<option value="Tempo Traveller - 12 Seater">
+Tempo Traveller - 12 Seater
+</option>
+
+<option value="Other Vehicle">
+Other Vehicle
+</option>
+
+</select>
+
+</div>
+
+<div
+class="input-box other-vehicle-box"
+id="otherVehicleBox">
+
+<label>
+🚘 Enter Vehicle Type
+</label>
+
+<input
+type="text"
+id="otherVehicle"
+placeholder="Example: Toyota Rumion, Ertiga, Bus etc.">
+
+</div>
+
+<div class="input-box booking-full">
+
+<label>
+🔄 Trip Type
+</label>
+
+<select id="tripType">
+
+<option value="One Way">
+One Way
+</option>
+
+<option value="Round Trip">
+Round Trip
+</option>
+
+</select>
+
+</div>
+
+<div class="input-box booking-full">
+
+<label>
+📝 Special Request
+</label>
+
+<textarea
+id="message"
+placeholder="Any special requirement?"></textarea>
+
+</div>
+
+<button
+class="main-btn"
+onclick="book()">
+
+🚀 Book via WhatsApp
+
+</button>
+
+<button
+class="call-btn"
+onclick="callNow()">
+
+📲 Call Now
+
+</button>
+
+<button
+class="email-btn"
+onclick="sendEmail()">
+
+📧 Email Us
+
+</button>
+
+</section>
+
+<!-- WHY CHOOSE -->
+
+<section class="section">
+
+<h2 class="section-title">
+
+✨ Why Choose SHREE DEVI TRAVELS?
+
+</h2>
+
+<p class="section-subtitle">
+
+Your comfort, safety and satisfaction are our priority.
+
+</p>
+
+<div class="why-grid">
+
+<div class="why-card">
+
+<div class="why-icon">
+🛡️
+</div>
+
+<h3>
+Safe & Reliable
+</h3>
+
+<p>
+Safe and dependable travel with experienced professional drivers.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+⏱️
+</div>
+
+<h3>
+On-Time Pickup
+</h3>
+
+<p>
+We value your time and provide timely pickup and drop services.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+🚘
+</div>
+
+<h3>
+Clean & Comfortable
+</h3>
+
+<p>
+Well-maintained vehicles for a smooth and comfortable journey.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+💰
+</div>
+
+<h3>
+Affordable Pricing
+</h3>
+
+<p>
+Quality travel service at competitive and transparent prices.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+📍
+</div>
+
+<h3>
+Local & Outstation
+</h3>
+
+<p>
+Local trips, airport transfers and outstation travel available.
+</p>
+
+</div>
+
+<div class="why-card">
+
+<div class="why-icon">
+📞
+</div>
+
+<h3>
+24×7 Support
+</h3>
+
+<p>
+We're available whenever you need a reliable travel partner.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section
+class="section"
+id="about">
+
+<h2 class="section-title">
+🚖 About Us
+</h2>
+
+<p class="about-text">
+
+<b>
+SHREE DEVI TRAVELS MANIPAL
+</b>
+provides safe, reliable and comfortable
+cab services for local, airport and
+outstation travel.
 
 <br><br>
 
-✔ Professional Drivers<br>
-✔ Affordable Pricing<br>
-✔ On-Time Pickup<br>
-✔ Clean & Comfortable Cars<br>
-✔ Local & Outstation Trips
+Whether you need an airport transfer,
+family trip, business travel, local cab
+or long-distance journey, our team is
+ready to serve you.
+
+<br><br>
+
+<b>
+Your Journey, Our Responsibility.
+</b>
 
 </p>
-<!-- WHY CHOOSE US --><div class="why-choose"><h2>✨ Why Choose Shree Devi Travels?</h2><p class="why-subtitle">
-Your comfort, safety and satisfaction are our priority.
-</p><div class="why-grid"><div class="why-card">
-<div class="why-icon">🛡️</div>
-<h3>Safe & Reliable</h3>
-<p>Safe and dependable travel with experienced professional drivers.</p>
-</div><div class="why-card">
-<div class="why-icon">⏱️</div>
-<h3>On-Time Pickup</h3>
-<p>We value your time and ensure timely pickup and drop services.</p>
-</div><div class="why-card">
-<div class="why-icon">🚘</div>
-<h3>Clean & Comfortable</h3>
-<p>Well-maintained vehicles for a smooth and comfortable journey.</p>
-</div><div class="why-card">
-<div class="why-icon">💰</div>
-<h3>Affordable Pricing</h3>
-<p>Quality travel service at competitive and transparent prices.</p>
-</div><div class="why-card">
-<div class="why-icon">📍</div>
-<h3>Local & Outstation</h3>
-<p>Local trips, airport transfers and outstation travel available.</p>
-</div><div class="why-card">
-<div class="why-icon">📞</div>
-<h3>24×7 Support</h3>
-<p>We're available whenever you need a reliable travel partner.</p>
-</div></div><div class="why-bottom">
-🚖 <b>SHREE DEVI TRAVELS MANIPAL</b><br>
-<span>Your Journey, Our Responsibility</span>
-</div></div>
 
+<div class="trust-box">
 
-<div class="version">
-Version 1. 0. 8 
+<div class="trust-item">
+
+<strong>
+24×7
+</strong>
+
+<span>
+Customer Support
+</span>
+
+</div>
+
+<div class="trust-item">
+
+<strong>
+🚘
+</strong>
+
+<span>
+Multiple Vehicles
+</span>
+
+</div>
+
+<div class="trust-item">
+
+<strong>
+📍
+</strong>
+
+<span>
+Local & Outstation
+</span>
+
+</div>
+
+<div class="trust-item">
+
+<strong>
+⭐
+</strong>
+
+<span>
+Customer Focused
+</span>
+
 </div>
 
 </div>
+
+</section>
+
+<!-- REVIEWS -->
+
+<section
+class="section"
+id="reviews">
+
+<div class="review-box">
+
+<h2>
+⭐ Customer Reviews
+</h2>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+
+Your feedback helps us improve and serve
+you better. If you have travelled with us,
+please share your experience.
+
+</p>
+
+<a
+class="review-btn"
+href="https://share.google/R9Xp2Buk68aSfJ9sc"
+target="_blank"
+rel="noopener noreferrer">
+
+⭐ Leave a Google Review
+
+</a>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section
+class="section"
+id="contact">
+
+<h2 class="section-title">
+📞 Contact Us
+</h2>
+
+<p class="section-subtitle">
+
+Need a cab?
+Contact SHREE DEVI TRAVELS MANIPAL anytime.
+
+</p>
+
+<div class="contact-grid">
+
+<div class="contact-card">
+
+<div class="icon">
+📞
+</div>
+
+<h3>
+Call
+</h3>
+
+<a href="tel:6362635718">
++91 63626 35718
+</a>
+
+<br><br>
+
+<a href="tel:7019849902">
++91 70198 49902
+</a>
+
+</div>
+
+<div class="contact-card">
+
+<div class="icon">
+💬
+</div>
+
+<h3>
+WhatsApp
+</h3>
+
+<a
+href="https://wa.me/916362635718"
+target="_blank"
+rel="noopener noreferrer">
+
+Chat With Us
+
+</a>
+
+</div>
+
+<div class="contact-card">
+
+<div class="icon">
+📧
+</div>
+
+<h3>
+Email
+</h3>
+
+<a
+href="mailto:shreedevitravelsofficial@gmail.com">
+
+shreedevitravelsofficial@gmail.com
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+<div class="footer-logo">
+
+SHREE DEVI TRAVELS MANIPAL
+
+</div>
+
+<div class="footer-tagline">
+
+Your Journey, Our Responsibility
+
+</div>
+
+<div class="footer-links">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#services">
+Services
+</a>
+
+<a href="#fleet">
+Vehicles
+</a>
+
+<a href="#routes">
+Routes
+</a>
+
+<a href="#booking">
+Book Now
+</a>
+
+<a href="#reviews">
+Reviews
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+<a href="news.html">
+News
+</a>
+
+</div>
+
+<div class="footer-copy">
+© 2026 SHREE DEVI TRAVELS MANIPAL.
+All Rights Reserved.
+<br>
+<span style="color:#00c6ff;font-weight:bold;">
+Version 1.0.9
+</span>
+</div>
+
+<div class="managed-by">
+
+Website & Instagram Managed by
+
+<a
+href="https://www.instagram.com/preetham_nayak__1/"
+target="_blank"
+rel="noopener noreferrer">
+
+@preetham_nayak__1
+
+</a>
+
+</div>
+
+</footer>
 
 <!-- WHATSAPP -->
 
-<a href="https://wa.me/916362635718"
+<a
+href="https://wa.me/916362635718"
 target="_blank"
+rel="noopener noreferrer"
 class="whatsapp">
+
 💬
+
 </a>
 
 <!-- BOTTOM BAR -->
 
 <div class="bottom-bar">
 
-<a href="index.html">
-🏠<br>Home
+<a href="#home">
+
+🏠
+<br>
+Home
+
 </a>
 
 <a href="history.html">
-📄<br>History
+
+📄
+<br>
+History
+
 </a>
 
-<a href="https://share.google/R9Xp2Buk68aSfJ9sc" target="_blank" rel="noopener noreferrer">
-⭐<br>Review
+<a
+href="https://share.google/R9Xp2Buk68aSfJ9sc"
+target="_blank"
+rel="noopener noreferrer">
+
+⭐
+<br>
+Review
+
 </a>
 
 <a href="news.html">
-  📰<br>News
-  </a>
 
+📰
+<br>
+News
 
+</a>
 
 </div>
 
 <script>
-  
-  function book(){
 
-// booking code
+/* VEHICLE SELECTION */
+
+function selectVehicle(vehicle){
+
+document.getElementById("vehicle").value=vehicle;
+
+vehicleChange();
 
 }
 
-function offerEnded(){
+/* OTHER VEHICLE */
 
-document.body.insertAdjacentHTML('beforeend',`
+function vehicleChange(){
 
-<div id="offerPopup" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.75);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:99999;">
+let vehicle=
+document.getElementById("vehicle").value;
 
-<div style="
-background:white;
-color:black;
-padding:30px;
-border-radius:20px;
-text-align:center;
-width:90%;
-max-width:350px;">
+let otherBox=
+document.getElementById("otherVehicleBox");
 
-<h2 style="color:#00c853;">
-🎉 Congratulations!
+if(vehicle==="Other Vehicle"){
+
+otherBox.style.display="block";
+
+}else{
+
+otherBox.style.display="none";
+
+document.getElementById("otherVehicle").value="";
+
+}
+
+}
+
+/* ROUTE */
+
+function setRoute(from,to){
+
+document.getElementById("pickup").value=from;
+
+document.getElementById("drop").value=to;
+
+document.getElementById("booking")
+.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+/* POPUP */
+
+function showPopup(title,message){
+
+let old=
+document.getElementById("customPopup");
+
+if(old){
+old.remove();
+}
+
+let html=`
+
+<div
+class="popup-overlay"
+id="customPopup">
+
+<div class="popup">
+
+<h2>
+${title}
 </h2>
 
 <p>
-You are eligible for a <b>10% Website Booking Discount</b>.
+${message}
 </p>
 
-<button onclick="
-document.getElementById('offerPopup').remove();
-document.querySelector('.container').scrollIntoView({behavior:'smooth'});
-" style="
-background:#00c853;
-color:white;
-border:none;
-padding:12px 25px;
-border-radius:30px;">
-Fill Details
+<button
+onclick="
+document.getElementById('customPopup').remove();
+">
+
+OK
+
 </button>
 
 </div>
 
 </div>
 
-`);
+`;
+
+document.body.insertAdjacentHTML(
+"beforeend",
+html
+);
 
 }
 
-function callNow(){
-
-window.open("tel:6362635718");
-
-}
+/* BOOKING */
 
 function book(){
 
-let name=document.getElementById("name").value;
-let phone=document.getElementById("phone").value;
-let pickup=document.getElementById("pickup").value;
-let drop=document.getElementById("drop").value;
-let date=document.getElementById("date").value;
-let time=document.getElementById("time").value;
-let persons=document.getElementById("persons").value;
+let name=
+document.getElementById("name")
+.value.trim();
 
-if(name==""||phone==""||pickup==""||drop==""||date==""||time==""||persons==""){
+let phone=
+document.getElementById("phone")
+.value.trim();
 
-document.body.insertAdjacentHTML('beforeend',`
+let pickup=
+document.getElementById("pickup")
+.value.trim();
 
-<div id="errorPopup" style="
-position:fixed;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,.75);
-display:flex;
-justify-content:center;
-align-items:center;
-z-index:999999;">
+let drop=
+document.getElementById("drop")
+.value.trim();
 
-<div style="
-background:white;
-color:black;
-padding:30px;
-border-radius:25px;
-text-align:center;
-width:90%;
-max-width:350px;">
+let date=
+document.getElementById("date")
+.value;
 
-<h2 style="color:#ff3b30;">
-⚠️ Incomplete Details
-</h2>
+let time=
+document.getElementById("time")
+.value;
 
-<p>
-Please fill all booking details before proceeding.
-</p>
+let persons=
+document.getElementById("persons")
+.value;
 
-<button onclick="
-document.getElementById('errorPopup').remove()
-" style="
-background:linear-gradient(135deg,#ff1744,#d50000);
-color:white;
-border:none;
-padding:12px 30px;
-border-radius:30px;">
-OK
-</button>
+let vehicle=
+document.getElementById("vehicle")
+.value;
 
-</div>
-</div>
+let tripType=
+document.getElementById("tripType")
+.value;
 
-`);
+let special=
+document.getElementById("message")
+.value.trim();
+
+/* OTHER VEHICLE */
+
+if(vehicle==="Other Vehicle"){
+
+let otherVehicle=
+document.getElementById("otherVehicle")
+.value.trim();
+
+if(otherVehicle===""){
+
+showPopup(
+"⚠️ Vehicle Required",
+"Please enter the vehicle type you require."
+);
 
 return;
 
 }
 
-let msg=`🚗 Booking Request
+vehicle=
+"Other Vehicle - "+otherVehicle;
 
-Name: ${name}
-Phone: ${phone}
-From: ${pickup}
-To: ${drop}
-Date: ${date}
-Time: ${time}
-Passengers: ${persons}`;
+}
 
-let encodedMsg=encodeURIComponent(msg);
+/* REQUIRED FIELDS */
+
+if(
+name==="" ||
+phone==="" ||
+pickup==="" ||
+drop==="" ||
+date==="" ||
+time==="" ||
+persons==="" ||
+vehicle===""
+){
+
+showPopup(
+"⚠️ Incomplete Details",
+"Please fill all required booking details before proceeding."
+);
+
+return;
+
+}
+
+/* PHONE VALIDATION */
+
+let phoneDigits=
+phone.replace(/\D/g,"");
+
+if(phoneDigits.length<10){
+
+showPopup(
+"⚠️ Invalid Phone Number",
+"Please enter a valid phone number."
+);
+
+return;
+
+}
+
+/* WHATSAPP MESSAGE */
+
+let msg=
+
+`🚖 SHREE DEVI TRAVELS MANIPAL
+━━━━━━━━━━━━━━━━━━
+
+🚗 NEW BOOKING REQUEST
+
+👤 Customer:
+${name}
+
+📞 Phone:
+${phone}
+
+📍 Pickup:
+${pickup}
+
+🏁 Drop:
+${drop}
+
+📅 Date:
+${date}
+
+⏰ Time:
+${time}
+
+👥 Passengers:
+${persons}
+
+🚘 Vehicle:
+${vehicle}
+
+🔄 Trip Type:
+${tripType}
+
+📝 Special Request:
+${special || "None"}
+
+━━━━━━━━━━━━━━━━━━
+
+Your Journey, Our Responsibility`;
+
+let encodedMsg=
+encodeURIComponent(msg);
 
 window.open(
 "https://wa.me/916362635718?text="+encodedMsg,
@@ -1069,70 +3307,182 @@ window.open(
 
 }
 
+/* CALL */
+
 function callNow(){
 
-window.open("tel:6362635718");
+window.location.href=
+"tel:6362635718";
 
 }
+
+/* EMAIL */
 
 function sendEmail(){
 
-window.location.href="mailto:shreedevitravelsofficial@gmail.com";
+window.location.href=
+"mailto:shreedevitravelsofficial@gmail.com";
 
 }
 
-const bgmusic=document.getElementById("bgmusic");
+/* MENU */
+
+function openMenu(){
+
+let box=
+document.getElementById("menuBox");
+
+if(box.style.display==="block"){
+
+box.style.display="none";
+
+}else{
+
+box.style.display="block";
+
+}
+
+}
+
+/* MUSIC */
+
+const bgmusic=
+document.getElementById("bgmusic");
 
 bgmusic.volume=0.00;
 
-document.addEventListener("DOMContentLoaded",function(){
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
-let playPromise=bgmusic.play();
+let playPromise=
+bgmusic.play();
 
 if(playPromise!==undefined){
 
-playPromise.catch(()=>{
+playPromise.catch(function(){
 
-document.body.addEventListener("click",function(){
+document.body.addEventListener(
+"click",
+function(){
 
 bgmusic.play();
 
-},{once:true});
+},
+{
+once:true
+}
+);
 
 });
 
 }
 
-});
-function openMenu(){
+}
+);
 
-let box=document.getElementById("menuBox");
+/* DATE */
 
-box.style.display =
-box.style.display=="block" ? "none" : "block";
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
+let dateInput=
+document.getElementById("date");
+
+let today=
+new Date();
+
+let yyyy=
+today.getFullYear();
+
+let mm=
+String(
+today.getMonth()+1
+).padStart(2,"0");
+
+let dd=
+String(
+today.getDate()
+).padStart(2,"0");
+
+dateInput.min=
+`${yyyy}-${mm}-${dd}`;
+
+}
+);
+
+/* SLV INTERIORS PROMOTION SLIDER */
+
+let slvIndex=0;
+
+const slvSlides=
+document.querySelectorAll(".promo-slide");
+
+const slvDots=
+document.querySelectorAll(".promo-dot");
+
+function showSLVSlide(index){
+
+slvSlides.forEach(
+slide=>slide.classList.remove("active")
+);
+
+slvDots.forEach(
+dot=>dot.classList.remove("active")
+);
+
+slvSlides[index].classList.add("active");
+slvDots[index].classList.add("active");
+
+}
+
+setInterval(function(){
+
+slvIndex++;
+
+if(slvIndex>=slvSlides.length){
+slvIndex=0;
+}
+
+showSLVSlide(slvIndex);
+
+},3500);
+
+function shareSLVInterior(){
+
+    const shareData = {
+        title: "SLV INTERIORS",
+        text: "🏠 SLV INTERIORS\nInterior Design • Modular Kitchen • Home Interiors\n📍 Serving All Over Karnataka\n📞 +91 90087 24427",
+        url: "https://shreedevitravels.github.io/Shree_devi_travels_manipal/"
+    };
+
+    if(navigator.share){
+
+        navigator.share(shareData)
+        .catch(function(error){
+            console.log("Share cancelled:", error);
+        });
+
+    }else{
+
+        const whatsappText =
+        encodeURIComponent(
+            "🏠 SLV INTERIORS\n" +
+            "Interior Design • Modular Kitchen • Home Interiors\n" +
+            "📍 Serving All Over Karnataka\n" +
+            "📞 +91 90087 24427\n\n" +
+            "Check details here:\n" +
+            window.location.href
+        );
+
+        window.location.href =
+        "https://wa.me/?text=" + whatsappText;
+    }
 }
 
 </script>
 
 </body>
-<div class="menu">
 
-<div class="menu-btn" onclick="openMenu()">
-☰
-</div>
-
-<div id="menuBox">
-
-<a href="admin.html">🔐 Admin</a>
-
-<a href="coupon.html">🎟️ Coupon</a>
-
-<a href="quotation.html">💰 Quotation</a>
-
-<a href="#" onclick="callNow()">📞 Call</a>
-
-</div>
-
-</div>
 </html>

@@ -16,11 +16,16 @@ content="width=device-width, initial-scale=1.0">
     box-sizing:border-box;
 }
 
+html{
+    scroll-behavior:smooth;
+}
+
 body{
     margin:0;
     min-height:100vh;
     font-family:Arial,sans-serif;
-    background:linear-gradient(135deg,#6f8fd8,#234c9c);
+    background:
+    linear-gradient(135deg,#6f8fd8,#234c9c);
     color:white;
 }
 
@@ -76,6 +81,7 @@ h2{
 input,
 textarea,
 select{
+
     width:100%;
     padding:14px;
     margin:7px 0;
@@ -99,13 +105,29 @@ button{
     font-size:15px;
 }
 
-/* LOGIN BUTTON */
+button:disabled{
+    opacity:.6;
+    cursor:not-allowed;
+}
+
+/* LOGIN */
 
 .login{
     width:100%;
     background:#dceaff;
     color:#234c9c;
     margin-top:10px;
+}
+
+.login:hover{
+    background:white;
+}
+
+.login-error{
+    text-align:center;
+    color:#ffd1d1;
+    margin-top:12px;
+    font-size:13px;
 }
 
 /* ================= DASHBOARD ================= */
@@ -118,9 +140,11 @@ button{
 .header{
     max-width:1200px;
     margin:auto;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     gap:10px;
     flex-wrap:wrap;
 }
@@ -137,6 +161,10 @@ button{
 .logout{
     background:#ff4d4d;
     color:white;
+}
+
+.logout:hover{
+    background:#dc2626;
 }
 
 .container{
@@ -156,6 +184,10 @@ button{
 .tab{
     background:#ffffff22;
     color:white;
+}
+
+.tab:hover{
+    background:#ffffff44;
 }
 
 .tab.active{
@@ -190,24 +222,42 @@ button{
     margin-top:10px;
 }
 
+.publish:hover{
+    background:#00ad59;
+}
+
+.image-preview{
+    display:none;
+    width:100%;
+    max-height:350px;
+    object-fit:contain;
+    background:white;
+    border-radius:12px;
+    margin-top:12px;
+    padding:5px;
+}
+
 /* ================= CUSTOMERS ================= */
 
 .customer-grid{
     display:grid;
+
     grid-template-columns:
     repeat(auto-fit,minmax(280px,1fr));
 
     gap:15px;
-
     margin-top:20px;
 }
 
 .customer{
     background:white;
     color:#222;
+
     border-radius:18px;
     padding:18px;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.15);
 }
 
 .customer h3{
@@ -217,6 +267,7 @@ button{
 
 .customer p{
     margin:7px 0;
+    word-break:break-word;
 }
 
 .customer-buttons{
@@ -224,6 +275,11 @@ button{
     gap:8px;
     flex-wrap:wrap;
     margin-top:15px;
+}
+
+.customer-buttons button{
+    flex:1;
+    min-width:100px;
 }
 
 .whatsapp{
@@ -246,6 +302,22 @@ button{
     color:white;
 }
 
+.whatsapp:hover{
+    background:#1db954;
+}
+
+.feedback-btn:hover{
+    background:#f57c00;
+}
+
+.edit:hover{
+    background:#2563c7;
+}
+
+.delete:hover{
+    background:#dc2626;
+}
+
 /* ================= SAVE ================= */
 
 .save{
@@ -255,11 +327,19 @@ button{
     margin-top:10px;
 }
 
+.save:hover{
+    background:#00ad59;
+}
+
 .cancel{
     background:#777;
     color:white;
     width:100%;
     margin-top:10px;
+}
+
+.cancel:hover{
+    background:#555;
 }
 
 .search{
@@ -290,6 +370,13 @@ button{
     margin-top:10px;
 }
 
+.progress{
+    text-align:center;
+    color:#fff;
+    margin-top:10px;
+    font-weight:bold;
+}
+
 /* ================= FEEDBACK ================= */
 
 .feedback-preview{
@@ -300,12 +387,25 @@ button{
     margin-top:20px;
     line-height:1.6;
     white-space:pre-line;
+    overflow-wrap:anywhere;
 }
 
 .feedback-title{
     color:#234c9c;
     font-weight:bold;
     margin-bottom:10px;
+}
+
+/* ================= POST INFO ================= */
+
+.post-note{
+    background:#ffffff15;
+    border:1px solid #ffffff22;
+    padding:12px;
+    border-radius:12px;
+    margin-top:12px;
+    font-size:13px;
+    line-height:1.5;
 }
 
 /* ================= MOBILE ================= */
@@ -333,6 +433,20 @@ button{
         width:100%;
     }
 
+    #dashboard{
+        padding:12px;
+    }
+
+    .panel{
+        padding:18px;
+    }
+
+    .customer-buttons button{
+        min-width:90px;
+        font-size:12px;
+        padding:11px 8px;
+    }
+
 }
 
 </style>
@@ -346,7 +460,9 @@ button{
 <!-- LOGIN -->
 <!-- ================================================= -->
 
-<div id="loginCard" class="card">
+<div
+id="loginCard"
+class="card">
 
     <div class="logo">
 
@@ -357,45 +473,44 @@ button{
     </div>
 
     <div class="brand">
-
         SHREE DEVI TRAVELS
-
     </div>
 
     <div class="manipal">
-
         MANIPAL
-
     </div>
 
     <h2>
-
         ADMIN LOGIN
-
     </h2>
 
     <input
     type="email"
     id="email"
-    placeholder="Admin Email">
+    placeholder="Admin Email"
+    autocomplete="username">
 
     <input
     type="password"
     id="password"
-    placeholder="Password">
+    placeholder="Password"
+    autocomplete="current-password">
 
     <button
     class="login"
+    id="loginButton"
     onclick="login()">
 
         🔐 LOGIN
 
     </button>
 
-    <div id="loginError"></div>
+    <div
+    id="loginError"
+    class="login-error">
+    </div>
 
 </div>
-
 
 
 <!-- ================================================= -->
@@ -407,13 +522,8 @@ button{
     <div class="header">
 
         <h1>
-
             SHREE DEVI TRAVELS
-
-            <small>
-                ADMIN
-            </small>
-
+            <small>ADMIN</small>
         </h1>
 
         <button
@@ -430,9 +540,7 @@ button{
     <div class="container">
 
 
-        <!-- ================================================= -->
         <!-- TABS -->
-        <!-- ================================================= -->
 
         <div class="tabs">
 
@@ -444,7 +552,6 @@ button{
 
             </button>
 
-
             <button
             class="tab"
             onclick="showSection('customers',this)">
@@ -453,7 +560,6 @@ button{
 
             </button>
 
-
             <button
             class="tab"
             onclick="showSection('feedback',this)">
@@ -461,7 +567,6 @@ button{
                 📝 Feedback
 
             </button>
-
 
             <button
             class="tab"
@@ -472,7 +577,6 @@ button{
             </button>
 
         </div>
-
 
 
         <!-- ================================================= -->
@@ -486,9 +590,7 @@ button{
             <div class="panel">
 
                 <h2>
-
                     📰 CREATE POST
-
                 </h2>
 
                 <input
@@ -496,37 +598,51 @@ button{
                 id="title"
                 placeholder="Post Title">
 
-
                 <input
                 type="file"
                 id="image"
-                accept="image/*">
+                accept="image/jpeg,image/png,image/webp"
+                onchange="previewImage(event)">
 
+                <img
+                id="imagePreview"
+                class="image-preview"
+                alt="Selected Image">
 
                 <textarea
                 id="content"
-                placeholder="Post Content">
-                </textarea>
-
+                placeholder="Post Content"></textarea>
 
                 <button
                 class="publish"
+                id="publishButton"
                 onclick="addPost()">
 
                     🚀 Publish Post
 
                 </button>
 
+                <div
+                id="uploadProgress"
+                class="progress">
+                </div>
 
                 <div
                 id="postMsg"
                 class="success">
                 </div>
 
+                <div class="post-note">
+
+                    💡 <b>Image:</b>
+                    JPG, PNG or WebP only.
+                    Maximum size: 10 MB.
+
+                </div>
+
             </div>
 
         </div>
-
 
 
         <!-- ================================================= -->
@@ -540,11 +656,8 @@ button{
             <div class="panel">
 
                 <h2>
-
                     👥 CUSTOMER MANAGEMENT
-
                 </h2>
-
 
                 <input
                 class="search"
@@ -552,7 +665,6 @@ button{
                 id="searchCustomer"
                 placeholder="🔎 Search customer..."
                 oninput="searchCustomers()">
-
 
                 <div
                 id="customerCount"
@@ -562,17 +674,14 @@ button{
 
                 </div>
 
-
                 <div
                 id="customerGrid"
                 class="customer-grid">
-
                 </div>
 
             </div>
 
         </div>
-
 
 
         <!-- ================================================= -->
@@ -586,41 +695,31 @@ button{
             <div class="panel">
 
                 <h2>
-
                     📝 CUSTOMER FEEDBACK
-
                 </h2>
 
-
-                <p
-                style="text-align:center">
+                <p style="text-align:center">
 
                     Select a customer and send a
                     professional feedback request.
 
                 </p>
 
-
                 <select
                 id="feedbackCustomer"
                 onchange="previewFeedback()">
 
                     <option value="">
-
                         Select Customer
-
                     </option>
 
                 </select>
-
 
                 <div
                 id="feedbackPreview"
                 class="feedback-preview"
                 style="display:none">
-
                 </div>
-
 
                 <button
                 class="save"
@@ -630,17 +729,14 @@ button{
 
                 </button>
 
-
                 <div
                 id="feedbackMsg"
                 class="success">
-
                 </div>
 
             </div>
 
         </div>
-
 
 
         <!-- ================================================= -->
@@ -654,64 +750,49 @@ button{
             <div class="panel">
 
                 <h2 id="customerFormTitle">
-
                     ➕ ADD CUSTOMER
-
                 </h2>
-
 
                 <input
                 type="text"
                 id="customerName"
                 placeholder="Customer Name">
 
-
                 <input
                 type="tel"
                 id="customerPhone"
                 placeholder="WhatsApp Number e.g. 919876543210">
-
 
                 <input
                 type="text"
                 id="pickupLocation"
                 placeholder="📍 Pickup Location">
 
-
                 <input
                 type="text"
                 id="dropLocation"
                 placeholder="📍 Drop Location">
 
-
                 <input
                 type="date"
                 id="travelDate">
-
 
                 <input
                 type="text"
                 id="vehicle"
                 placeholder="🚕 Vehicle / Trip Details">
 
-
-                <select
-                id="reminder">
+                <select id="reminder">
 
                     <option value="true">
-
                         🔔 Monthly Reminder ON
-
                     </option>
 
                     <option value="false">
-
                         🔕 Monthly Reminder OFF
-
                     </option>
 
                 </select>
-
 
                 <button
                 class="save"
@@ -720,7 +801,6 @@ button{
                     💾 Save Customer
 
                 </button>
-
 
                 <button
                 id="cancelEdit"
@@ -732,22 +812,18 @@ button{
 
                 </button>
 
-
                 <div
                 id="customerMsg"
                 class="success">
-
                 </div>
 
             </div>
 
         </div>
 
-
     </div>
 
 </div>
-
 
 
 <!-- ================================================= -->
@@ -757,25 +833,26 @@ button{
 <script type="module">
 
 
-import { initializeApp }
+/* ================================================= */
+/* FIREBASE IMPORTS */
+/* ================================================= */
 
+import {
+    initializeApp
+}
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
 
 
 import {
-
     getAuth,
     signInWithEmailAndPassword,
     signOut,
     onAuthStateChanged
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
 
 
 import {
-
     getFirestore,
     collection,
     addDoc,
@@ -784,17 +861,22 @@ import {
     updateDoc,
     deleteDoc,
     serverTimestamp
-
 }
-
 from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
+
+import {
+    getStorage,
+    ref,
+    uploadBytes,
+    getDownloadURL
+}
+from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
 
 /* ================================================= */
 /* FIREBASE CONFIG */
 /* ================================================= */
-
 
 const firebaseConfig = {
 
@@ -819,23 +901,35 @@ const firebaseConfig = {
 };
 
 
+/* ================================================= */
+/* INITIALIZE */
+/* ================================================= */
+
 const app =
 initializeApp(firebaseConfig);
-
 
 const auth =
 getAuth(app);
 
-
 const db =
 getFirestore(app);
 
+const storage =
+getStorage(app);
+
+
+/* ================================================= */
+/* GLOBAL VARIABLES */
+/* ================================================= */
+
+let customers = [];
+
+let editingCustomerId = null;
 
 
 /* ================================================= */
 /* LOGIN */
 /* ================================================= */
-
 
 window.login = async function(){
 
@@ -845,32 +939,44 @@ window.login = async function(){
     .value
     .trim();
 
-
     const password =
     document
     .getElementById("password")
     .value;
 
+    const errorBox =
+    document
+    .getElementById("loginError");
+
+    const button =
+    document
+    .getElementById("loginButton");
+
+
+    errorBox.innerHTML="";
+
 
     if(!email || !password){
 
-        alert(
-        "Enter Email and Password"
-        );
+        errorBox.innerHTML =
+        "⚠️ Enter email and password.";
 
         return;
 
     }
 
 
+    button.disabled=true;
+
+    button.innerText="⏳ Logging in...";
+
+
     try{
 
         await signInWithEmailAndPassword(
-
             auth,
             email,
             password
-
         );
 
     }
@@ -879,31 +985,82 @@ window.login = async function(){
 
         console.error(error);
 
-        document
-        .getElementById("loginError")
-        .innerHTML =
 
-        "<p style='color:#ffd1d1;text-align:center'>" +
+        let message =
+        "Login failed.";
 
-        "❌ " +
-        error.code +
 
-        "</p>";
+        if(
+            error.code ===
+            "auth/invalid-credential"
+        ){
+
+            message =
+            "❌ Invalid email or password.";
+
+        }
+
+        else if(
+            error.code ===
+            "auth/user-not-found"
+        ){
+
+            message =
+            "❌ Admin account not found.";
+
+        }
+
+        else if(
+            error.code ===
+            "auth/wrong-password"
+        ){
+
+            message =
+            "❌ Incorrect password.";
+
+        }
+
+        else if(
+            error.code ===
+            "auth/too-many-requests"
+        ){
+
+            message =
+            "⚠️ Too many attempts. Try again later.";
+
+        }
+
+        else{
+
+            message =
+            "❌ " + error.message;
+
+        }
+
+
+        errorBox.innerHTML =
+        message;
+
+    }
+
+    finally{
+
+        button.disabled=false;
+
+        button.innerText="🔐 LOGIN";
 
     }
 
 };
 
 
-
 /* ================================================= */
 /* AUTH STATE */
 /* ================================================= */
 
-
 onAuthStateChanged(
 auth,
-(user)=>{
+async(user)=>{
 
     if(user){
 
@@ -917,7 +1074,7 @@ auth,
         .style.display="block";
 
 
-        loadCustomers();
+        await loadCustomers();
 
     }
 
@@ -937,24 +1094,33 @@ auth,
 });
 
 
-
 /* ================================================= */
 /* LOGOUT */
 /* ================================================= */
 
-
 window.logout = async function(){
 
-    await signOut(auth);
+    try{
+
+        await signOut(auth);
+
+    }
+
+    catch(error){
+
+        alert(
+            "Logout failed: " +
+            error.message
+        );
+
+    }
 
 };
-
 
 
 /* ================================================= */
 /* TABS */
 /* ================================================= */
-
 
 window.showSection =
 function(id,button){
@@ -981,15 +1147,22 @@ function(id,button){
     });
 
 
-    document
-    .getElementById(id)
-    .classList
-    .add("active");
+    const section =
+    document.getElementById(id);
 
 
-    button
-    .classList
-    .add("active");
+    if(section){
+
+        section.classList.add("active");
+
+    }
+
+
+    if(button){
+
+        button.classList.add("active");
+
+    }
 
 
     if(id==="feedback"){
@@ -1001,11 +1174,99 @@ function(id,button){
 };
 
 
+/* ================================================= */
+/* IMAGE PREVIEW */
+/* ================================================= */
+
+window.previewImage =
+function(event){
+
+    const file =
+    event.target.files[0];
+
+    const preview =
+    document.getElementById(
+        "imagePreview"
+    );
+
+
+    if(!file){
+
+        preview.style.display="none";
+        preview.src="";
+
+        return;
+
+    }
+
+
+    const allowedTypes = [
+        "image/jpeg",
+        "image/png",
+        "image/webp"
+    ];
+
+
+    if(
+        !allowedTypes.includes(
+            file.type
+        )
+    ){
+
+        alert(
+            "Please select JPG, PNG or WebP image."
+        );
+
+        event.target.value="";
+
+        preview.style.display="none";
+
+        return;
+
+    }
+
+
+    if(
+        file.size >
+        10 * 1024 * 1024
+    ){
+
+        alert(
+            "Image size must be below 10 MB."
+        );
+
+        event.target.value="";
+
+        preview.style.display="none";
+
+        return;
+
+    }
+
+
+    const reader =
+    new FileReader();
+
+
+    reader.onload =
+    function(e){
+
+        preview.src =
+        e.target.result;
+
+        preview.style.display="block";
+
+    };
+
+
+    reader.readAsDataURL(file);
+
+};
+
 
 /* ================================================= */
 /* ADD POST */
 /* ================================================= */
-
 
 window.addPost =
 async function(){
@@ -1024,10 +1285,38 @@ async function(){
     .trim();
 
 
-    if(!title || !content){
+    const imageInput =
+    document
+    .getElementById("image");
+
+
+    const file =
+    imageInput.files[0];
+
+
+    const progress =
+    document
+    .getElementById("uploadProgress");
+
+
+    const message =
+    document
+    .getElementById("postMsg");
+
+
+    const button =
+    document
+    .getElementById("publishButton");
+
+
+    message.innerHTML="";
+    progress.innerHTML="";
+
+
+    if(!title){
 
         alert(
-        "Enter Post Title and Content"
+            "Please enter post title."
         );
 
         return;
@@ -1035,13 +1324,130 @@ async function(){
     }
 
 
+    if(!content){
+
+        alert(
+            "Please enter post content."
+        );
+
+        return;
+
+    }
+
+
+    if(!auth.currentUser){
+
+        alert(
+            "Your admin session has expired. Please login again."
+        );
+
+        return;
+
+    }
+
+
+    button.disabled=true;
+
+
     try{
+
+        let imageURL="";
+
+
+        /* IMAGE */
+
+        if(file){
+
+            const allowedTypes = [
+                "image/jpeg",
+                "image/png",
+                "image/webp"
+            ];
+
+
+            if(
+                !allowedTypes.includes(
+                    file.type
+                )
+            ){
+
+                throw new Error(
+                    "Only JPG, PNG and WebP images are allowed."
+                );
+
+            }
+
+
+            if(
+                file.size >
+                10 * 1024 * 1024
+            ){
+
+                throw new Error(
+                    "Image size must be below 10 MB."
+                );
+
+            }
+
+
+            progress.innerHTML =
+            "⏳ Uploading image...";
+
+
+            const safeName =
+            file.name
+            .replace(
+                /[^a-zA-Z0-9._-]/g,
+                "_"
+            );
+
+
+            const fileName =
+            Date.now() +
+            "_" +
+            safeName;
+
+
+            const storageRef =
+            ref(
+                storage,
+                "news-images/" +
+                fileName
+            );
+
+
+            await uploadBytes(
+                storageRef,
+                file,
+                {
+                    contentType:file.type
+                }
+            );
+
+
+            imageURL =
+            await getDownloadURL(
+                storageRef
+            );
+
+
+            progress.innerHTML =
+            "✅ Image uploaded.";
+
+        }
+
+
+        /* FIRESTORE */
+
+        progress.innerHTML =
+        "⏳ Publishing post...";
+
 
         await addDoc(
 
             collection(
-            db,
-            "news"
+                db,
+                "news"
             ),
 
             {
@@ -1050,22 +1456,28 @@ async function(){
 
                 content:content,
 
-                image:"offer.jpg",
+                image:imageURL,
+
+                likes:0,
 
                 createdAt:
-                serverTimestamp()
+                serverTimestamp(),
+
+                createdBy:
+                auth.currentUser.email || ""
 
             }
 
         );
 
 
-        document
-        .getElementById("postMsg")
-        .innerHTML =
+        progress.innerHTML="";
 
+        message.innerHTML =
         "✅ Post Published Successfully";
 
+
+        /* CLEAR */
 
         document
         .getElementById("title")
@@ -1076,33 +1488,51 @@ async function(){
         .getElementById("content")
         .value="";
 
+
+        imageInput.value="";
+
+
+        const preview =
+        document.getElementById(
+            "imagePreview"
+        );
+
+
+        preview.src="";
+        preview.style.display="none";
+
     }
 
     catch(error){
 
-        alert(error.message);
+        console.error(
+            "POST ERROR:",
+            error
+        );
+
+
+        progress.innerHTML="";
+
+
+        alert(
+            "❌ Upload/Publish failed:\n\n" +
+            error.message
+        );
+
+    }
+
+    finally{
+
+        button.disabled=false;
 
     }
 
 };
 
 
-
-/* ================================================= */
-/* CUSTOMER VARIABLES */
-/* ================================================= */
-
-
-let customers = [];
-
-let editingCustomerId = null;
-
-
-
 /* ================================================= */
 /* SAVE CUSTOMER */
 /* ================================================= */
-
 
 window.saveCustomer =
 async function(){
@@ -1154,10 +1584,29 @@ async function(){
     .value === "true";
 
 
-    if(!name || !phone){
+    const message =
+    document
+    .getElementById("customerMsg");
+
+
+    message.innerHTML="";
+
+
+    if(!name){
 
         alert(
-        "Customer Name and WhatsApp Number are required"
+            "Customer name is required."
+        );
+
+        return;
+
+    }
+
+
+    if(!phone){
+
+        alert(
+            "WhatsApp number is required."
         );
 
         return;
@@ -1172,15 +1621,19 @@ async function(){
     if(phone.length===10){
 
         phone =
-        "91" + phone;
+        "91" +
+        phone;
 
     }
 
 
-    if(phone.length<11){
+    if(
+        phone.length !== 12 ||
+        !phone.startsWith("91")
+    ){
 
         alert(
-        "Enter valid WhatsApp number"
+            "Please enter a valid Indian WhatsApp number."
         );
 
         return;
@@ -1222,9 +1675,9 @@ async function(){
             await updateDoc(
 
                 doc(
-                db,
-                "customers",
-                editingCustomerId
+                    db,
+                    "customers",
+                    editingCustomerId
                 ),
 
                 data
@@ -1232,10 +1685,7 @@ async function(){
             );
 
 
-            document
-            .getElementById("customerMsg")
-            .innerHTML =
-
+            message.innerHTML =
             "✅ Customer Updated Successfully";
 
         }
@@ -1245,8 +1695,8 @@ async function(){
             await addDoc(
 
                 collection(
-                db,
-                "customers"
+                    db,
+                    "customers"
                 ),
 
                 {
@@ -1254,17 +1704,17 @@ async function(){
                     ...data,
 
                     createdAt:
-                    serverTimestamp()
+                    serverTimestamp(),
+
+                    createdBy:
+                    auth.currentUser.email || ""
 
                 }
 
             );
 
 
-            document
-            .getElementById("customerMsg")
-            .innerHTML =
-
+            message.innerHTML =
             "✅ Customer Added Successfully";
 
         }
@@ -1278,30 +1728,32 @@ async function(){
 
     catch(error){
 
-        alert(error.message);
+        console.error(error);
+
+        alert(
+            "Customer save failed:\n\n" +
+            error.message
+        );
 
     }
 
 };
 
 
-
 /* ================================================= */
 /* LOAD CUSTOMERS */
 /* ================================================= */
-
 
 async function loadCustomers(){
 
     try{
 
         const snapshot =
-
         await getDocs(
 
             collection(
-            db,
-            "customers"
+                db,
+                "customers"
             )
 
         );
@@ -1323,7 +1775,10 @@ async function loadCustomers(){
         });
 
 
-        displayCustomers(customers);
+        displayCustomers(
+            customers
+        );
+
 
         loadFeedbackCustomers();
 
@@ -1337,31 +1792,31 @@ async function loadCustomers(){
         document
         .getElementById("customerGrid")
         .innerHTML =
-
-        "<p>Unable to load customers.</p>";
+        "<p>❌ Unable to load customers. Check Firebase rules.</p>";
 
     }
 
 }
 
 
-
 /* ================================================= */
 /* DISPLAY CUSTOMERS */
 /* ================================================= */
-
 
 function displayCustomers(list){
 
     const grid =
     document
-    .getElementById("customerGrid");
+    .getElementById(
+        "customerGrid"
+    );
 
 
     document
-    .getElementById("customerCount")
+    .getElementById(
+        "customerCount"
+    )
     .innerText =
-
     "Total Customers: " +
     list.length;
 
@@ -1382,8 +1837,7 @@ function displayCustomers(list){
     list.forEach(customer=>{
 
         const div =
-        document
-        .createElement("div");
+        document.createElement("div");
 
 
         div.className="customer";
@@ -1402,51 +1856,56 @@ function displayCustomers(list){
         "<span class='status off'>OFF</span>";
 
 
+        /*
+        IMPORTANT:
+        Data is escaped before being inserted.
+        */
+
         div.innerHTML = `
 
             <h3>
                 👤
                 ${escapeHTML(
-                customer.name || ""
+                    customer.name || ""
                 )}
             </h3>
 
             <p>
                 📱
                 ${escapeHTML(
-                customer.phone || ""
+                    customer.phone || ""
                 )}
             </p>
 
             <p>
                 📍 Pickup:
                 ${escapeHTML(
-                customer.pickupLocation ||
-                "Not added"
+                    customer.pickupLocation ||
+                    "Not added"
                 )}
             </p>
 
             <p>
                 📍 Drop:
                 ${escapeHTML(
-                customer.dropLocation ||
-                "Not added"
+                    customer.dropLocation ||
+                    "Not added"
                 )}
             </p>
 
             <p>
                 📅 Travel:
                 ${escapeHTML(
-                customer.travelDate ||
-                "Not added"
+                    customer.travelDate ||
+                    "Not added"
                 )}
             </p>
 
             <p>
                 🚕
                 ${escapeHTML(
-                customer.vehicle ||
-                "Not added"
+                    customer.vehicle ||
+                    "Not added"
                 )}
             </p>
 
@@ -1455,60 +1914,43 @@ function displayCustomers(list){
                 ${reminderText}
             </p>
 
-
             <div class="customer-buttons">
-
 
                 <button
                 class="whatsapp"
-
-                onclick="openWhatsApp(
-                '${customer.phone}',
-                '${escapeHTML(
-                customer.name || ""
-                )}'
-                )">
+                data-action="whatsapp"
+                data-id="${escapeHTML(customer.id)}">
 
                     💬 WhatsApp
 
                 </button>
 
-
                 <button
                 class="feedback-btn"
-
-                onclick="openFeedbackForCustomer(
-                '${customer.id}'
-                )">
+                data-action="feedback"
+                data-id="${escapeHTML(customer.id)}">
 
                     📝 Feedback
 
                 </button>
 
-
                 <button
                 class="edit"
-
-                onclick="editCustomer(
-                '${customer.id}'
-                )">
+                data-action="edit"
+                data-id="${escapeHTML(customer.id)}">
 
                     ✏️ Edit
 
                 </button>
 
-
                 <button
                 class="delete"
-
-                onclick="deleteCustomer(
-                '${customer.id}'
-                )">
+                data-action="delete"
+                data-id="${escapeHTML(customer.id)}">
 
                     🗑️ Delete
 
                 </button>
-
 
             </div>
 
@@ -1522,20 +1964,92 @@ function displayCustomers(list){
 }
 
 
+/* ================================================= */
+/* CUSTOMER BUTTON EVENTS */
+/* ================================================= */
+
+document
+.getElementById("customerGrid")
+.addEventListener(
+"click",
+function(event){
+
+    const button =
+    event.target.closest("button");
+
+
+    if(!button) return;
+
+
+    const id =
+    button.dataset.id;
+
+
+    const action =
+    button.dataset.action;
+
+
+    if(!id) return;
+
+
+    if(action==="whatsapp"){
+
+        openWhatsAppById(id);
+
+    }
+
+
+    if(action==="feedback"){
+
+        openFeedbackForCustomer(id);
+
+    }
+
+
+    if(action==="edit"){
+
+        editCustomer(id);
+
+    }
+
+
+    if(action==="delete"){
+
+        deleteCustomer(id);
+
+    }
+
+});
+
 
 /* ================================================= */
-/* NORMAL WHATSAPP */
+/* WHATSAPP */
 /* ================================================= */
 
+function openWhatsAppById(id){
 
-window.openWhatsApp =
-function(phone,customerName){
+    const customer =
+    customers.find(
+        item=>item.id===id
+    );
+
+
+    if(!customer){
+
+        alert(
+            "Customer not found."
+        );
+
+        return;
+
+    }
+
 
     const message =
 
 `Greetings from SHREE DEVI TRAVELS MANIPAL 🚖✨
 
-Dear ${customerName},
+Dear ${customer.name},
 
 Whenever you need a safe, comfortable, and reliable cab service, we are always happy to serve you. 🚕❤️
 
@@ -1548,51 +2062,53 @@ Your Journey, Our Responsibility.`;
 
 
     const whatsappURL =
-
     "https://wa.me/" +
-
-    phone +
-
+    customer.phone +
     "?text=" +
-
     encodeURIComponent(message);
 
 
     window.open(
-    whatsappURL,
-    "_blank"
+        whatsappURL,
+        "_blank"
     );
 
-};
+}
 
+
+window.openWhatsApp =
+openWhatsAppById;
 
 
 /* ================================================= */
 /* FEEDBACK CUSTOMER LIST */
 /* ================================================= */
 
-
 function loadFeedbackCustomers(){
 
     const select =
-    document
-    .getElementById(
-    "feedbackCustomer"
+    document.getElementById(
+        "feedbackCustomer"
     );
 
 
     if(!select) return;
 
 
-    select.innerHTML =
+    const oldValue =
+    select.value;
 
+
+    select.innerHTML =
     '<option value="">Select Customer</option>';
 
 
     customers.forEach(customer=>{
 
         const option =
-        document.createElement("option");
+        document.createElement(
+            "option"
+        );
 
 
         option.value =
@@ -1600,35 +2116,47 @@ function loadFeedbackCustomers(){
 
 
         option.textContent =
-
-        customer.name +
-
-        " - " +
-
         (
-        customer.phone || ""
+            customer.name ||
+            "Unnamed Customer"
+        ) +
+        " - " +
+        (
+            customer.phone ||
+            ""
         );
 
 
-        select.appendChild(option);
+        select.appendChild(
+            option
+        );
 
     });
+
+
+    if(
+        customers.some(
+            c=>c.id===oldValue
+        )
+    ){
+
+        select.value=oldValue;
+
+    }
 
 }
 
 
-
 /* ================================================= */
-/* OPEN FEEDBACK FOR CUSTOMER */
+/* OPEN FEEDBACK */
 /* ================================================= */
-
 
 window.openFeedbackForCustomer =
 function(id){
 
     const customer =
     customers.find(
-    item=>item.id===id
+        item=>item.id===id
     );
 
 
@@ -1640,7 +2168,7 @@ function(id){
 
     document
     .getElementById(
-    "feedbackCustomer"
+        "feedbackCustomer"
     )
     .value=id;
 
@@ -1650,11 +2178,9 @@ function(id){
 };
 
 
-
 /* ================================================= */
 /* SHOW FEEDBACK TAB */
 /* ================================================= */
-
 
 function showFeedbackTab(){
 
@@ -1681,7 +2207,9 @@ function showFeedbackTab(){
 
 
     document
-    .getElementById("feedback")
+    .getElementById(
+        "feedback"
+    )
     .classList
     .add("active");
 
@@ -1691,14 +2219,11 @@ function showFeedbackTab(){
     .forEach(tab=>{
 
         if(
-        tab.textContent.includes(
-        "Feedback"
-        )
+            tab.textContent
+            .includes("Feedback")
         ){
 
-            tab.classList.add(
-            "active"
-            );
+            tab.classList.add("active");
 
         }
 
@@ -1707,11 +2232,55 @@ function showFeedbackTab(){
 }
 
 
+/* ================================================= */
+/* FEEDBACK MESSAGE */
+/* ================================================= */
+
+function createFeedbackMessage(customer){
+
+    const pickup =
+    customer.pickupLocation ||
+    "your pickup location";
+
+
+    const drop =
+    customer.dropLocation ||
+    "your destination";
+
+
+    return
+
+`Greetings from SHREE DEVI TRAVELS, MANIPAL. 🚖
+
+Dear ${customer.name},
+
+We hope your journey from ${pickup} to ${drop} was comfortable, safe, and enjoyable. ❤️
+
+We would sincerely appreciate your valuable feedback about your travel experience with us.
+
+Your reviews and suggestions help us improve our services and continue providing the best possible experience to our customers.
+
+Please take a moment to share your feedback on Google:
+
+https://share.google/2EfZMbkvTz5Cuyokj
+
+Thank you for choosing SHREE DEVI TRAVELS, MANIPAL. We truly appreciate your trust and support.
+
+We look forward to serving you again on your future journeys.
+
+Warm Regards,
+SHREE DEVI TRAVELS, MANIPAL Team
+
+📞 +91 6362635718 / +91 7019849902
+📧 shreedevitravelsofficial@gmail.com
+🌐 https://shreedevitravels.github.io/Shree_devi_travels_manipal/`;
+
+}
+
 
 /* ================================================= */
 /* FEEDBACK PREVIEW */
 /* ================================================= */
-
 
 window.previewFeedback =
 function(){
@@ -1719,7 +2288,7 @@ function(){
     const id =
     document
     .getElementById(
-    "feedbackCustomer"
+        "feedbackCustomer"
     )
     .value;
 
@@ -1727,11 +2296,27 @@ function(){
     const preview =
     document
     .getElementById(
-    "feedbackPreview"
+        "feedbackPreview"
     );
 
 
     if(!id){
+
+        preview.style.display="none";
+        preview.innerText="";
+
+        return;
+
+    }
+
+
+    const customer =
+    customers.find(
+        item=>item.id===id
+    );
+
+
+    if(!customer){
 
         preview.style.display="none";
 
@@ -1740,61 +2325,20 @@ function(){
     }
 
 
-    const customer =
-    customers.find(
-    item=>item.id===id
+    preview.innerText =
+    createFeedbackMessage(
+        customer
     );
 
-
-    if(!customer) return;
-
-
-    const pickup =
-    customer.pickupLocation ||
-    "your pickup location";
-
-
-    const drop =
-    customer.dropLocation ||
-    "your destination";
-
-
-    const message =
-
-`Greetings from SHREE DEVI TRAVELS, MANIPAL. 🚖
-
-Dear ${customer.name},
-
-We hope your journey today from ${pickup} to ${drop} was comfortable, safe, and enjoyable. ❤️
-
-We would sincerely appreciate your valuable feedback about your travel experience with us. Your reviews and suggestions help us improve our services and continue providing the best possible experience to our customers.
-
-Please take a moment to share your feedback on Google:
-
-https://share.google/2EfZMbkvTz5Cuyokj
-
-Thank you for choosing SHREE DEVI TRAVELS, MANIPAL. We truly appreciate your trust and support, and we look forward to serving you again on your future journeys.
-
-Warm Regards,
-SHREE DEVI TRAVELS, MANIPAL Team
-
-📞 +91 6362635718 / +91 7019849902
-📧 shreedevitravelsofficial@gmail.com
-🌐 https://shreedevitravels.github.io/Shree_devi_travels_manipal/`;
-
-
-    preview.innerText=message;
 
     preview.style.display="block";
 
 };
 
 
-
 /* ================================================= */
 /* SEND FEEDBACK */
 /* ================================================= */
-
 
 window.sendFeedback =
 function(){
@@ -1802,7 +2346,7 @@ function(){
     const id =
     document
     .getElementById(
-    "feedbackCustomer"
+        "feedbackCustomer"
     )
     .value;
 
@@ -1810,7 +2354,7 @@ function(){
     if(!id){
 
         alert(
-        "Please select a customer"
+            "Please select a customer."
         );
 
         return;
@@ -1820,14 +2364,14 @@ function(){
 
     const customer =
     customers.find(
-    item=>item.id===id
+        item=>item.id===id
     );
 
 
     if(!customer){
 
         alert(
-        "Customer not found"
+            "Customer not found."
         );
 
         return;
@@ -1835,71 +2379,39 @@ function(){
     }
 
 
-    const pickup =
-    customer.pickupLocation ||
-    "your pickup location";
-
-
-    const drop =
-    customer.dropLocation ||
-    "your destination";
-
-
     const message =
-
-`Greetings from SHREE DEVI TRAVELS, MANIPAL. 🚖
-
-Dear ${customer.name},
-
-We hope your journey today from ${pickup} to ${drop} was comfortable, safe, and enjoyable. ❤️
-
-We would sincerely appreciate your valuable feedback about your travel experience with us. Your reviews and suggestions help us improve our services and continue providing the best possible experience to our customers.
-
-Please take a moment to share your feedback on Google:
-
-https://share.google/2EfZMbkvTz5Cuyokj
-
-Thank you for choosing SHREE DEVI TRAVELS, MANIPAL. We truly appreciate your trust and support, and we look forward to serving you again on your future journeys.
-
-Warm Regards,
-SHREE DEVI TRAVELS, MANIPAL Team
-
-📞 +91 6362635718 / +91 7019849902
-📧 shreedevitravelsofficial@gmail.com
-🌐 https://shreedevitravels.github.io/Shree_devi_travels_manipal/`;
+    createFeedbackMessage(
+        customer
+    );
 
 
     const whatsappURL =
-
     "https://wa.me/" +
-
     customer.phone +
-
     "?text=" +
-
-    encodeURIComponent(message);
+    encodeURIComponent(
+        message
+    );
 
 
     window.open(
-    whatsappURL,
-    "_blank"
+        whatsappURL,
+        "_blank"
     );
 
 };
-
 
 
 /* ================================================= */
 /* EDIT CUSTOMER */
 /* ================================================= */
 
-
 window.editCustomer =
 function(id){
 
     const customer =
     customers.find(
-    item=>item.id===id
+        item=>item.id===id
     );
 
 
@@ -1911,7 +2423,7 @@ function(id){
 
     document
     .getElementById(
-    "customerFormTitle"
+        "customerFormTitle"
     )
     .innerText =
     "✏️ EDIT CUSTOMER";
@@ -1919,7 +2431,7 @@ function(id){
 
     document
     .getElementById(
-    "customerName"
+        "customerName"
     )
     .value =
     customer.name || "";
@@ -1927,7 +2439,7 @@ function(id){
 
     document
     .getElementById(
-    "customerPhone"
+        "customerPhone"
     )
     .value =
     customer.phone || "";
@@ -1935,7 +2447,7 @@ function(id){
 
     document
     .getElementById(
-    "pickupLocation"
+        "pickupLocation"
     )
     .value =
     customer.pickupLocation || "";
@@ -1943,7 +2455,7 @@ function(id){
 
     document
     .getElementById(
-    "dropLocation"
+        "dropLocation"
     )
     .value =
     customer.dropLocation || "";
@@ -1951,7 +2463,7 @@ function(id){
 
     document
     .getElementById(
-    "travelDate"
+        "travelDate"
     )
     .value =
     customer.travelDate || "";
@@ -1959,7 +2471,7 @@ function(id){
 
     document
     .getElementById(
-    "vehicle"
+        "vehicle"
     )
     .value =
     customer.vehicle || "";
@@ -1967,7 +2479,7 @@ function(id){
 
     document
     .getElementById(
-    "reminder"
+        "reminder"
     )
     .value =
     customer.reminder
@@ -1977,7 +2489,7 @@ function(id){
 
     document
     .getElementById(
-    "cancelEdit"
+        "cancelEdit"
     )
     .style.display="block";
 
@@ -2006,7 +2518,7 @@ function(id){
 
     document
     .getElementById(
-    "addCustomer"
+        "addCustomer"
     )
     .classList
     .add("active");
@@ -2017,34 +2529,48 @@ function(id){
     .forEach(tab=>{
 
         if(
-        tab.textContent.includes(
-        "Add Customer"
-        )
+            tab.textContent
+            .includes("Add Customer")
         ){
 
-            tab.classList.add(
-            "active"
-            );
+            tab.classList.add("active");
 
         }
 
     });
 
-};
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+};
 
 
 /* ================================================= */
 /* DELETE CUSTOMER */
 /* ================================================= */
 
-
 window.deleteCustomer =
 async function(id){
 
+    const customer =
+    customers.find(
+        item=>item.id===id
+    );
+
+
+    const customerName =
+    customer?.name ||
+    "this customer";
+
+
     const yes =
     confirm(
-    "Delete this customer permanently?"
+        "Delete " +
+        customerName +
+        " permanently?"
     );
 
 
@@ -2056,9 +2582,9 @@ async function(id){
         await deleteDoc(
 
             doc(
-            db,
-            "customers",
-            id
+                db,
+                "customers",
+                id
             )
 
         );
@@ -2068,15 +2594,19 @@ async function(id){
 
 
         alert(
-        "Customer deleted"
+            "✅ Customer deleted successfully."
         );
 
     }
 
     catch(error){
 
+        console.error(error);
+
+
         alert(
-        error.message
+            "❌ Delete failed:\n\n" +
+            error.message
         );
 
     }
@@ -2084,11 +2614,9 @@ async function(id){
 };
 
 
-
 /* ================================================= */
 /* SEARCH */
 /* ================================================= */
-
 
 window.searchCustomers =
 function(){
@@ -2096,7 +2624,7 @@ function(){
     const value =
     document
     .getElementById(
-    "searchCustomer"
+        "searchCustomer"
     )
     .value
     .toLowerCase()
@@ -2104,46 +2632,69 @@ function(){
 
 
     const filtered =
-
     customers.filter(
-    customer=>
+        customer=>{
 
-        (customer.name || "")
-        .toLowerCase()
-        .includes(value)
+            return (
 
-        ||
+                (
+                    customer.name ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(value)
 
-        (customer.phone || "")
-        .includes(value)
+                ||
 
-        ||
+                (
+                    customer.phone ||
+                    ""
+                )
+                .includes(value)
 
-        (customer.pickupLocation || "")
-        .toLowerCase()
-        .includes(value)
+                ||
 
-        ||
+                (
+                    customer.pickupLocation ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(value)
 
-        (customer.dropLocation || "")
-        .toLowerCase()
-        .includes(value)
+                ||
 
+                (
+                    customer.dropLocation ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(value)
+
+                ||
+
+                (
+                    customer.vehicle ||
+                    ""
+                )
+                .toLowerCase()
+                .includes(value)
+
+            );
+
+        }
     );
 
 
     displayCustomers(
-    filtered
+        filtered
     );
 
 };
 
 
-
 /* ================================================= */
 /* CANCEL EDIT */
 /* ================================================= */
-
 
 window.cancelEdit =
 function(){
@@ -2153,11 +2704,9 @@ function(){
 };
 
 
-
 /* ================================================= */
-/* CLEAR CUSTOMER FORM */
+/* CLEAR FORM */
 /* ================================================= */
-
 
 function clearCustomerForm(){
 
@@ -2166,56 +2715,56 @@ function clearCustomerForm(){
 
     document
     .getElementById(
-    "customerName"
+        "customerName"
     )
     .value="";
 
 
     document
     .getElementById(
-    "customerPhone"
+        "customerPhone"
     )
     .value="";
 
 
     document
     .getElementById(
-    "pickupLocation"
+        "pickupLocation"
     )
     .value="";
 
 
     document
     .getElementById(
-    "dropLocation"
+        "dropLocation"
     )
     .value="";
 
 
     document
     .getElementById(
-    "travelDate"
+        "travelDate"
     )
     .value="";
 
 
     document
     .getElementById(
-    "vehicle"
+        "vehicle"
     )
     .value="";
 
 
     document
     .getElementById(
-    "reminder"
+        "reminder"
     )
     .value="true";
 
 
     document
     .getElementById(
-    "customerFormTitle"
+        "customerFormTitle"
     )
     .innerText =
     "➕ ADD CUSTOMER";
@@ -2223,46 +2772,44 @@ function clearCustomerForm(){
 
     document
     .getElementById(
-    "cancelEdit"
+        "cancelEdit"
     )
     .style.display="none";
 
 }
 
 
-
 /* ================================================= */
 /* HTML SECURITY */
 /* ================================================= */
-
 
 function escapeHTML(value){
 
     return String(value)
 
     .replace(
-    /&/g,
-    "&amp;"
+        /&/g,
+        "&amp;"
     )
 
     .replace(
-    /</g,
-    "&lt;"
+        /</g,
+        "&lt;"
     )
 
     .replace(
-    />/g,
-    "&gt;"
+        />/g,
+        "&gt;"
     )
 
     .replace(
-    /"/g,
-    "&quot;"
+        /"/g,
+        "&quot;"
     )
 
     .replace(
-    /'/g,
-    "&#039;"
+        /'/g,
+        "&#039;"
     );
 
 }
