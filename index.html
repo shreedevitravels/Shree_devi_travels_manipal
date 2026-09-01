@@ -426,6 +426,151 @@ margin:0 auto 25px;
 max-width:650px;
 }
 
+/* COMING SOON COUNTDOWN SECTION */
+.coming-soon-section {
+    max-width: 1200px;
+    margin: 25px auto;
+    padding: 25px 16px;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255,152,0,.12), rgba(0,0,0,.55));
+    border: 1px solid rgba(255,152,0,.35);
+    border-radius: 28px;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 10px 30px rgba(255,152,0,.1);
+}
+
+.coming-soon-title {
+    color: #ff9800;
+    font-size: 24px;
+    font-weight: 900;
+    margin: 0 0 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 0 0 15px rgba(255,152,0,.4);
+}
+
+.coming-soon-subtitle {
+    color: #ddd;
+    font-size: 13px;
+    margin: 0 auto 18px;
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.countdown-box {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 152, 0, 0.3);
+    border-radius: 18px;
+    padding: 10px 15px;
+    min-width: 70px;
+    box-shadow: 0 5px 15px rgba(0,0,0,.3);
+}
+
+.countdown-number {
+    font-size: 22px;
+    font-weight: 900;
+    color: #ff9800;
+    display: block;
+}
+
+.countdown-label {
+    font-size: 10px;
+    color: #ccc;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+/* CHARITY DONATION SECTION (SAANVIKA) */
+.charity-section {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, rgba(255, 87, 34, 0.15), rgba(0, 0, 0, 0.7));
+    border: 2px solid rgba(255, 87, 34, 0.4);
+    border-radius: 28px;
+    backdrop-filter: blur(15px);
+    text-align: center;
+    box-shadow: 0 12px 35px rgba(255, 87, 34, 0.2);
+}
+
+.charity-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff5722, #ff9800);
+    color: white;
+    font-size: 12px;
+    font-weight: 900;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.charity-title {
+    color: #ffcc00;
+    font-size: 28px;
+    font-weight: 900;
+    margin: 0 0 10px;
+    text-transform: uppercase;
+}
+
+.charity-text {
+    color: #eee;
+    font-size: 14px;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.charity-card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 20px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.charity-qr {
+    width: 200px;
+    height: 200px;
+    border-radius: 12px;
+    border: 3px solid white;
+    background: white;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.charity-upi {
+    font-size: 16px;
+    font-weight: bold;
+    color: #00c6ff;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 18px;
+    border-radius: 12px;
+    border: 1px dashed rgba(0, 198, 255, 0.5);
+    margin-bottom: 15px;
+    word-break: break-all;
+}
+
+.charity-gpay {
+    font-size: 15px;
+    color: #ff9800;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
 /* SERVICES */
 .services-grid{
 display:grid;
@@ -1380,6 +1525,47 @@ header h1{ font-size:23px; }
     </div>
 </header>
 
+<!-- COMING SOON COUNTDOWN SECTION -->
+<section class="coming-soon-section">
+    <h2 class="coming-soon-title">🚀 Exciting Updates Coming Soon!</h2>
+    <p class="coming-soon-subtitle">We are launching brand new features on September 29. Stay tuned!</p>
+    <div class="countdown-grid">
+        <div class="countdown-box">
+            <span class="countdown-number" id="days">00</span>
+            <span class="countdown-label">Days</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="hours">00</span>
+            <span class="countdown-label">Hours</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="minutes">00</span>
+            <span class="countdown-label">Minutes</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-number" id="seconds">00</span>
+            <span class="countdown-label">Seconds</span>
+        </div>
+    </div>
+</section>
+
+<!-- CHARITY / HELPING HAND SECTION FOR BABY SAANVIKA -->
+<section class="charity-section" id="help-saanvika">
+    <div class="charity-badge">❤️ ಸೇವಾಧರ್ಮ - Helping Hand</div>
+    <h2 class="charity-title">Medical Support for Baby Saanvika</h2>
+    <p class="charity-text">
+        ಶ್ರೀ ಕೃಷ್ಣ ಜನ್ಮಾಷ್ಟಮಿಯ ಪ್ರಯುಕ್ತ ಪುತ್ತೂರಿನ 2 ತಿಂಗಳ ಹಸುಗೂಸು <b>ಸಾನಿಕಾ</b>ಳ ವೈದ್ಯಕೀಯ ಚಿಕಿತ್ಸೆಗೆ (10 ಲಕ್ಷ ರೂ.ಗಳ ಆವಶ್ಯಕತೆ ಇದೆ) ನೆರವಾಗೋಣ. ದಿನಾಂಕ: <b>04-09-2026</b> ರಂದು ಉಡುಪಿ ಶ್ರೀ ಕೃಷ್ಣ ಮಠದಲ್ಲಿ ವಿಶೇಷ ಕೊರವಂಜಿ ವೇಷಧಾರಿ ಶ್ರೀ ಅಶ್ವತ್ ಆಚಾರ್ಯ ಪೆರಾರ ಅವರು ಈ ಸತ್ಕಾರ್ಯಕ್ಕಾಗಿ ಬರಲಿದ್ದಾರೆ. ನಿಮ್ಮಿಂದಾಗುವ ಧನಸಹಾಯವನ್ನು ನೀಡಿ ಮಗುವಿನ ಪ್ರಾಣ ಉಳಿಸಲು ಕೈಜೋಡಿಸಿ. 🙏
+    </p>
+
+    <div class="charity-card-container">
+        <!-- Make sure to place your QR code image in the same folder or update the src -->
+        <img src="1000079347.jpg" alt="Baby Saanvika Donation QR Code" class="charity-qr">
+        <div class="charity-upi">UPI ID: ashu12906@oksbi</div>
+        <p style="margin: 0; font-size: 13px; color: #ccc;">Scan to pay with any UPI / Google Pay app</p>
+        <div class="charity-gpay">📞 GPay / Contact: 78998 82134</div>
+    </div>
+</section>
+
 <!-- BANNER -->
 <div class="ad-banner">
     <a href="tel:6362635718">
@@ -2098,6 +2284,32 @@ document.addEventListener("DOMContentLoaded", function(){
     }
 });
 
+/* COUNTDOWN TIMER FOR SEPTEMBER 29 */
+function updateCountdown() {
+    const now = new Date();
+    let year = now.getFullYear();
+    let targetDate = new Date(`September 29, ${year} 00:00:00`);
+    
+    if (now > targetDate) {
+        targetDate = new Date(`September 29, ${year + 1} 00:00:00`);
+    }
+
+    const diff = targetDate - now;
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+    document.getElementById("days").innerText = String(days).padStart(2, "0");
+    document.getElementById("hours").innerText = String(hours).padStart(2, "0");
+    document.getElementById("minutes").innerText = String(minutes).padStart(2, "0");
+    document.getElementById("seconds").innerText = String(seconds).padStart(2, "0");
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
 /* SLV SLIDER */
 let slvIndex = 0;
 const slvSlides = document.querySelectorAll(".promo-slide");
@@ -2152,4 +2364,3 @@ if(touristSlides.length > 0){
 </script>
 </body>
 </html>
-
